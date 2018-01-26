@@ -1,43 +1,37 @@
-sudo: false
-dist: trusty
-
 language: php
+
+branches:
+  only:
+    - master
+    - /^(?:(\d+)\.)?(?:(\d+)\.)?(\*|\d+)$/
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
 
 notifications:
   email:
     on_success: never
     on_failure: change
 
-branches:
-  only:
-    - master
-
 cache:
   directories:
     - $HOME/.composer/cache
 
+php:
+  - 7.1
+  - 7.2
+  - nightly
+
 env:
   global:
+    - COMPOSER_NO_INTERACTION=1
     - PATH="$TRAVIS_BUILD_DIR/vendor/bin:$PATH"
-    - WP_CLI_BIN_DIR="$TRAVIS_BUILD_DIR/vendor/bin"
 
 matrix:
-  include:
-    - php: 7.2
-      env: WP_VERSION=latest
-    - php: 7.1
-      env: WP_VERSION=latest
-    - php: 7.0
-      env: WP_VERSION=latest
-    - php: 5.6
-      env: WP_VERSION=latest
-    - php: 5.6
-      env: WP_VERSION=3.7.11
-    - php: 5.6
-      env: WP_VERSION=trunk
-    - php: 5.3
-      dist: precise
-      env: WP_VERSION=latest
+  allow_failures:
+    - php: nightly
+  fast_finish: true
 
 before_install:
   - |
@@ -49,8 +43,11 @@ before_install:
     fi
 
 install:
-  - composer require wp-cli/wp-cli:dev-master
-  - composer install
+  - travis_retry composer install --prefer-dist --no-suggest
 
 before_script:
   - composer validate
+
+script:
+  - composer test
+  - composer check-style
