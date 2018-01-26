@@ -1,0 +1,19 @@
+{
+    "name": "typisttech/image-optimize-command",
+    "description": "Easily optimize images using WP CLI",
+    "type": "wp-cli-package",
+    "homepage": "https://github.com/typisttech/image-optimize-command",
+    "license": "MIT",
+    "authors": [],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "files": [ "command.php" ]
+    },
+    "require": {
+        "wp-cli/wp-cli": "^1.4.1"
+    },
+    "require-dev": {
+        "behat/behat": "~2.5"
+    }
+}
