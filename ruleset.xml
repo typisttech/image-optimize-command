@@ -22,6 +22,7 @@
         <exclude name="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
         <exclude name="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
 
+        <exclude name="Squiz.Commenting.ClassComment.Missing"/>
         <exclude name="Squiz.Commenting.FileComment.Missing"/>
         <exclude name="Squiz.Commenting.FunctionComment.IncorrectTypeHint"/>
         <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen"/>
@@ -46,7 +47,7 @@
     </rule>
 
     <rule ref="Squiz.Commenting.FunctionComment.MissingParamTag">
-      <exclude-pattern>/src/ImageOptimizeCommand.php</exclude-pattern>
+        <exclude-pattern>/src/ImageOptimizeCommand.php</exclude-pattern>
     </rule>
 
     <rule ref="WordPress.Files.FileName">
@@ -67,10 +68,6 @@
 
     <rule ref="Squiz.Commenting.InlineComment.SpacingAfter">
         <exclude-pattern>*/_bootstrap.php</exclude-pattern>
-    </rule>
-
-    <rule ref="Squiz.Commenting.ClassComment.Missing">
-        <exclude-pattern>/tests/*</exclude-pattern>
     </rule>
 
     <rule ref="Generic.Commenting.DocComment.MissingShort">
