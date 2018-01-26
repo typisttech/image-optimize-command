@@ -81,12 +81,15 @@ Check Freek Van der Herten's [article](https://murze.be/easily-optimize-images-u
 
 ### Why the optimize command stopped for no reason?
 
-Expected result:
+Expected outputs:
 ```bash
-$ wp image-optimize run --limit=10
-Success: 10 unoptimized attachment(s) found. Starting...
+$ wp image-optimize run --limit=3
+Success: 3 unoptimized attachment(s) found. Starting...
+Start optimizing /app/public/wp-content/uploads/2018/01/source-150x150.gif
+Using optimizer: `Spatie\ImageOptimizer\Optimizers\Gifsicle`
+Executing `"gifsicle" -b -O3 '/app/public/wp-content/uploads/2018/01/source-150x150.gif'`
 ...omitted...
-Success 10 attachment(s) optimized
+Success: 3 attachment(s) optimized
 
 $ wp image-optimize run --limit=10
 No unoptimized attachment found. Abort!
