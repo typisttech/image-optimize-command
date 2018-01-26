@@ -3,9 +3,17 @@ typisttech/image-optimize-command
 
 Easily optimize images using WP CLI
 
-[![Build Status](https://travis-ci.org/typisttech/image-optimize-command.svg?branch=master)](https://travis-ci.org/typisttech/image-optimize-command)
+[![Latest Stable Version](https://poser.pugx.org/typisttech/image-optimize-command/v/stable)](https://packagist.org/packages/typisttech/image-optimize-command)
+[![Total Downloads](https://poser.pugx.org/typisttech/image-optimize-command/downloads)](https://packagist.org/packages/typisttech/image-optimize-command)
+[![Build Status](https://travis-ci.org/TypistTech/image-optimize-command.svg?branch=master)](https://travis-ci.org/TypistTech/image-optimize-command)
+[![PHP Versions Tested](http://php-eye.com/badge/typisttech/image-optimize-command/tested.svg)](https://travis-ci.org/TypistTech/image-optimize-command)
+[![StyleCI](https://styleci.io/repos/119003751/shield?branch=master)](https://styleci.io/repos/119003751)
+[![Dependency Status](https://gemnasium.com/badges/github.com/TypistTech/image-optimize-command.svg)](https://gemnasium.com/github.com/TypistTech/image-optimize-command)
+[![License](https://poser.pugx.org/typisttech/image-optimize-command/license)](https://packagist.org/packages/typisttech/image-optimize-command)
+[![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://typist.tech/donate/image-optimize-command/)
+[![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg)](https://typist.tech/contact/)
 
-Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contributing) | [Support](#support)
+
 
 ## Using
 
@@ -17,7 +25,7 @@ Installing this package requires WP-CLI v1.4.1 or greater. Update to the latest 
 
 Once you've done so, you can install this package with:
 
-    wp package install git@github.com:typisttech/image-optimize-command.git
+    wp package install https://github.com/TypistTech/image-optimize-command.git
 
 ## Contributing
 
@@ -40,10 +48,3 @@ Once you’ve done a bit of searching and discovered there isn’t an open or fi
 Want to contribute a new feature? Please first [open a new issue](https://github.com/typisttech/image-optimize-command/issues/new) to discuss whether the feature is a good fit for the project.
 
 Once you've decided to commit the time to seeing your pull request through, [please follow our guidelines for creating a pull request](https://make.wordpress.org/cli/handbook/pull-requests/) to make sure it's a pleasant experience. See "[Setting up](https://make.wordpress.org/cli/handbook/pull-requests/#setting-up)" for details specific to working on this package locally.
-
-## Support
-
-Github issues aren't for general support questions, but there are other venues you can try: https://wp-cli.org/#support
-
-
-*This README.md is generated dynamically from the project's codebase using `wp scaffold package-readme` ([doc](https://github.com/wp-cli/scaffold-package-command#wp-scaffold-package-readme)). To suggest changes, please submit a pull request against the corresponding part of the codebase.*

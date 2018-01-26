@@ -8,3 +8,12 @@ vendor/
 *.txt
 *.log
 composer.lock
+
+### Codeception ###
+/codeception.yml
+/tests/*.suite.yml
+/tests/_output/*
+/tests/_support/_generated/
+
+### PhpStorm ###
+/.idea/
