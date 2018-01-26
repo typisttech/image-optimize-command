@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<ruleset name="PSR 2 and WordPress Coding Standards for Plugins">
+
+    <description>PSR 2 and WordPress Coding Standards for Plugins</description>
+
+    <file>./</file>
+
+    <config name="minimum_supported_wp_version" value="4.9"/>
+
+    <exclude-pattern>/tests/_data/*</exclude-pattern>
+    <exclude-pattern>/tests/_output/*</exclude-pattern>
+    <exclude-pattern>/vendor/*</exclude-pattern>
+
+    <rule ref="PSR2"/>
+
+    <rule ref="WordPress">
+        <exclude name="Generic.Classes.OpeningBraceSameLine.BraceOnNewLine"/>
+        <exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning"/>
+        <exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie.BraceOnNewLine"/>
+        <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed"/>
+
+        <exclude name="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+        <exclude name="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+
+        <exclude name="Squiz.Commenting.ClassComment.Missing"/>
+        <exclude name="Squiz.Commenting.FileComment.Missing"/>
+        <exclude name="Squiz.Commenting.FunctionComment.IncorrectTypeHint"/>
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen"/>
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpenHint"/>
+
+        <exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned"/>
+
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+
+        <exclude name="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid"/>
+        <exclude name="WordPress.NamingConventions.ValidVariableName.MemberNotSnakeCase"/>
+        <exclude name="WordPress.NamingConventions.ValidVariableName.NotSnakeCase"/>
+        <exclude name="WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar"/>
+
+        <exclude name="WordPress.WhiteSpace.CastStructureSpacing.NoSpaceBeforeOpenParenthesis"/>
+        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.OpenBraceNotSameLine"/>
+        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterCloseParenthesis"/>
+        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterOpenParenthesis"/>
+        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceBeforeCloseParenthesis"/>
+        <exclude name="WordPress.WhiteSpace.OperatorSpacing.NoSpaceAfter"/>
+        <exclude name="WordPress.WhiteSpace.OperatorSpacing.NoSpaceBefore"/>
+    </rule>
+
+    <rule ref="Squiz.Commenting.FunctionComment.MissingParamTag">
+        <exclude-pattern>/src/ImageOptimizeCommand.php</exclude-pattern>
+    </rule>
+
+    <rule ref="WordPress.Files.FileName">
+        <properties>
+            <property name="strict_class_file_names" value="false"/>
+        </properties>
+    </rule>
+
+    <!--Tests-->
+
+    <rule ref="PEAR.Files.IncludingFile.UseRequire">
+        <exclude-pattern>*/_bootstrap.php</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.Commenting.FileComment.WrongStyle">
+        <exclude-pattern>*/_bootstrap.php</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.Commenting.InlineComment.SpacingAfter">
+        <exclude-pattern>*/_bootstrap.php</exclude-pattern>
+    </rule>
+
+    <rule ref="Generic.Commenting.DocComment.MissingShort">
+        <exclude-pattern>/tests/*</exclude-pattern>
+    </rule>
+
+    <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+        <exclude-pattern>/tests/*</exclude-pattern>
+    </rule>
+
+    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+        <exclude-pattern>/tests/*</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.Commenting.FileComment.Missing">
+        <exclude-pattern>/tests/*</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.Commenting.FunctionComment.Missing">
+        <exclude-pattern>/tests/*</exclude-pattern>
+    </rule>
+
+    <rule ref="WordPress.VIP.RestrictedVariables">
+        <exclude-pattern>/tests/*</exclude-pattern>
+    </rule>
+
+    <rule ref="WordPress.VIP.SuperGlobalInputUsage">
+        <exclude-pattern>/tests/*</exclude-pattern>
+    </rule>
+
+    <rule ref="WordPress.VIP.ValidatedSanitizedInput">
+        <exclude-pattern>/tests/*</exclude-pattern>
+    </rule>
+
+</ruleset>

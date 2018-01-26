@@ -1,0 +1,66 @@
+{
+  "name": "typisttech/image-optimize-command",
+  "description": "Easily optimize images using WP CLI",
+  "keywords": [
+    "wordpress",
+    "wp",
+    "wp-cli",
+    "image-optimizer"
+  ],
+  "type": "wp-cli-package",
+  "homepage": "https://typist.tech/projects/image-optimize-command",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Typist Tech",
+      "email": "image-optimize-command@typist.tech",
+      "homepage": "https://typist.tech/"
+    },
+    {
+      "name": "Tang Rufus",
+      "email": "tangrufus@gmail.com",
+      "homepage": "https://typist.tech/",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "image-optimize-command@typist.tech",
+    "issues": "https://github.com/TypistTech/image-optimize-command/issues",
+    "source": "https://github.com/TypistTech/image-optimize-command"
+  },
+  "require": {
+    "php": "^7.1",
+    "psr/log": "^1.0",
+    "spatie/image-optimizer": "^1.0",
+    "wp-cli/wp-cli": "^1.4.1"
+  },
+  "require-dev": {
+    "codeception/base": "^2.3",
+    "neronmoon/scriptsdev": "^0.1.1",
+    "wp-coding-standards/wpcs": "^0.14.0"
+  },
+  "autoload": {
+    "files": ["command.php"],
+    "psr-4": {
+      "TypistTech\\ImageOptimizeCommand\\": "src/"
+    }
+  },
+  "scripts": {
+    "pre-tag": [
+      "composer update --no-suggest",
+      "doctoc README.md",
+      "github_changelog_generator --no-verbose"
+    ],
+    "check-style": "phpcs --standard=ruleset.xml --colors -p -s",
+    "test": "codecept run"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "scripts-dev": {
+      "post-install-cmd": "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs",
+      "post-update-cmd": "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs"
+    }
+  }
+}

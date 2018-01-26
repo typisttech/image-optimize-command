@@ -1,0 +1,19 @@
+.DS_Store
+wp-cli.local.yml
+node_modules/
+vendor/
+*.zip
+*.tar.gz
+*.swp
+*.txt
+*.log
+composer.lock
+
+### Codeception ###
+/codeception.yml
+/tests/*.suite.yml
+/tests/_output/*
+/tests/_support/_generated/
+
+### PhpStorm ###
+/.idea/
