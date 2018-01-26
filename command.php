@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace TypistTech\ImageOptimizeCommand;
 
+use WP_CLI;
+
 if (! class_exists('WP_CLI')) {
     return;
 }
