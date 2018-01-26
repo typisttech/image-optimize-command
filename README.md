@@ -35,7 +35,7 @@ Easily optimize images using WP CLI.
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-WP CLI wrapper for [spatie/image-optimizer](https://github.com/spatie/image-optimizer). Optimizing PNGs, JPGs, SVGs and GIFs by running them through a chain of various image [optimization tools](#Optimization-tools).
+WP CLI wrapper for [spatie/image-optimizer](https://github.com/spatie/image-optimizer). Optimizing PNGs, JPGs, SVGs and GIFs by running them through a chain of various image [optimization tools](#optimization-tools).
 
 ## Using
 
@@ -55,7 +55,7 @@ Installing this package requires WP-CLI v1.4.1 or greater. Update to the latest 
 
 Once you've done so, you can install this package with:
 
-    wp package install https://github.com/TypistTech/image-optimize-command.git
+    $ wp package install https://github.com/TypistTech/image-optimize-command.git
 
 ### Optimization tools
 
@@ -106,6 +106,7 @@ No, by default, optimized flags (meta fields) are given to attachments after opt
 ### Why my GIFs stopped animating?
 
 > When you upload an image using the media uploader, WordPress automatically creates several copies of that image in different sizes...When creating new image sizes for animated GIFs, **WordPress ends up saving only the first frame of the GIF**...
+>
 > --- [wpbeginner](http://www.wpbeginner.com/wp-tutorials/how-to-add-animated-gifs-in-wordpress/)
 
 Luckily for you, Lasse M. Tvedt showed how to disable stop WordPress from resizing GIFs on [StackExchange](https://wordpress.stackexchange.com/a/229724).
