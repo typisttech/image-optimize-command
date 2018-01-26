@@ -55,7 +55,7 @@ Installing this package requires WP-CLI v1.4.1 or greater. Update to the latest 
 
 Once you've done so, you can install this package with:
 
-    $ wp package install https://github.com/TypistTech/image-optimize-command.git
+    $ wp package install typisttech/image-optimize-command:@stable
 
 ### Optimization tools
 
