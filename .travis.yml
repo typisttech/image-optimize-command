@@ -51,10 +51,6 @@ before_install:
 install:
   - composer require wp-cli/wp-cli:dev-master
   - composer install
-  - bash bin/install-package-tests.sh
 
 before_script:
   - composer validate
-
-script:
-  - bash bin/test.sh
