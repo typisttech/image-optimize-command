@@ -1,7 +1,5 @@
 # typisttech/image-optimize-command
 
-[![Latest Stable Version](https://poser.pugx.org/typisttech/image-optimize-command/v/stable)](https://packagist.org/packages/typisttech/image-optimize-command)
-[![Total Downloads](https://poser.pugx.org/typisttech/image-optimize-command/downloads)](https://packagist.org/packages/typisttech/image-optimize-command)
 [![Build Status](https://travis-ci.org/TypistTech/image-optimize-command.svg?branch=master)](https://travis-ci.org/TypistTech/image-optimize-command)
 [![PHP Versions Tested](http://php-eye.com/badge/typisttech/image-optimize-command/tested.svg)](https://travis-ci.org/TypistTech/image-optimize-command)
 [![StyleCI](https://styleci.io/repos/119003751/shield?branch=master)](https://styleci.io/repos/119003751)
