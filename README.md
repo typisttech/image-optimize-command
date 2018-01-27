@@ -33,7 +33,8 @@ Easily optimize images using WP CLI.
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-WP CLI wrapper for [spatie/image-optimizer](https://github.com/spatie/image-optimizer). Optimizing PNGs, JPGs, SVGs and GIFs by running them through a chain of various image [optimization tools](#optimization-tools).
+WP CLI wrapper for [spatie/image-optimizer](https://github.com/spatie/image-optimizer). Optimizing PNGs, JPGs, SVGs and GIFs by running them through a chain of various image [optimization tools](#optimization-tools). Check this project's [introductory blog post](https://typist.tech/articles/easily-optimize-wordpress-images-using-wp-cli-and-some-binaries/) about why I built it.
+
 
 ## Using
 
@@ -53,7 +54,9 @@ Installing this package requires WP-CLI v1.4.1 or greater. Update to the latest 
 
 Once you've done so, you can install this package with:
 
-    $ wp package install typisttech/image-optimize-command:@stable
+```bash
+$ wp package install typisttech/image-optimize-command:@stable
+```
 
 ### Optimization tools
 
@@ -90,7 +93,7 @@ Executing `"gifsicle" -b -O3 '/app/public/wp-content/uploads/2018/01/source-150x
 Success: 3 attachment(s) optimized
 
 $ wp image-optimize run --limit=10
-No unoptimized attachment found. Abort!
+Warning: No unoptimized attachment found. Abort!
 ```
 
 If it stopped halfway, most likely you deleted the images from disk but not updated WordPress' database. Simplest solution is to regenerate thumbnails then optimize again:
@@ -115,6 +118,8 @@ Luckily for you, Lasse M. Tvedt showed how to disable stop WordPress from resizi
 ### Is it for everyone?
 
 No, it comes at a cost. Optimization is CPU intensive. Expect CPU usage rockets up to 100% during optimization. Schedule it to run at late night in small batches.
+
+Learn more on [this article](https://typist.tech/articles/easily-optimize-wordpress-images-using-wp-cli-and-some-binaries/).
 
 ## Support
 
