@@ -43,11 +43,14 @@ class ImageOptimizeCommand extends WP_CLI_Command
         $optimizerChain = OptimizerChainFactory::create();
         $optimizerChain->useLogger($logger);
 
-        array_map(function (string $imagePath) use ($optimizerChain) {
-            $optimizerChain->optimize($imagePath);
-        }, ImageRepository::pathsFor(...$attachmentIds));
+        // TODO: Extract to its own class.
+        array_map(function (int $attachmentId) use ($optimizerChain) {
+            array_map(function (string $imagePath) use ($optimizerChain) {
+                $optimizerChain->optimize($imagePath);
+            }, ImageRepository::pathsFor($attachmentId));
 
-        AttachmentRepository::markAsOptimized(...$attachmentIds);
+            AttachmentRepository::markAsOptimized($attachmentId);
+        }, $attachmentIds);
 
         $logger->notice(
             sprintf('%d attachment(s) optimized', count($attachmentIds))
