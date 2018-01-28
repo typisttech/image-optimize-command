@@ -33,7 +33,7 @@ Easily optimize images using WP CLI.
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-WP CLI wrapper for [spatie/image-optimizer](https://github.com/spatie/image-optimizer). Optimizing PNGs, JPGs, SVGs and GIFs by running them through a chain of various image [optimization tools](#optimization-tools). Check this project's [introductory blog post](https://typist.tech/articles/easily-optimize-wordpress-images-using-wp-cli-and-some-binaries/) about why I built it.
+WP CLI wrapper for [spatie/image-optimizer](https://github.com/spatie/image-optimizer). **Optimizing PNGs, JPGs, SVGs and GIFs by running them through a chain of various image [optimization tools](#optimization-tools).** Check this project's [introductory blog post](https://typist.tech/articles/easily-optimize-wordpress-images-using-wp-cli-and-some-binaries/) about why I built it.
 
 
 ## Using
@@ -78,7 +78,7 @@ Note that WordPress doesn't support SVG out of the box. You can omit [SVGO](http
 
 Mostly applying compression, removing metadata and reducing the number of colors to PNGs, JPGs, SVGs and GIFs. The package is smart enough pick the right tool for the right image.
 
-Check Freek Van der Herten's [article](https://murze.be/easily-optimize-images-using-php-and-some-binaries) explaining `spatie/image-optimizer`'s [*sane default configuration*](https://github.com/spatie/image-optimizer/blob/124da0d/src/OptimizerChainFactory.php)
+Check Freek Van der Herten's [article](https://murze.be/easily-optimize-images-using-php-and-some-binaries) explaining `spatie/image-optimizer`'s [*sane default configuration*](https://github.com/spatie/image-optimizer/blob/124da0d/src/OptimizerChainFactory.php).
 
 ### Why the optimize command stopped for no reason?
 
@@ -105,7 +105,13 @@ $ wp image-optimize run --limit=9999999
 
 ### Does running `wp image-optimize run` multiple times trigger multiple optimization for the same attachments?
 
-No, by default, optimized flags (meta fields) are given to attachments after optimization (`$ wp image-optimize run --limit=999`). This is to prevent re-optimizing an already optimized attachment. If you changed the image files (e.g.: resize / regenerate thumbnail), you must first reset their meta flags.
+No, by default, optimized flags (post meta) are given to attachments after optimization (`$ wp image-optimize run --limit=999`). This is to prevent re-optimizing an already optimized attachment. If you changed the image files (e.g.: resize / regenerate thumbnails), you must first reset their meta flags.
+
+### Will the images look different after optimization?
+
+Yes, a litte bit. This is lossy optimization. However, you won't notice the difference unless you have a trained eye for that.
+
+See [spatie/image-optimizer](https://github.com/spatie/image-optimizer#which-tools-will-do-what)'s readme on binary options used.
 
 ### Why my GIFs stopped animating?
 
@@ -113,7 +119,11 @@ No, by default, optimized flags (meta fields) are given to attachments after opt
 >
 > --- [wpbeginner](http://www.wpbeginner.com/wp-tutorials/how-to-add-animated-gifs-in-wordpress/)
 
-Luckily for you, Lasse M. Tvedt showed how to disable stop WordPress from resizing GIFs on [StackExchange](https://wordpress.stackexchange.com/a/229724).
+Luckily for you, Lasse M. Tvedt showed how to stop WordPress from resizing GIFs on [StackExchange](https://wordpress.stackexchange.com/a/229724).
+
+### Does it has any limitation?
+
+No, unlike other PaaS alternatives, this package runs on your server without any limitation on file sizes or monthly quota. Totally free of charge.
 
 ### Is it for everyone?
 
