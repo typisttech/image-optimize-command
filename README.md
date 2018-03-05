@@ -105,7 +105,9 @@ $ wp image-optimize run --limit=9999999
 
 ### Does running `wp image-optimize run` multiple times trigger multiple optimization for the same attachments?
 
-No, by default, optimized flags (post meta) are given to attachments after optimization (`$ wp image-optimize run --limit=999`). This is to prevent re-optimizing an already optimized attachment. If you changed the image files (e.g.: resize / regenerate thumbnails), you must first reset their meta flags.
+No.
+
+By default, boolean flags (meta fields) are given to attachments after optimization. This is to prevent re-optimizing an already optimized attachment. If you changed the image files (e.g.: resize / regenerate thumbnail), you must first reset their meta flags.
 
 ### Will the images look different after optimization?
 

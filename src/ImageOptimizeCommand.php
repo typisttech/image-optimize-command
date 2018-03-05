@@ -58,9 +58,9 @@ class ImageOptimizeCommand extends WP_CLI_Command
     }
 
     /**
-     * Delete optimized flags (meta fields) from all attachments
+     * Delete boolean flags (meta fields) from all attachments
      *
-     * By default, optimized flags (meta fields) are given to attachments
+     * By default, boolean flags (meta fields) are given to attachments
      * after optimization. This is to prevent re-optimizing an already
      * optimized attachment. If you changed the image files
      * (e.g.: resize / regenerate thumbnail), you must first reset their
