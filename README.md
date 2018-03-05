@@ -123,7 +123,7 @@ Luckily for you, Lasse M. Tvedt showed how to stop WordPress from resizing GIFs 
 
 ### Does it has any limitation?
 
-No, unlike other PaaS alternatives, this package runs on your server without any limitation on file sizes or monthly quota. Totally free of charge.
+No, unlike other SaaS alternatives, this package runs on your server without any limitation on file sizes or monthly quota. Totally free of charge.
 
 ### Is it for everyone?
 
