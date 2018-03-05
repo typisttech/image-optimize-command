@@ -17,7 +17,7 @@ class AttachmentRepository
      *
      * @return int[]
      */
-    public static function take($num): array
+    public static function take(int $num): array
     {
         $query = new WP_Query(
             [
