@@ -70,7 +70,8 @@ Under the hood, `image-optimize-command` invokes [spatie/image-optimizer](https:
 
 Check spatie/image-optimizer's readme for [install instructions](https://github.com/spatie/image-optimizer#optimization-tools).
 
-Note that WordPress doesn't support SVG out of the box. You can omit [SVGO](https://github.com/svg/svgo).
+Note that [WordPress doesn't support SVG](https://core.trac.wordpress.org/ticket/24251) out of the box. You can omit [SVGO](https://github.com/svg/svgo).
+However, if you have [enabled WordPress SVG support](https://kinsta.com/blog/wordpress-svg/?kaid=CGCHYHJJJMMF), you must install SVGO. Otherwise, the command will fail.
 
 ## FAQs
 
