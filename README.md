@@ -111,7 +111,7 @@ By default, boolean flags (meta fields) are given to attachments after optimizat
 
 ### Will the images look different after optimization?
 
-Yes, a litte bit. This is lossy optimization. However, you won't notice the difference unless you have a trained eye for that.
+Yes, a little bit. This is lossy optimization. However, you won't notice the difference unless you have a trained eye for that.
 
 See [spatie/image-optimizer](https://github.com/spatie/image-optimizer#which-tools-will-do-what)'s readme on binary options used.
 
