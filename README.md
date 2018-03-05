@@ -3,7 +3,6 @@
 [![Build Status](https://travis-ci.org/TypistTech/image-optimize-command.svg?branch=master)](https://travis-ci.org/TypistTech/image-optimize-command)
 [![PHP Versions Tested](http://php-eye.com/badge/typisttech/image-optimize-command/tested.svg)](https://travis-ci.org/TypistTech/image-optimize-command)
 [![StyleCI](https://styleci.io/repos/119003751/shield?branch=master)](https://styleci.io/repos/119003751)
-[![Dependency Status](https://gemnasium.com/badges/github.com/TypistTech/image-optimize-command.svg)](https://gemnasium.com/github.com/TypistTech/image-optimize-command)
 [![License](https://poser.pugx.org/typisttech/image-optimize-command/license)](https://packagist.org/packages/typisttech/image-optimize-command)
 [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://typist.tech/donate/image-optimize-command/)
 [![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg)](https://typist.tech/contact/)
@@ -131,6 +130,21 @@ No, unlike other SaaS alternatives, this package runs on your server without any
 No, it comes at a cost. Optimization is CPU intensive. Expect CPU usage rockets up to 100% during optimization. Schedule it to run at late night in small batches.
 
 Learn more on [this article](https://typist.tech/articles/easily-optimize-wordpress-images-using-wp-cli-and-some-binaries/).
+
+### It looks awesome. Where can I find some more goodies like this?
+
+* Articles on Typist Tech's [blog](https://typist.tech)
+* [Tang Rufus' WordPress plugins](https://profiles.wordpress.org/tangrufus#content-plugins) on wp.org
+* More projects on [Typist Tech's GitHub profile](https://github.com/TypistTech)
+* Stay tuned on [Typist Tech's newsletter](https://typist.tech/go/newsletter)
+* Follow [Tang Rufus' Twitter account](https://twitter.com/TangRufus)
+* Hire [Tang Rufus](https://typist.tech/contact) to build your next awesome site
+
+### This package isn't on wp.org. Where can I give a :star::star::star::star::star: review?
+
+Thanks!
+
+Consider writing a blog post, submitting pull requests, [donating](https://typist.tech/donation/) or [hiring me](https://typist.tech/contact/) instead.
 
 ## Support
 
