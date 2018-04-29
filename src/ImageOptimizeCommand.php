@@ -27,7 +27,7 @@ class ImageOptimizeCommand extends WP_CLI_Command
      */
     public function run($_args, $assocArgs = [])
     {
-        $attachmentIds = AttachmentRepository::take($assocArgs['limit']);
+        $attachmentIds = AttachmentRepository::take((int) $assocArgs['limit']);
         $logger = new Logger();
 
         if (empty($attachmentIds)) {
