@@ -20,8 +20,12 @@ Easily optimize images using WP CLI.
   - [What kind of optimization it does?](#what-kind-of-optimization-it-does)
   - [Why the optimize command stopped for no reason?](#why-the-optimize-command-stopped-for-no-reason)
   - [Does running `wp image-optimize run` multiple times trigger multiple optimization for the same attachments?](#does-running-wp-image-optimize-run-multiple-times-trigger-multiple-optimization-for-the-same-attachments)
+  - [Will the images look different after optimization?](#will-the-images-look-different-after-optimization)
   - [Why my GIFs stopped animating?](#why-my-gifs-stopped-animating)
+  - [Does it has any limitation?](#does-it-has-any-limitation)
   - [Is it for everyone?](#is-it-for-everyone)
+  - [It looks awesome. Where can I find some more goodies like this?](#it-looks-awesome-where-can-i-find-some-more-goodies-like-this)
+  - [This package isn't on wp.org. Where can I give a :star::star::star::star::star: review?](#this-package-isnt-on-wporg-where-can-i-give-a-starstarstarstarstar-review)
 - [Support](#support)
   - [Why don't you hire me?](#why-dont-you-hire-me)
   - [Want to help in other way? Want to be a sponsor?](#want-to-help-in-other-way-want-to-be-a-sponsor)
@@ -54,7 +58,7 @@ Installing this package requires WP-CLI v1.4.1 or greater. Update to the latest 
 Once you've done so, you can install this package with:
 
 ```bash
-$ wp package install typisttech/image-optimize-command:@stable
+$ wp package install typisttech/image-optimize-command:^0.1.2
 ```
 
 ### Optimization tools
