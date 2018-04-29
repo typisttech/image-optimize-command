@@ -1,10 +1,28 @@
 # Change Log
 
-## [0.1.1](https://github.com/TypistTech/image-optimize-command/tree/0.1.1) (2018-01-28)
+## [0.1.2](https://github.com/TypistTech/image-optimize-command/tree/0.1.2) (2018-04-30)
+[Full Changelog](https://github.com/TypistTech/image-optimize-command/compare/0.1.1...0.1.2)
+
+**Closed issues:**
+
+- PHP Fatal error:  Uncaught TypeError [\#15](https://github.com/TypistTech/image-optimize-command/issues/15)
+
+**Merged pull requests:**
+
+- Fix: Enforce type cast on `--limit` [\#16](https://github.com/TypistTech/image-optimize-command/pull/16) ([TangRufus](https://github.com/TangRufus))
+- Docs: Clarify boolean flags and fix typo [\#14](https://github.com/TypistTech/image-optimize-command/pull/14) ([TangRufus](https://github.com/TangRufus))
+- Add missing type hint [\#13](https://github.com/TypistTech/image-optimize-command/pull/13) ([TangRufus](https://github.com/TangRufus))
+- Readme: Update with Typist Tech template [\#12](https://github.com/TypistTech/image-optimize-command/pull/12) ([TangRufus](https://github.com/TangRufus))
+- Readme: Clarify SVGO [\#11](https://github.com/TypistTech/image-optimize-command/pull/11) ([TangRufus](https://github.com/TangRufus))
+- Readme: Fix typo [\#10](https://github.com/TypistTech/image-optimize-command/pull/10) ([TangRufus](https://github.com/TangRufus))
+- Update readme [\#9](https://github.com/TypistTech/image-optimize-command/pull/9) ([TangRufus](https://github.com/TangRufus))
+
+## [0.1.1](https://github.com/TypistTech/image-optimize-command/tree/0.1.1) (2018-01-27)
 [Full Changelog](https://github.com/TypistTech/image-optimize-command/compare/0.1.0...0.1.1)
 
 **Merged pull requests:**
 
+- Version bump 0.1.1 [\#8](https://github.com/TypistTech/image-optimize-command/pull/8) ([TangRufus](https://github.com/TangRufus))
 - Immediately mark attachment as optimized [\#7](https://github.com/TypistTech/image-optimize-command/pull/7) ([TangRufus](https://github.com/TangRufus))
 - Readme: Remove badges [\#6](https://github.com/TypistTech/image-optimize-command/pull/6) ([TangRufus](https://github.com/TangRufus))
 - Update readme [\#5](https://github.com/TypistTech/image-optimize-command/pull/5) ([TangRufus](https://github.com/TangRufus))
