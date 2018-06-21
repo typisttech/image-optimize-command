@@ -17,6 +17,9 @@ class ImageOptimizeCommand extends WP_CLI_Command
      *
      * --limit=<num>
      * : Optimize no more than <num> attachments.
+     * 
+     * [--backup]
+     * : Whether to backup images.
      *
      * ## EXAMPLES
      *
@@ -43,9 +46,11 @@ class ImageOptimizeCommand extends WP_CLI_Command
         $optimizerChain = OptimizerChainFactory::create();
         $optimizerChain->useLogger($logger);
 
+        $backup = isset($assocArgs['backup']);
+
         // TODO: Extract to its own class.
-        array_map(function (int $attachmentId) use ($optimizerChain, $logger) {
-            if (!AttachmentRepository::backup($attachmentId)) {
+        array_map(function (int $attachmentId) use ($optimizerChain, $logger, $backup) {
+            if ($backup && !AttachmentRepository::backup($attachmentId)) {
                 $logger->warning(sprintf('Attachment "%d" could not be backed up. Continue.', $attachmentId));
             }
             array_map(function (string $imagePath) use ($optimizerChain) {
@@ -75,8 +80,7 @@ class ImageOptimizeCommand extends WP_CLI_Command
      * : Answer yes to the confirmation message.
      * 
      * [--restore-backups]
-     * : Whether to restore backups if any
-     *
+     * : Whether to restore backups if any.
      *
      * ## EXAMPLES
      *
