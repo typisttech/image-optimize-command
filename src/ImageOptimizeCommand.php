@@ -17,7 +17,7 @@ class ImageOptimizeCommand extends WP_CLI_Command
      *
      * --limit=<num>
      * : Optimize no more than <num> attachments.
-     * 
+     *
      * [--backup]
      * : Whether to backup images.
      *

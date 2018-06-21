@@ -72,10 +72,10 @@ class AttachmentRepository
 
     /**
      * Backup original attachment
-     * 
-     * @param int Attachment id
-     * 
-     * @return void
+     *
+     * @param int $id Attachment id
+     *
+     * @return bool
      */
     public static function backup(int $id): bool
     {
@@ -86,12 +86,12 @@ class AttachmentRepository
 
     /**
      * Restore backups
-     * 
+     *
      * @return void
      */
     public static function restore(): void
     {
-        $query = new WP_Query( [
+        $query = new WP_Query([
             'post_type' => 'attachment',
             'post_mime_type' => 'image',
             'post_status' => 'any',
