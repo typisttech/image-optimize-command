@@ -15,13 +15,11 @@ class Logger implements LoggerInterface
      * @param string $message  The message.
      * @param array  $_context The context.
      *
-     * @throws WP_CLI\ExitException Exit script.
-     *
      * @return void
      */
     public function emergency($message, array $_context = [])
     {
-        WP_CLI::error($message);
+        WP_CLI::error($message, false);
     }
 
     /**
@@ -33,13 +31,11 @@ class Logger implements LoggerInterface
      * @param string $message  The message.
      * @param array  $_context The context.
      *
-     * @throws WP_CLI\ExitException Exit script.
-     *
      * @return void
      */
     public function alert($message, array $_context = [])
     {
-        WP_CLI::error($message);
+        WP_CLI::error($message, false);
     }
 
     /**
@@ -50,13 +46,11 @@ class Logger implements LoggerInterface
      * @param string $message  The message.
      * @param array  $_context The context.
      *
-     * @throws WP_CLI\ExitException Exit script.
-     *
      * @return void
      */
     public function critical($message, array $_context = [])
     {
-        WP_CLI::error($message);
+        WP_CLI::error($message, false);
     }
 
     /**
@@ -66,13 +60,11 @@ class Logger implements LoggerInterface
      * @param string $message  The message.
      * @param array  $_context The context.
      *
-     * @throws WP_CLI\ExitException Exit script.
-     *
      * @return void
      */
     public function error($message, array $_context = [])
     {
-        WP_CLI::error($message);
+        WP_CLI::error($message, false);
     }
 
     /**
