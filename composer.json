@@ -35,9 +35,9 @@
     "wp-cli/wp-cli": "^1.4.1"
   },
   "require-dev": {
+    "automattic/vipwpcs": "^0.3.0",
     "codeception/base": "^2.3",
-    "neronmoon/scriptsdev": "^0.1.1",
-    "wp-coding-standards/wpcs": "^0.14.0"
+    "wp-coding-standards/wpcs": "^1.0"
   },
   "autoload": {
     "files": ["command.php"],
@@ -51,16 +51,10 @@
       "doctoc README.md",
       "github_changelog_generator --no-verbose"
     ],
-    "check-style": "phpcs --standard=ruleset.xml --colors -p -s",
+    "check-style": "phpcs --colors -p",
     "test": "codecept run"
   },
   "config": {
     "sort-packages": true
-  },
-  "extra": {
-    "scripts-dev": {
-      "post-install-cmd": "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs",
-      "post-update-cmd": "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs"
-    }
   }
 }
