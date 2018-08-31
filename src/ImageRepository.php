@@ -9,7 +9,7 @@ class ImageRepository
     /**
      * Get all(original and chopped) paths for attachments.
      *
-     * @param int[] ...$ids Attachment ids.
+     * @param int|int[] ...$ids Attachment ids.
      *
      * @return string[]
      */

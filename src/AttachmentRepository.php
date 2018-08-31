@@ -26,7 +26,7 @@ class AttachmentRepository
                 'post_status' => 'any',
                 'fields' => 'ids',
                 'posts_per_page' => $num,
-                'meta_query' => // phpcs:ignore WordPress.VIP.SlowDBQuery.slow_db_query_meta_query
+                'meta_query' =>
                     [
                         [
                             'key' => self::OPTIMIZED_META_KEY,
@@ -34,7 +34,7 @@ class AttachmentRepository
                         ],
                     ],
             ]
-        );
+        ); // WPCS: slow query ok.
 
         return $query->posts;
     }
@@ -42,7 +42,7 @@ class AttachmentRepository
     /**
      * Add optimized meta key to attachments.
      *
-     * @param int[] ...$ids Attachment ids.
+     * @param int|int[] ...$ids Attachment ids.
      *
      * @return void
      */
@@ -62,11 +62,11 @@ class AttachmentRepository
     {
         global $wpdb;
 
-        $wpdb->query( // phpcs:ignore WordPress.VIP.DirectDatabaseQuery
+        $wpdb->query(
             $wpdb->prepare(
                 "DELETE FROM $wpdb->postmeta WHERE meta_key = %s;",
                 self::OPTIMIZED_META_KEY
             )
-        );
+        ); // WPCS: cache ok, db call ok.
     }
 }
