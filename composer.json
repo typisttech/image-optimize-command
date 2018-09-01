@@ -1,60 +1,70 @@
 {
-  "name": "typisttech/image-optimize-command",
-  "description": "Easily optimize images using WP CLI",
-  "keywords": [
-    "wordpress",
-    "wp",
-    "wp-cli",
-    "image-optimizer"
-  ],
-  "type": "wp-cli-package",
-  "homepage": "https://typist.tech/projects/image-optimize-command",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Typist Tech",
-      "email": "image-optimize-command@typist.tech",
-      "homepage": "https://typist.tech/"
-    },
-    {
-      "name": "Tang Rufus",
-      "email": "tangrufus@gmail.com",
-      "homepage": "https://typist.tech/",
-      "role": "Developer"
-    }
-  ],
-  "support": {
-    "email": "image-optimize-command@typist.tech",
-    "issues": "https://github.com/TypistTech/image-optimize-command/issues",
-    "source": "https://github.com/TypistTech/image-optimize-command"
-  },
-  "require": {
-    "php": "^7.1",
-    "psr/log": "^1.0",
-    "spatie/image-optimizer": "^1.0",
-    "wp-cli/wp-cli": "^1.4.1"
-  },
-  "require-dev": {
-    "automattic/vipwpcs": "^0.3.0",
-    "codeception/base": "^2.3",
-    "wp-coding-standards/wpcs": "^1.0"
-  },
-  "autoload": {
-    "files": ["command.php"],
-    "psr-4": {
-      "TypistTech\\ImageOptimizeCommand\\": "src/"
-    }
-  },
-  "scripts": {
-    "pre-tag": [
-      "composer update --no-suggest",
-      "doctoc README.md",
-      "github_changelog_generator --no-verbose"
+    "name": "typisttech/image-optimize-command",
+    "type": "wp-cli-package",
+    "description": "Easily optimize images using WP CLI",
+    "keywords": [
+        "wordpress",
+        "wp",
+        "wp-cli",
+        "image-optimizer"
     ],
-    "check-style": "phpcs --colors -p",
-    "test": "codecept run"
-  },
-  "config": {
-    "sort-packages": true
-  }
+    "homepage": "https://typist.tech/projects/image-optimize-command",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Typist Tech",
+            "email": "image-optimize-command@typist.tech",
+            "homepage": "https://typist.tech/"
+        },
+        {
+            "name": "Tang Rufus",
+            "email": "tangrufus@gmail.com",
+            "homepage": "https://typist.tech/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "psr/log": "^1.0",
+        "spatie/image-optimizer": "^1.1",
+        "wp-cli/wp-cli": "^2.0"
+    },
+    "require-dev": {
+        "10up/wp_mock": "^0.3.0",
+        "automattic/vipwpcs": "^0.3.0",
+        "codeception/base": "^2.4",
+        "roave/security-advisories": "dev-master",
+        "wp-coding-standards/wpcs": "^1.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "TypistTech\\ImageOptimizeCommand\\": "src/"
+        },
+        "files": [
+            "command.php"
+        ]
+    },
+    "scripts": {
+        "check-style": "phpcs --colors -p",
+        "pre-tag": [
+            "composer update --no-suggest",
+            "doctoc README.md",
+            "github_changelog_generator --no-verbose"
+        ],
+        "test": "codecept run",
+        "test:coverage": "codecept run --coverage --coverage-html --coverage-xml"
+    },
+    "support": {
+        "email": "image-optimize-command@typist.tech",
+        "issues": "https://github.com/TypistTech/image-optimize-command/issues",
+        "source": "https://github.com/TypistTech/image-optimize-command"
+    }
 }

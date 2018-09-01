@@ -1,27 +1,21 @@
 language: php
 
+sudo: false
+
 branches:
   only:
     - master
     - /^(?:(\d+)\.)?(?:(\d+)\.)?(\*|\d+)$/
 
+## Cache composer
 cache:
   directories:
-    - $HOME/.composer/cache/files
+    - $HOME/.composer/cache
 
 notifications:
   email:
     on_success: never
     on_failure: change
-
-cache:
-  directories:
-    - $HOME/.composer/cache
-
-php:
-  - 7.1
-  - 7.2
-  - nightly
 
 env:
   global:
@@ -34,20 +28,22 @@ matrix:
   fast_finish: true
 
 before_install:
-  - |
-    # Remove Xdebug for a huge performance increase:
-    if [ -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]; then
-      phpenv config-rm xdebug.ini
-    else
-      echo "xdebug.ini does not exist"
-    fi
+  - phpenv config-rm xdebug.ini || true
 
 install:
-  - travis_retry composer install --prefer-dist --no-suggest
-
-before_script:
-  - composer validate
+  - travis_retry composer install --no-progress --no-suggest
 
 script:
   - composer test
-  - composer check-style
+
+jobs:
+  include:
+    - stage: test
+      php: 7.2
+      before_install: skip
+      script: composer test:coverage
+      after_success: bash <(curl -s https://codecov.io/bash) -s "$TRAVIS_BUILD_DIR/tests/_output/"
+    - stage: test
+      php: 7.1
+    - stage: test
+      php: nightly

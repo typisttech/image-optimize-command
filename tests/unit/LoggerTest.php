@@ -9,8 +9,13 @@ use Psr\Log\LoggerInterface;
 
 class LoggerTest extends Unit
 {
-    /** @test */
-    public function it_is_an_instance_of_logger_interface()
+    /**
+     * @var \TypistTech\ImageOptimizeCommand\UnitTester
+     */
+    protected $tester;
+
+    // tests
+    public function testImplementsPsrLoggerInterface()
     {
         $logger = new Logger();
         $this->assertInstanceOf(LoggerInterface::class, $logger);
