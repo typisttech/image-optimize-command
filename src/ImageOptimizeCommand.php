@@ -18,6 +18,9 @@ class ImageOptimizeCommand extends WP_CLI_Command
      * --limit=<num>
      * : Optimize no more than <num> attachments.
      *
+     * [--backup]
+     * : Whether to backup images.
+     *
      * ## EXAMPLES
      *
      *     # Optimize 10 attachments
@@ -43,8 +46,13 @@ class ImageOptimizeCommand extends WP_CLI_Command
         $optimizerChain = OptimizerChainFactory::create();
         $optimizerChain->useLogger($logger);
 
+        $backup = isset($assocArgs['backup']);
+
         // TODO: Extract to its own class.
-        array_map(function (int $attachmentId) use ($optimizerChain) {
+        array_map(function (int $attachmentId) use ($optimizerChain, $logger, $backup) {
+            if ($backup && !AttachmentRepository::backup($attachmentId)) {
+                $logger->warning(sprintf('Attachment "%d" could not be backed up. Continue.', $attachmentId));
+            }
             array_map(function (string $imagePath) use ($optimizerChain) {
                 $optimizerChain->optimize($imagePath);
             }, ImageRepository::pathsFor($attachmentId));
@@ -70,14 +78,16 @@ class ImageOptimizeCommand extends WP_CLI_Command
      *
      * [--yes]
      * : Answer yes to the confirmation message.
-     *
+     * 
+     * [--restore-backups]
+     * : Whether to restore backups if any.
      *
      * ## EXAMPLES
      *
      *     # Optimize after thumbnail regeneration.
      *
      *     $ wp media regenerate --yes
-     *     $ wp image-optimize reset --yes
+     *     $ wp image-optimize reset --yes --restore-backups
      *     $ wp image-optimize run --limit=9999999
      *
      * @when after_wp_load
@@ -85,6 +95,9 @@ class ImageOptimizeCommand extends WP_CLI_Command
     public function reset($_args, $assocArgs = [])
     {
         WP_CLI::confirm('Are you sure you want to drop all wp image-optimize meta flags?', $assocArgs);
+        if (isset($assocArgs['restore-backups'])) {
+            AttachmentRepository::restore();
+        }
         AttachmentRepository::markAllAsUnoptimized();
     }
 }

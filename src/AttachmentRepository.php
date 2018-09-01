@@ -69,4 +69,48 @@ class AttachmentRepository
             )
         ); // WPCS: cache ok, db call ok.
     }
+
+    /**
+     * Backup original attachment
+     *
+     * @param int $id Attachment id
+     *
+     * @return bool
+     */
+    public static function backup(int $id): bool
+    {
+        $filePath = get_attached_file($id, true);
+        $backupPath = dirname($filePath) . DIRECTORY_SEPARATOR . sprintf('%s-original.%s', pathinfo($filePath, PATHINFO_FILENAME), pathinfo($filePath, PATHINFO_EXTENSION));
+        return copy($filePath, $backupPath);
+    }
+
+    /**
+     * Restore backups
+     *
+     * @return void
+     */
+    public static function restore(): void
+    {
+        $query = new WP_Query([
+            'post_type' => 'attachment',
+            'post_mime_type' => 'image',
+            'post_status' => 'any',
+            'fields' => 'ids',
+            'posts_per_page' => -1,
+            'meta_query' => [ // phpcs:ignore WordPress.VIP.SlowDBQuery.slow_db_query_meta_query
+                [
+                    'key' => self::OPTIMIZED_META_KEY,
+                    'compare' => 'EXISTS',
+                ],
+            ],
+        ]);
+        $attachmentIds = $query->posts;
+        array_map(function (int $id) {
+            $filePath = get_attached_file($id, true);
+            $backupPath = dirname($filePath) . DIRECTORY_SEPARATOR . sprintf('%s-original.%s', pathinfo($filePath, PATHINFO_FILENAME), pathinfo($filePath, PATHINFO_EXTENSION));
+            if (file_exists($backupPath)) {
+                rename($backupPath, $filePath);
+            }
+        }, $attachmentIds);
+    }
 }
