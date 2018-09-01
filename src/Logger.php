@@ -17,7 +17,7 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function emergency($message, array $_context = [])
+    public function emergency($message, array $_context = []): void
     {
         WP_CLI::error($message, false);
     }
@@ -33,7 +33,7 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function alert($message, array $_context = [])
+    public function alert($message, array $_context = []): void
     {
         WP_CLI::error($message, false);
     }
@@ -48,7 +48,7 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function critical($message, array $_context = [])
+    public function critical($message, array $_context = []): void
     {
         WP_CLI::error($message, false);
     }
@@ -62,7 +62,7 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function error($message, array $_context = [])
+    public function error($message, array $_context = []): void
     {
         WP_CLI::error($message, false);
     }
@@ -78,7 +78,7 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function warning($message, array $_context = [])
+    public function warning($message, array $_context = []): void
     {
         WP_CLI::warning($message);
     }
@@ -91,7 +91,7 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function notice($message, array $_context = [])
+    public function notice($message, array $_context = []): void
     {
         WP_CLI::success($message);
     }
@@ -106,7 +106,7 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function info($message, array $_context = [])
+    public function info($message, array $_context = []): void
     {
         WP_CLI::log($message);
     }
@@ -119,9 +119,9 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function debug($message, array $_context = [])
+    public function debug($message, array $_context = []): void
     {
-        WP_CLI::debug($message);
+        WP_CLI::debug($message, 'typist-tech-image-optimized-command');
     }
 
     /**
@@ -133,8 +133,22 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function log($level, $message, array $_context = [])
+    public function log($level, $message, array $_context = []): void
     {
         WP_CLI::log('[' . $level . ']' . $message);
+    }
+
+    /**
+     * Section header.
+     *
+     * @param string $title The section title.
+     *
+     * @return void
+     */
+    public function section($title): void
+    {
+        $this->info(
+            WP_CLI::colorize("%B===>%n " . $title)
+        );
     }
 }

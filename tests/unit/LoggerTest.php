@@ -14,7 +14,6 @@ class LoggerTest extends Unit
      */
     protected $tester;
 
-    // tests
     public function testImplementsPsrLoggerInterface()
     {
         $logger = new Logger();
