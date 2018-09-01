@@ -27,6 +27,7 @@
         "php": "^7.1",
         "psr/log": "^1.0",
         "spatie/image-optimizer": "^1.1",
+        "symfony/filesystem": "^4.1",
         "wp-cli/wp-cli": "^2.0"
     },
     "require-dev": {
@@ -59,7 +60,7 @@
             "doctoc README.md",
             "github_changelog_generator --no-verbose"
         ],
-        "test": "codecept run",
+        "test": "codecept run --debug",
         "test:coverage": "codecept run --coverage --coverage-html --coverage-xml"
     },
     "support": {

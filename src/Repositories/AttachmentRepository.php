@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
-namespace TypistTech\ImageOptimizeCommand;
+namespace TypistTech\ImageOptimizeCommand\Repositories;
 
 use WP_Query;
 
 class AttachmentRepository
 {
-    private const OPTIMIZED_META_KEY = '_typist_tech_image_optimized';
+    protected const OPTIMIZED_META_KEY = '_typist_tech_image_optimized';
+    protected const OPTIMIZED_META_VALUE = true;
 
     /**
      * Get not yet optimized image attachments.
@@ -17,7 +18,7 @@ class AttachmentRepository
      *
      * @return int[]
      */
-    public static function take(int $num): array
+    public function take(int $num): array
     {
         $query = new WP_Query(
             [
@@ -29,7 +30,7 @@ class AttachmentRepository
                 'meta_query' =>
                     [
                         [
-                            'key' => self::OPTIMIZED_META_KEY,
+                            'key' => static::OPTIMIZED_META_KEY,
                             'compare' => 'NOT EXISTS',
                         ],
                     ],
@@ -46,26 +47,42 @@ class AttachmentRepository
      *
      * @return void
      */
-    public static function markAsOptimized(int ...$ids): void
+    public function markAsOptimized(int ...$ids): void
     {
         array_map(function (int $id): void {
-            add_post_meta($id, self::OPTIMIZED_META_KEY, true, true);
+            add_post_meta($id, static::OPTIMIZED_META_KEY, static::OPTIMIZED_META_VALUE, true);
         }, $ids);
     }
 
     /**
-     * Remove optimized meta flags from all attachments
+     * Remove optimized meta key from attachments.
+     *
+     * @param int|int[] ...$ids Attachment ids.
      *
      * @return void
      */
-    public static function markAllAsUnoptimized(): void
+    public function markAsNonOptimized(int ...$ids): void
+    {
+        array_map(function (int $id): void {
+            delete_post_meta($id, static::OPTIMIZED_META_KEY, static::OPTIMIZED_META_VALUE);
+        }, $ids);
+    }
+
+    /**
+     * Remove optimized meta flags from all attachments.
+     *
+     * TODO: To keep or not to keep?
+     *
+     * @return void
+     */
+    public function markAllAsUnoptimized(): void
     {
         global $wpdb;
 
         $wpdb->query(
             $wpdb->prepare(
                 "DELETE FROM $wpdb->postmeta WHERE meta_key = %s;",
-                self::OPTIMIZED_META_KEY
+                static::OPTIMIZED_META_KEY
             )
         ); // WPCS: cache ok, db call ok.
     }

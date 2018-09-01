@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace TypistTech\ImageOptimizeCommand;
+namespace TypistTech\ImageOptimizeCommand\Repositories;
 
-class ImageRepository
+class AttachmentImagePathRepository
 {
     /**
      * Get all(original and chopped) paths for attachments.
@@ -13,13 +13,13 @@ class ImageRepository
      *
      * @return string[]
      */
-    public static function pathsFor(int ...$ids): array
+    public function get(int ...$ids): array
     {
-        $fileNames = array_map(function (int $id): array {
-            return self::pathsForSingle($id);
+        $paths = array_map(function (int $id): array {
+            return $this->getSingle($id);
         }, $ids);
 
-        return array_merge(...$fileNames);
+        return array_merge(...$paths);
     }
 
     /**
@@ -31,10 +31,14 @@ class ImageRepository
      *
      * @return string[]
      */
-    private static function pathsForSingle(int $id): array
+    protected function getSingle(int $id): array
     {
         $metadata = wp_get_attachment_metadata($id);
         $originalFilePath = get_attached_file($id, true);
+
+        if (empty($originalFilePath)) {
+            return [];
+        }
 
         $sizes = array_keys(
             wp_list_pluck($metadata['sizes'] ?? [], 'file')
@@ -46,8 +50,24 @@ class ImageRepository
             return str_replace(wp_basename($originalFilePath), $info['file'], $originalFilePath);
         }, $sizes);
 
-        return array_merge($choppedFilePaths, [
+        return array_filter(array_merge($choppedFilePaths, [
             $originalFilePath,
-        ]);
+        ]));
+    }
+
+    /**
+     * Get all original paths for attachments.
+     *
+     * @param int|int[] ...$ids Attachment ids.
+     *
+     * @return string[]
+     */
+    public function getFullSized(int ...$ids): array
+    {
+        $paths = array_map(function (int $id) {
+            return get_attached_file($id, true);
+        }, $ids);
+
+        return array_filter($paths);
     }
 }

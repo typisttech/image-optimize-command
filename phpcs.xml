@@ -51,6 +51,6 @@
 
     <rule ref="WordPress.WhiteSpace.ControlStructureSpacing">
         <!--This is because this rule gives internal error Undefined index: parenthesis_owner-->
-        <exclude-pattern>/src/ImageRepository.php</exclude-pattern>
+        <exclude-pattern>/src/Repositories/AttachmentImagePathRepository.php</exclude-pattern>
     </rule>
 </ruleset>

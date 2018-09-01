@@ -2,4 +2,5 @@ actor: UnitTester
 modules:
   enabled:
     - Asserts
+    - Filesystem
     - \TypistTech\ImageOptimizeCommand\Helper\Unit
