@@ -7,10 +7,10 @@ namespace TypistTech\ImageOptimizeCommand\CLI\Commands;
 use TypistTech\ImageOptimizeCommand\CLI\Logger;
 use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 
-class BatchCommand
+class BatchRestoreCommand
 {
     /**
-     * Optimize certain number of non-optimized attachments.
+     * Restore the full sized images of certain number of attachments.
      *
      * ## OPTIONS
      *
@@ -20,26 +20,26 @@ class BatchCommand
      *
      * ## EXAMPLES
      *
-     *     # Find and optimize 10 attachments
-     *     $ wp image-optimize batch
+     *     # Find and restore 10 attachments
+     *     $ wp image-optimize batch-restore
      *
-     *     # Find and optimize 20 attachments
-     *     $ wp image-optimize batch --limit=20
+     *     # Find and restore 20 attachments
+     *     $ wp image-optimize batch-restore --limit=20
      */
     public function __invoke($_args, $assocArgs): void
     {
         $limit = $assocArgs['limit'] ?? 10;
         $repo = new AttachmentRepository();
-        $ids = $repo->takeNonOptimized((int) $limit);
+        $ids = $repo->takeOptimized((int) $limit);
 
         if (empty($ids)) {
             $logger = new Logger();
-            $logger->warning('No non-optimized attachment found. Abort!');
+            $logger->warning('No optimized attachment found. Abort!');
 
             return;
         }
 
-        $attachmentCommand = new AttachmentCommand();
-        $attachmentCommand($ids, []);
+        $restoreCommand = new RestoreCommand();
+        $restoreCommand($ids, []);
     }
 }

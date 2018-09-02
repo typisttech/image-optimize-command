@@ -12,7 +12,7 @@ use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 class RestoreCommand
 {
     /**
-     * Restore the full sized images of attachments.
+     * Restore the full sized images of specific attachments.
      *
      * ## OPTIONS
      *

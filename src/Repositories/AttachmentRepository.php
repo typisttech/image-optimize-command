@@ -12,13 +12,13 @@ class AttachmentRepository
     protected const OPTIMIZED_META_VALUE = true;
 
     /**
-     * Get not yet optimized image attachments.
+     * Get non-optimized attachment ids.
      *
      * @param int $num Number of image attachments to return.
      *
      * @return int[]
      */
-    public function take(int $num): array
+    public function takeNonOptimized(int $num): array
     {
         $query = new WP_Query(
             [
@@ -32,6 +32,35 @@ class AttachmentRepository
                         [
                             'key' => static::OPTIMIZED_META_KEY,
                             'compare' => 'NOT EXISTS',
+                        ],
+                    ],
+            ]
+        ); // WPCS: slow query ok.
+
+        return $query->posts;
+    }
+
+    /**
+     * Get optimized attachment ids.
+     *
+     * @param int $num Number of image attachments to return.
+     *
+     * @return int[]
+     */
+    public function takeOptimized(int $num): array
+    {
+        $query = new WP_Query(
+            [
+                'post_type' => 'attachment',
+                'post_mime_type' => 'image',
+                'post_status' => 'any',
+                'fields' => 'ids',
+                'posts_per_page' => $num,
+                'meta_query' =>
+                    [
+                        [
+                            'key' => static::OPTIMIZED_META_KEY,
+                            'compare' => 'EXISTS',
                         ],
                     ],
             ]
