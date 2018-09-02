@@ -16,7 +16,7 @@ use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 class AttachmentCommand
 {
     /**
-     * Optimize attachments.
+     * Optimize specific attachments.
      *
      * ## OPTIONS
      *

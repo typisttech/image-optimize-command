@@ -109,7 +109,7 @@ class Restore
 
             $this->logger->debug('Marking attachment ID: ' . $id . ' as non-optimized.');
             $this->repo->markAsNonOptimized($id);
-            $this->logger->info('Restored attachment ID: ' . $id);
+            $this->logger->notice('Restored attachment ID: ' . $id);
 
             return static::SUCCESS;
             // phpcs:ignore

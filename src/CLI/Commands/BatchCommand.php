@@ -10,7 +10,7 @@ use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 class BatchCommand
 {
     /**
-     * Optimize attachments.
+     * Optimize certain number of non-optimized attachments.
      *
      * ## OPTIONS
      *
