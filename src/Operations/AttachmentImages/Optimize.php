@@ -64,6 +64,19 @@ class Optimize
     {
         $this->logger->section('Optimizing images for ' . count($ids) . ' attachment(s)');
 
+        $ids = array_filter($ids, function (int $id): bool {
+            // phpcs:ignore
+            $isOptimized = $this->repo->isOptimized($id);
+
+            if ($isOptimized) {
+                // phpcs:ignore
+                $this->logger->warning('Skip: Attachment already optimized - ID: ' . $id);
+            }
+
+            return ! $isOptimized;
+        });
+        $ids = array_filter($ids);
+
         $results = array_map(function (int $id): array {
             // phpcs:ignore
             return $this->optimizeAttachment($id);

@@ -61,7 +61,6 @@ class AttachmentCommand
     protected function createOptimizeOperation(AttachmentRepository $repo, LoggerInterface $logger): Optimize
     {
         $optimizerChain = OptimizerChainFactory::create();
-        $optimizerChain->useLogger($logger);
 
         return new Optimize($repo, $optimizerChain, $logger);
     }

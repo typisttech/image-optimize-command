@@ -152,4 +152,16 @@ class AttachmentRepository
 
         return array_filter($paths);
     }
+
+    /**
+     * Whether the attachment has been optimized.
+     *
+     * @param int $id The attachment ID.
+     *
+     * @return bool
+     */
+    public function isOptimized(int $id): bool
+    {
+        return ! empty(get_post_meta($id, static::OPTIMIZED_META_KEY, true));
+    }
 }
