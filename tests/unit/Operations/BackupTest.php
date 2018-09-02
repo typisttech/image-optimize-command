@@ -30,7 +30,7 @@ class BackupTest extends \Codeception\Test\Unit
     protected function _before()
     {
         $this->filesystem = $this->getModule('Filesystem');
-        $this->testDir = codecept_data_dir('test-images');
+        $this->testDir = codecept_data_dir('tmp');
 
         $this->filesystem->copyDir(
             codecept_data_dir('images'),
@@ -64,10 +64,10 @@ class BackupTest extends \Codeception\Test\Unit
         $this->filesystem->seeFileFound('tangrufus.jpeg', $this->testDir);
         $this->filesystem->seeFileFound('tangrufus.jpeg.original', $this->testDir);
         $logger->shouldHaveReceived('section')
-               ->with('Backing up 1 file(s)')
+               ->with('Backing up 1 full sized image(s)')
                ->once();
         $logger->shouldHaveReceived('batchOperationResults')
-               ->with('file', 'backup', 1, 1, 0, 0)
+               ->with('full sized image', 'backup', 1, 1, 0, 0)
                ->once();
     }
 
@@ -85,10 +85,10 @@ class BackupTest extends \Codeception\Test\Unit
         $this->filesystem->dontSeeFileFound('not-exist.jpeg', $this->testDir);
         $this->filesystem->dontSeeFileFound('not-exist.jpeg.original', $this->testDir);
         $logger->shouldHaveReceived('section')
-               ->with('Backing up 1 file(s)')
+               ->with('Backing up 1 full sized image(s)')
                ->once();
         $logger->shouldHaveReceived('batchOperationResults')
-               ->with('file', 'backup', 1, 0, 1, 0)
+               ->with('full sized image', 'backup', 1, 0, 1, 0)
                ->once();
     }
 
@@ -106,10 +106,10 @@ class BackupTest extends \Codeception\Test\Unit
         $this->filesystem->seeFileFound('bot.png', $this->testDir);
         $this->filesystem->seeFileFound('bot.png.original', $this->testDir);
         $logger->shouldHaveReceived('section')
-               ->with('Backing up 1 file(s)')
+               ->with('Backing up 1 full sized image(s)')
                ->once();
         $logger->shouldHaveReceived('batchOperationResults')
-               ->with('file', 'backup', 1, 0, 0, 1)
+               ->with('full sized image', 'backup', 1, 0, 0, 1)
                ->once();
     }
 
@@ -135,10 +135,10 @@ class BackupTest extends \Codeception\Test\Unit
         $this->filesystem->seeFileFound('tangrufus.jpeg', $this->testDir);
         $this->filesystem->seeFileFound('tangrufus.jpeg.original', $this->testDir);
         $logger->shouldHaveReceived('section')
-               ->with('Backing up 3 file(s)')
+               ->with('Backing up 3 full sized image(s)')
                ->once();
         $logger->shouldHaveReceived('batchOperationResults')
-               ->with('file', 'backup', 3, 1, 1, 1)
+               ->with('full sized image', 'backup', 3, 1, 1, 1)
                ->once();
     }
 }

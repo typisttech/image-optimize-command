@@ -12,6 +12,7 @@ composer.lock
 ### Codeception ###
 /codeception.yml
 /tests/*.suite.yml
+/tests/_data/tmp/
 /tests/_output/*
 /tests/_support/_generated/
 

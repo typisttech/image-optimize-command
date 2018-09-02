@@ -8,7 +8,7 @@ use Codeception\Test\Unit;
 use Mockery;
 use TypistTech\ImageOptimizeCommand\Logger;
 use TypistTech\ImageOptimizeCommand\Operations\Backup as BackupOperation;
-use TypistTech\ImageOptimizeCommand\Repositories\AttachmentImagePathRepository;
+use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 
 class BackupTest extends Unit
 {
@@ -20,8 +20,8 @@ class BackupTest extends Unit
     public function testSomeFeature()
     {
 
-        $repo = Mockery::mock(AttachmentImagePathRepository::class);
-        $repo->expects('getFullSized')
+        $repo = Mockery::mock(AttachmentRepository::class);
+        $repo->expects('getFullSizedPaths')
             ->with(1, 2, 3)
             ->andReturn([
                 '/my/path/1.png',

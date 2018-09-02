@@ -12,7 +12,11 @@ use function WP_CLI\Utils\normalize_path;
 
 class Backup
 {
-    const ORIGINAL_EXTENSION = '.original';
+    protected const SUCCESS = 0;
+    protected const ERROR = 1;
+    protected const SKIP = 2;
+    public const ORIGINAL_EXTENSION = '.original';
+
     /**
      * The logger.
      *
@@ -47,7 +51,7 @@ class Backup
     public function execute(string ...$paths): void
     {
         $total = count($paths);
-        $this->logger->section('Backing up ' . $total . ' file(s)');
+        $this->logger->section('Backing up ' . $total . ' full sized image(s)');
 
         $normalizedPaths = array_map(function (string $path): string {
             return normalize_path($path);
@@ -69,25 +73,28 @@ class Backup
             return static::SKIP === $result;
         }));
 
-        $this->logger->batchOperationResults('file', 'backup', $total, $successes, $failures, $skips);
+        $this->logger->batchOperationResults('full sized image', 'backup', $total, $successes, $failures, $skips);
     }
-
-    protected const SUCCESS = 0;
-    protected const ERROR = 1;
-    protected const SKIP = 2;
 
     protected function backup(string $path): int
     {
         try {
+            $this->logger->debug('Backing up full sized image - ' . $path);
+
             $isBackupExists = $this->filesystem->exists($path . static::ORIGINAL_EXTENSION);
             if ($isBackupExists) {
+                $this->logger->debug('Skip: Backup already exists - ' . $path);
+
                 return static::SKIP;
             }
 
             $this->filesystem->copy($path, $path . static::ORIGINAL_EXTENSION);
+            $this->logger->notice('Backed up full sized image - ' . $path);
 
             return static::SUCCESS;
         } catch (IOException | FileNotFoundException $exception) {
+            $this->logger->error('Failed to backup ' . $path);
+
             return static::ERROR;
         }
     }

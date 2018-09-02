@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace TypistTech\ImageOptimizeCommand\Operations\AttachmentImages;
 
 use TypistTech\ImageOptimizeCommand\Logger;
-use TypistTech\ImageOptimizeCommand\Operations\Backup as BackupOperation;
-use TypistTech\ImageOptimizeCommand\Repositories\AttachmentImagePathRepository;
+use TypistTech\ImageOptimizeCommand\Operations\Backup as BaseBackup;
+use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 
 class Backup
 {
@@ -20,25 +20,25 @@ class Backup
     /**
      * The repo.
      *
-     * @var AttachmentImagePathRepository
+     * @var AttachmentRepository
      */
     protected $repo;
 
     /**
      * The backup operation.
      *
-     * @var BackupOperation
+     * @var BaseBackup
      */
     protected $backup;
 
     /**
      * Backup constructor.
      *
-     * @param AttachmentImagePathRepository $repo   The attachment image repo.
-     * @param BackupOperation               $backup The backup operation.
-     * @param Logger                        $logger The logger.
+     * @param AttachmentRepository $repo   The attachment repo.
+     * @param BaseBackup           $backup The backup operation.
+     * @param Logger               $logger The logger.
      */
-    public function __construct(AttachmentImagePathRepository $repo, BackupOperation $backup, Logger $logger)
+    public function __construct(AttachmentRepository $repo, BaseBackup $backup, Logger $logger)
     {
         $this->repo = $repo;
         $this->backup = $backup;
@@ -54,7 +54,7 @@ class Backup
             )
         );
 
-        $paths = $this->repo->getFullSized(...$ids);
+        $paths = $this->repo->getFullSizedPaths(...$ids);
 
         $this->backup->execute(...$paths);
     }
