@@ -42,7 +42,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1.x-dev"
+            "dev-master": "0.2.x-dev"
         }
     },
     "autoload": {
@@ -57,6 +57,8 @@
         "check-style": "phpcs --colors -p",
         "pre-tag": [
             "composer update --no-suggest",
+            "@test",
+            "@check-style",
             "doctoc README.md",
             "github_changelog_generator --no-verbose"
         ],
