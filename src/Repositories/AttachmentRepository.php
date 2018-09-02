@@ -97,6 +97,7 @@ class AttachmentRepository
     public function getPaths(int ...$ids): array
     {
         $paths = array_map(function (int $id): array {
+            // phpcs:ignore
             return $this->getPathsSingle($id);
         }, $ids);
 

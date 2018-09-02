@@ -58,6 +58,7 @@ class Backup
         }, $paths);
 
         $results = array_map(function (string $path): int {
+            // phpcs:ignore
             return $this->backup($path);
         }, $normalizedPaths);
 
@@ -76,6 +77,13 @@ class Backup
         $this->logger->batchOperationResults('full sized image', 'backup', $total, $successes, $failures, $skips);
     }
 
+    /**
+     * Backup a file at its directory with `.original` extension.
+     *
+     * @param string $path Path to the file to be backed up.
+     *
+     * @return int
+     */
     protected function backup(string $path): int
     {
         try {
@@ -92,6 +100,7 @@ class Backup
             $this->logger->notice('Backed up full sized image - ' . $path);
 
             return static::SUCCESS;
+            // phpcs:ignore
         } catch (IOException | FileNotFoundException $exception) {
             $this->logger->error('Failed to backup ' . $path);
 

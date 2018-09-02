@@ -27,29 +27,6 @@ class BackupTest extends \Codeception\Test\Unit
      */
     protected $testDir;
 
-    protected function _before()
-    {
-        $this->filesystem = $this->getModule('Filesystem');
-        $this->testDir = codecept_data_dir('tmp');
-
-        $this->filesystem->copyDir(
-            codecept_data_dir('images'),
-            $this->testDir
-        );
-
-        WP_Mock::userFunction('WP_CLI\Utils\normalize_path')
-               ->with(Mockery::type('string'))
-               ->andReturnUsing(function ($arg) {
-                   return $arg;
-               })
-               ->zeroOrMoreTimes();
-    }
-
-    protected function _after()
-    {
-        $this->filesystem->deleteDir($this->testDir);
-    }
-
     public function testBackupSuccess()
     {
         $logger = Mockery::spy(Logger::class);
@@ -140,5 +117,28 @@ class BackupTest extends \Codeception\Test\Unit
         $logger->shouldHaveReceived('batchOperationResults')
                ->with('full sized image', 'backup', 3, 1, 1, 1)
                ->once();
+    }
+
+    protected function _before()
+    {
+        $this->filesystem = $this->getModule('Filesystem');
+        $this->testDir = codecept_data_dir('tmp');
+
+        $this->filesystem->copyDir(
+            codecept_data_dir('images'),
+            $this->testDir
+        );
+
+        WP_Mock::userFunction('WP_CLI\Utils\normalize_path')
+               ->with(Mockery::type('string'))
+               ->andReturnUsing(function ($arg) {
+                   return $arg;
+               })
+               ->zeroOrMoreTimes();
+    }
+
+    protected function _after()
+    {
+        $this->filesystem->deleteDir($this->testDir);
     }
 }

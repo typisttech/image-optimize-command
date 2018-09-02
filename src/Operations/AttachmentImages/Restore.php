@@ -51,12 +51,20 @@ class Restore
         $this->logger = $logger;
     }
 
+    /**
+     * Override attachment full sized images with their `.original` versions.
+     *
+     * @param int|int[] ...$ids The attachment IDs.
+     *
+     * @return void
+     */
     public function execute(int ...$ids): void
     {
         $total = count($ids);
         $this->logger->section('Restoring full sized images for ' . $total . ' attachment(s)');
 
         $results = array_map(function (int $id): int {
+            // phpcs:ignore
             return $this->restore($id);
         }, $ids);
 
@@ -71,6 +79,13 @@ class Restore
         $this->logger->batchOperationResults('full sized image', 'restore', $total, $successes, $failures);
     }
 
+    /**
+     * Override an attachment full sized image with its `.original` version.
+     *
+     * @param int $id The attachment ID.
+     *
+     * @return int
+     */
     protected function restore(int $id): int
     {
         try {
@@ -97,6 +112,7 @@ class Restore
             $this->logger->info('Restored attachment ID: ' . $id);
 
             return static::SUCCESS;
+            // phpcs:ignore
         } catch (IOException $exception) {
             $this->logger->error('Failed to restore full sized image for attachment ID: ' . $id);
 

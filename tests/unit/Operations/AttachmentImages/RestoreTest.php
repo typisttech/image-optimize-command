@@ -29,36 +29,13 @@ class RestoreTest extends Unit
      */
     protected $testDir;
 
-    protected function _before()
-    {
-        $this->filesystem = $this->getModule('Filesystem');
-        $this->testDir = codecept_data_dir('tmp');
-
-        $this->filesystem->copyDir(
-            codecept_data_dir('images'),
-            $this->testDir
-        );
-
-        WP_Mock::userFunction('WP_CLI\Utils\normalize_path')
-               ->with(Mockery::type('string'))
-               ->andReturnUsing(function ($arg) {
-                   return $arg;
-               })
-               ->zeroOrMoreTimes();
-    }
-
-    protected function _after()
-    {
-        $this->filesystem->deleteDir($this->testDir);
-    }
-
     public function testRestoreSuccess()
     {
         $repo = Mockery::mock(AttachmentRepository::class);
         $repo->expects('getFullSizedPaths')
-            ->with(123)
-            ->andReturn([$this->testDir . '/restore-me.txt'])
-            ->once();
+             ->with(123)
+             ->andReturn([$this->testDir . '/restore-me.txt'])
+             ->once();
         $repo->expects('markAsNonOptimized')
              ->with(123)
              ->once();
@@ -148,5 +125,28 @@ class RestoreTest extends Unit
         $logger->shouldHaveReceived('batchOperationResults')
                ->with('full sized image', 'restore', 1, 0, 1)
                ->once();
+    }
+
+    protected function _before()
+    {
+        $this->filesystem = $this->getModule('Filesystem');
+        $this->testDir = codecept_data_dir('tmp');
+
+        $this->filesystem->copyDir(
+            codecept_data_dir('images'),
+            $this->testDir
+        );
+
+        WP_Mock::userFunction('WP_CLI\Utils\normalize_path')
+               ->with(Mockery::type('string'))
+               ->andReturnUsing(function ($arg) {
+                   return $arg;
+               })
+               ->zeroOrMoreTimes();
+    }
+
+    protected function _after()
+    {
+        $this->filesystem->deleteDir($this->testDir);
     }
 }

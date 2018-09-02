@@ -17,8 +17,8 @@ class AttachmentRepositoryTest extends Unit
     public function testMarkAsOptimized()
     {
         WP_Mock::userFunction(__NAMESPACE__ . '\add_post_meta')
-            ->with(111, '_typist_tech_image_optimized', true, true)
-            ->once();
+               ->with(111, '_typist_tech_image_optimized', true, true)
+               ->once();
         WP_Mock::userFunction(__NAMESPACE__ . '\add_post_meta')
                ->with(222, '_typist_tech_image_optimized', true, true)
                ->once();

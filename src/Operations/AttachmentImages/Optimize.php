@@ -65,6 +65,7 @@ class Optimize
         $this->logger->section('Optimizing images for ' . count($ids) . ' attachment(s)');
 
         $results = array_map(function (int $id): array {
+            // phpcs:ignore
             return $this->optimizeAttachment($id);
         }, $ids);
 
@@ -105,6 +106,7 @@ class Optimize
         }, $paths);
 
         $results = array_map(function (string $imagePath): int {
+            // phpcs:ignore
             return $this->optimizeImage($imagePath);
         }, $normalizedPaths);
 
@@ -135,6 +137,7 @@ class Optimize
                 return static::ERROR;
             }
 
+            // phpcs:ignore WordPress.VIP.FileSystemWritesDisallow.file_ops_is_writable
             if (! is_writable($path)) {
                 $this->logger->error('Image not writable - ' . $path);
 
@@ -144,6 +147,7 @@ class Optimize
             $this->optimizerChain->optimize($path);
 
             return static::SUCCESS;
+            // phpcs:ignore
         } catch (IOException $exception) {
             $this->logger->error('Failed to optimize ' . $path);
 

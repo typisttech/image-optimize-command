@@ -45,6 +45,13 @@ class Backup
         $this->logger = $logger;
     }
 
+    /**
+     * Duplicate attachment full sized images as backups.
+     *
+     * @param int|int[] ...$ids The attachment IDs.
+     *
+     * @return void
+     */
     public function execute(int ...$ids): void
     {
         $this->logger->section(

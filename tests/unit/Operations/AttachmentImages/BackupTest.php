@@ -19,25 +19,24 @@ class BackupTest extends Unit
 
     public function testSomeFeature()
     {
-
         $repo = Mockery::mock(AttachmentRepository::class);
         $repo->expects('getFullSizedPaths')
-            ->with(1, 2, 3)
-            ->andReturn([
-                '/my/path/1.png',
-                '/my/path/2.jpg',
-                '/my/path/3.jpeg',
-            ])
-            ->once();
+             ->with(1, 2, 3)
+             ->andReturn([
+                 '/my/path/1.png',
+                 '/my/path/2.jpg',
+                 '/my/path/3.jpeg',
+             ])
+             ->once();
 
         $backupOperation = Mockery::mock(BackupOperation::class);
         $backupOperation->expects('execute')
-             ->with(
-                 '/my/path/1.png',
-                 '/my/path/2.jpg',
-                 '/my/path/3.jpeg'
-             )
-             ->once();
+                        ->with(
+                            '/my/path/1.png',
+                            '/my/path/2.jpg',
+                            '/my/path/3.jpeg'
+                        )
+                        ->once();
 
         $logger = Mockery::spy(Logger::class);
 
