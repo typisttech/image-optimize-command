@@ -168,7 +168,7 @@ class Optimize
             case 0:
                 return [];
             case 1:
-                return $results;
+                return $results[0];
             default:
                 return array_merge(...$results);
         }
