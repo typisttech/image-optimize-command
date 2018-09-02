@@ -50,6 +50,11 @@ class AttachmentCommand
         $optimizeOperation->execute(...$ids);
     }
 
+    /**
+     * Creates an backup instance.
+     *
+     * @return Backup
+     */
     protected function createBackupOperation(AttachmentRepository $repo, LoggerInterface $logger): Backup
     {
         $fileSystem = new Filesystem();
@@ -58,6 +63,11 @@ class AttachmentCommand
         return new Backup($repo, $baseBackup, $logger);
     }
 
+    /**
+     * Creates an optimize instance.
+     *
+     * @return Optimize
+     */
     protected function createOptimizeOperation(AttachmentRepository $repo, LoggerInterface $logger): Optimize
     {
         $optimizerChain = OptimizerChainFactory::create();
