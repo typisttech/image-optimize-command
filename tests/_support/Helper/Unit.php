@@ -18,6 +18,7 @@ class Unit extends Module
     {
         WP_Mock::setUp();
     }
+
     public function _after(TestInterface $test)
     {
         WP_Mock::tearDown();

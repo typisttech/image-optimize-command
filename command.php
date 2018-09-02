@@ -4,14 +4,19 @@ declare(strict_types=1);
 
 namespace TypistTech\ImageOptimizeCommand;
 
+use TypistTech\ImageOptimizeCommand\CLI\Commands\AttachmentCommand;
+use TypistTech\ImageOptimizeCommand\CLI\Commands\BatchCommand;
+use TypistTech\ImageOptimizeCommand\CLI\Commands\BatchRestoreCommand;
+use TypistTech\ImageOptimizeCommand\CLI\Commands\CommandNamespace;
+use TypistTech\ImageOptimizeCommand\CLI\Commands\RestoreCommand;
 use WP_CLI;
 
 if (! class_exists('WP_CLI')) {
     return;
 }
 
-if (file_exists(__DIR__ . '/vendor/autoload.php')) {
-    require_once __DIR__ . '/vendor/autoload.php';
-}
-
-WP_CLI::add_command('image-optimize', __NAMESPACE__ . '\ImageOptimizeCommand');
+WP_CLI::add_command('image-optimize', CommandNamespace::class);
+WP_CLI::add_command('image-optimize attachment', AttachmentCommand::class);
+WP_CLI::add_command('image-optimize batch', BatchCommand::class);
+WP_CLI::add_command('image-optimize batch-restore', BatchRestoreCommand::class);
+WP_CLI::add_command('image-optimize restore', RestoreCommand::class);

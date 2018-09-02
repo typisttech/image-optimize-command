@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace TypistTech\ImageOptimizeCommand;
+namespace TypistTech\ImageOptimizeCommand\CLI;
 
-use Psr\Log\LoggerInterface;
+use TypistTech\ImageOptimizeCommand\LoggerInterface;
 use WP_CLI;
+use function WP_CLI\Utils\report_batch_operation_results;
 
 class Logger implements LoggerInterface
 {
@@ -17,7 +18,7 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function emergency($message, array $_context = [])
+    public function emergency($message, array $_context = []): void
     {
         WP_CLI::error($message, false);
     }
@@ -33,7 +34,7 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function alert($message, array $_context = [])
+    public function alert($message, array $_context = []): void
     {
         WP_CLI::error($message, false);
     }
@@ -48,7 +49,7 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function critical($message, array $_context = [])
+    public function critical($message, array $_context = []): void
     {
         WP_CLI::error($message, false);
     }
@@ -62,7 +63,7 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function error($message, array $_context = [])
+    public function error($message, array $_context = []): void
     {
         WP_CLI::error($message, false);
     }
@@ -78,7 +79,7 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function warning($message, array $_context = [])
+    public function warning($message, array $_context = []): void
     {
         WP_CLI::warning($message);
     }
@@ -91,9 +92,23 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function notice($message, array $_context = [])
+    public function notice($message, array $_context = []): void
     {
         WP_CLI::success($message);
+    }
+
+    /**
+     * Section header.
+     *
+     * @param string $title The section title.
+     *
+     * @return void
+     */
+    public function section($title): void
+    {
+        $this->info(
+            WP_CLI::colorize('%B===>%n ' . $title)
+        );
     }
 
     /**
@@ -106,7 +121,7 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function info($message, array $_context = [])
+    public function info($message, array $_context = []): void
     {
         WP_CLI::log($message);
     }
@@ -119,9 +134,9 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function debug($message, array $_context = [])
+    public function debug($message, array $_context = []): void
     {
-        WP_CLI::debug($message);
+        WP_CLI::debug($message, 'typist-tech-image-optimized-command');
     }
 
     /**
@@ -133,8 +148,31 @@ class Logger implements LoggerInterface
      *
      * @return void
      */
-    public function log($level, $message, array $_context = [])
+    public function log($level, $message, array $_context = []): void
     {
         WP_CLI::log('[' . $level . ']' . $message);
+    }
+
+    /**
+     * Report the results of the same operation against multiple resources.
+     *
+     * @param string       $noun      Resource being affected (e.g. plugin).
+     * @param string       $verb      Type of action happening to the noun (e.g. activate).
+     * @param integer      $total     Total number of resource being affected.
+     * @param integer      $successes Number of successful operations.
+     * @param integer      $failures  Number of failures.
+     * @param null|integer $skips     Optional. Number of skipped operations. Default null (don't show skips).
+     *
+     * @return void
+     */
+    public function batchOperationResults(
+        string $noun,
+        string $verb,
+        int $total,
+        int $successes,
+        int $failures,
+        ?int $skips = null
+    ): void {
+        report_batch_operation_results($noun, $verb, $total, $successes, $failures, $skips);
     }
 }
