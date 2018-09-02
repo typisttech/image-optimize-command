@@ -6,7 +6,7 @@ namespace TypistTech\ImageOptimizeCommand\Operations\AttachmentImages;
 
 use Codeception\Test\Unit;
 use Mockery;
-use TypistTech\ImageOptimizeCommand\Logger;
+use TypistTech\ImageOptimizeCommand\CLI\Logger;
 use TypistTech\ImageOptimizeCommand\Operations\Backup as BackupOperation;
 use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 

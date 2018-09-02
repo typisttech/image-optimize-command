@@ -6,7 +6,7 @@ namespace TypistTech\ImageOptimizeCommand\Operations\AttachmentImages;
 
 use Spatie\ImageOptimizer\OptimizerChain;
 use Symfony\Component\Filesystem\Exception\IOException;
-use TypistTech\ImageOptimizeCommand\Logger;
+use TypistTech\ImageOptimizeCommand\LoggerInterface;
 use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 use function WP_CLI\Utils\normalize_path;
 
@@ -21,7 +21,7 @@ class Optimize
     /**
      * The logger.
      *
-     * @var Logger
+     * @var LoggerInterface
      */
     protected $logger;
 
@@ -44,9 +44,9 @@ class Optimize
      *
      * @param AttachmentRepository $repo           The repo.
      * @param OptimizerChain       $optimizerChain The optimizer chain.
-     * @param Logger               $logger         The logger.
+     * @param LoggerInterface      $logger         The logger.
      */
-    public function __construct(AttachmentRepository $repo, OptimizerChain $optimizerChain, Logger $logger)
+    public function __construct(AttachmentRepository $repo, OptimizerChain $optimizerChain, LoggerInterface $logger)
     {
         $this->repo = $repo;
         $this->optimizerChain = $optimizerChain;

@@ -6,7 +6,7 @@ namespace TypistTech\ImageOptimizeCommand\Operations\AttachmentImages;
 
 use Symfony\Component\Filesystem\Exception\IOException;
 use Symfony\Component\Filesystem\Filesystem;
-use TypistTech\ImageOptimizeCommand\Logger;
+use TypistTech\ImageOptimizeCommand\LoggerInterface;
 use TypistTech\ImageOptimizeCommand\Operations\Backup;
 use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 use function WP_CLI\Utils\normalize_path;
@@ -19,7 +19,7 @@ class Restore
     /**
      * The logger.
      *
-     * @var Logger
+     * @var LoggerInterface
      */
     protected $logger;
 
@@ -42,9 +42,9 @@ class Restore
      *
      * @param AttachmentRepository $repo       The repo.
      * @param Filesystem           $filesystem The file system.
-     * @param Logger               $logger     The logger.
+     * @param LoggerInterface      $logger     The logger.
      */
-    public function __construct(AttachmentRepository $repo, Filesystem $filesystem, Logger $logger)
+    public function __construct(AttachmentRepository $repo, Filesystem $filesystem, LoggerInterface $logger)
     {
         $this->repo = $repo;
         $this->filesystem = $filesystem;

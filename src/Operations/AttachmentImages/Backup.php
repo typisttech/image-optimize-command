@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace TypistTech\ImageOptimizeCommand\Operations\AttachmentImages;
 
-use TypistTech\ImageOptimizeCommand\Logger;
+use TypistTech\ImageOptimizeCommand\LoggerInterface;
 use TypistTech\ImageOptimizeCommand\Operations\Backup as BaseBackup;
 use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 
@@ -13,7 +13,7 @@ class Backup
     /**
      * The logger.
      *
-     * @var Logger
+     * @var LoggerInterface
      */
     protected $logger;
 
@@ -36,9 +36,9 @@ class Backup
      *
      * @param AttachmentRepository $repo   The attachment repo.
      * @param BaseBackup           $backup The backup operation.
-     * @param Logger               $logger The logger.
+     * @param LoggerInterface      $logger The logger.
      */
-    public function __construct(AttachmentRepository $repo, BaseBackup $backup, Logger $logger)
+    public function __construct(AttachmentRepository $repo, BaseBackup $backup, LoggerInterface $logger)
     {
         $this->repo = $repo;
         $this->backup = $backup;

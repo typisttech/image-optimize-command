@@ -8,7 +8,7 @@ use Codeception\Module\Filesystem as FilesystemModule;
 use Codeception\Test\Unit;
 use Mockery;
 use Symfony\Component\Filesystem\Filesystem;
-use TypistTech\ImageOptimizeCommand\Logger;
+use TypistTech\ImageOptimizeCommand\CLI\Logger;
 use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 use WP_Mock;
 

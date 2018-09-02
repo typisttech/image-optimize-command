@@ -7,7 +7,7 @@ namespace TypistTech\ImageOptimizeCommand\Operations;
 use Codeception\Module\Filesystem as FilesystemModule;
 use Mockery;
 use Symfony\Component\Filesystem\Filesystem;
-use TypistTech\ImageOptimizeCommand\Logger;
+use TypistTech\ImageOptimizeCommand\CLI\Logger;
 use WP_Mock;
 
 class BackupTest extends \Codeception\Test\Unit

@@ -7,7 +7,7 @@ namespace TypistTech\ImageOptimizeCommand\Operations;
 use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 use Symfony\Component\Filesystem\Exception\IOException;
 use Symfony\Component\Filesystem\Filesystem;
-use TypistTech\ImageOptimizeCommand\Logger;
+use TypistTech\ImageOptimizeCommand\LoggerInterface;
 use function WP_CLI\Utils\normalize_path;
 
 class Backup
@@ -20,7 +20,7 @@ class Backup
     /**
      * The logger.
      *
-     * @var Logger
+     * @var LoggerInterface
      */
     protected $logger;
 
@@ -34,10 +34,10 @@ class Backup
     /**
      * Backup constructor.
      *
-     * @param Filesystem $filesystem The file system.
-     * @param Logger     $logger     The logger.
+     * @param Filesystem      $filesystem The file system.
+     * @param LoggerInterface $logger     The logger.
      */
-    public function __construct(Filesystem $filesystem, Logger $logger)
+    public function __construct(Filesystem $filesystem, LoggerInterface $logger)
     {
         $this->filesystem = $filesystem;
         $this->logger = $logger;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace TypistTech\ImageOptimizeCommand;
+namespace TypistTech\ImageOptimizeCommand\CLI;
 
-use Psr\Log\LoggerInterface;
+use TypistTech\ImageOptimizeCommand\LoggerInterface;
 use WP_CLI;
 use function WP_CLI\Utils\report_batch_operation_results;
 
@@ -162,6 +162,8 @@ class Logger implements LoggerInterface
      * @param integer      $successes Number of successful operations.
      * @param integer      $failures  Number of failures.
      * @param null|integer $skips     Optional. Number of skipped operations. Default null (don't show skips).
+     *
+     * @return void
      */
     public function batchOperationResults(
         string $noun,
