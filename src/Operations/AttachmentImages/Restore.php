@@ -63,20 +63,12 @@ class Restore
         $total = count($ids);
         $this->logger->section('Restoring full sized images for ' . $total . ' attachment(s)');
 
-        $results = array_map(function (int $id): int {
+        array_map(function (int $id): void {
             // phpcs:ignore
-            return $this->restore($id);
+            $this->restore($id);
         }, $ids);
 
-        $successes = count(array_filter($results, function (int $result): bool {
-            return static::SUCCESS === $result;
-        }));
-
-        $failures = count(array_filter($results, function (int $result): bool {
-            return static::ERROR === $result;
-        }));
-
-        $this->logger->batchOperationResults('full sized image', 'restore', $total, $successes, $failures);
+        $this->logger->info('Finished');
     }
 
     /**
@@ -84,9 +76,9 @@ class Restore
      *
      * @param int $id The attachment ID.
      *
-     * @return int
+     * @return void
      */
-    protected function restore(int $id): int
+    protected function restore(int $id): void
     {
         try {
             $this->logger->debug('Restoring attachment ID: ' . $id);
@@ -96,8 +88,7 @@ class Restore
 
             if (empty($path)) {
                 $this->logger->error('Full sized image not found for attachment ID: ' . $id);
-
-                return static::ERROR;
+                return;
             }
 
             $path = normalize_path($path);
@@ -111,12 +102,9 @@ class Restore
             $this->repo->markAsNonOptimized($id);
             $this->logger->notice('Restored attachment ID: ' . $id);
 
-            return static::SUCCESS;
             // phpcs:ignore
         } catch (IOException $exception) {
             $this->logger->error('Failed to restore full sized image for attachment ID: ' . $id);
-
-            return static::ERROR;
         }
     }
 }
