@@ -57,24 +57,12 @@ class Backup
             return normalize_path($path);
         }, $paths);
 
-        $results = array_map(function (string $path): int {
+        array_map(function (string $path): void {
             // phpcs:ignore
-            return $this->backup($path);
+            $this->backup($path);
         }, $normalizedPaths);
 
-        $successes = count(array_filter($results, function (int $result): bool {
-            return static::SUCCESS === $result;
-        }));
-
-        $failures = count(array_filter($results, function (int $result): bool {
-            return static::ERROR === $result;
-        }));
-
-        $skips = count(array_filter($results, function (int $result): bool {
-            return static::SKIP === $result;
-        }));
-
-        $this->logger->batchOperationResults('full sized image', 'backup', $total, $successes, $failures, $skips);
+        $this->logger->info('Finished');
     }
 
     /**
@@ -82,9 +70,9 @@ class Backup
      *
      * @param string $path Path to the file to be backed up.
      *
-     * @return int
+     * @return void
      */
-    protected function backup(string $path): int
+    protected function backup(string $path): void
     {
         try {
             $this->logger->debug('Backing up full sized image - ' . $path);
@@ -93,18 +81,15 @@ class Backup
             if ($isBackupExists) {
                 $this->logger->debug('Skip: Backup already exists - ' . $path);
 
-                return static::SKIP;
+                return;
             }
 
             $this->filesystem->copy($path, $path . static::ORIGINAL_EXTENSION);
             $this->logger->notice('Backed up full sized image - ' . $path);
 
-            return static::SUCCESS;
             // phpcs:ignore
         } catch (IOException | FileNotFoundException $exception) {
             $this->logger->error('Failed to backup ' . $path);
-
-            return static::ERROR;
         }
     }
 }

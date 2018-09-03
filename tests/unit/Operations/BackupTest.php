@@ -43,9 +43,6 @@ class BackupTest extends \Codeception\Test\Unit
         $logger->shouldHaveReceived('section')
                ->with('Backing up 1 full sized image(s)')
                ->once();
-        $logger->shouldHaveReceived('batchOperationResults')
-               ->with('full sized image', 'backup', 1, 1, 0, 0)
-               ->once();
     }
 
     public function testBackupOriginalNotExist()
@@ -64,9 +61,6 @@ class BackupTest extends \Codeception\Test\Unit
         $logger->shouldHaveReceived('section')
                ->with('Backing up 1 full sized image(s)')
                ->once();
-        $logger->shouldHaveReceived('batchOperationResults')
-               ->with('full sized image', 'backup', 1, 0, 1, 0)
-               ->once();
     }
 
     public function testBackupAlreadyExist()
@@ -84,9 +78,6 @@ class BackupTest extends \Codeception\Test\Unit
         $this->filesystem->seeFileFound('bot.png.original', $this->testDir);
         $logger->shouldHaveReceived('section')
                ->with('Backing up 1 full sized image(s)')
-               ->once();
-        $logger->shouldHaveReceived('batchOperationResults')
-               ->with('full sized image', 'backup', 1, 0, 0, 1)
                ->once();
     }
 
@@ -113,9 +104,6 @@ class BackupTest extends \Codeception\Test\Unit
         $this->filesystem->seeFileFound('tangrufus.jpeg.original', $this->testDir);
         $logger->shouldHaveReceived('section')
                ->with('Backing up 3 full sized image(s)')
-               ->once();
-        $logger->shouldHaveReceived('batchOperationResults')
-               ->with('full sized image', 'backup', 3, 1, 1, 1)
                ->once();
     }
 

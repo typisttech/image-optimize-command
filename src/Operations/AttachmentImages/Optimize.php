@@ -10,14 +10,8 @@ use TypistTech\ImageOptimizeCommand\LoggerInterface;
 use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 use function WP_CLI\Utils\normalize_path;
 
-/**
- * TODO: Refactor this class.
- */
 class Optimize
 {
-    protected const SUCCESS = 0;
-    protected const ERROR = 1;
-
     /**
      * The logger.
      *
@@ -77,28 +71,12 @@ class Optimize
         });
         $ids = array_filter($ids);
 
-        $results = array_map(function (int $id): array {
+        array_map(function (int $id): void {
             // phpcs:ignore
-            return $this->optimizeAttachment($id);
+            $this->optimizeAttachment($id);
         }, $ids);
 
-        $results = $this->flattenResults($results);
-
-        $successes = count(array_filter($results, function (int $result): bool {
-            return static::SUCCESS === $result;
-        }));
-
-        $failures = count(array_filter($results, function (int $result): bool {
-            return static::ERROR === $result;
-        }));
-
-        $this->logger->batchOperationResults(
-            'image',
-            'optimize',
-            count($results),
-            $successes,
-            $failures
-        );
+        $this->logger->info('Finished');
     }
 
     /**
@@ -106,9 +84,9 @@ class Optimize
      *
      * @param int $id The attachment ID.
      *
-     * @return int[]
+     * @return void
      */
-    protected function optimizeAttachment(int $id): array
+    protected function optimizeAttachment(int $id): void
     {
         $this->logger->debug('Optimizing images of attachment ID: ' . $id);
 
@@ -118,18 +96,16 @@ class Optimize
             return normalize_path($path);
         }, $paths);
 
-        $results = array_map(function (string $imagePath): int {
+        $results = array_map(function (string $imagePath): bool {
             // phpcs:ignore
             return $this->optimizeImage($imagePath);
         }, $normalizedPaths);
 
-        if (in_array(static::SUCCESS, $results, true)) {
+        if (in_array(true, $results, true)) {
             $this->logger->debug('Marking attachment ID: ' . $id . ' as optimized.');
             $this->repo->markAsOptimized($id);
             $this->logger->notice('Optimized images of attachment ID: ' . $id);
         }
-
-        return $results;
     }
 
     /**
@@ -137,9 +113,9 @@ class Optimize
      *
      * @param string $path Path to the image.
      *
-     * @return int
+     * @return bool
      */
-    protected function optimizeImage(string $path): int
+    protected function optimizeImage(string $path): bool
     {
         try {
             $this->logger->debug('Optimizing image - ' . $path);
@@ -147,43 +123,24 @@ class Optimize
             if (! is_readable($path)) {
                 $this->logger->error('Image not readable - ' . $path);
 
-                return static::ERROR;
+                return false;
             }
 
             // phpcs:ignore WordPress.VIP.FileSystemWritesDisallow.file_ops_is_writable
             if (! is_writable($path)) {
                 $this->logger->error('Image not writable - ' . $path);
 
-                return static::ERROR;
+                return false;
             }
 
             $this->optimizerChain->optimize($path);
 
-            return static::SUCCESS;
+            return true;
             // phpcs:ignore
         } catch (IOException $exception) {
             $this->logger->error('Failed to optimize ' . $path);
 
-            return static::ERROR;
-        }
-    }
-
-    /**
-     * Flatten result arrays.
-     *
-     * @param array $results Array of result arrays.
-     *
-     * @return int[]
-     */
-    protected function flattenResults(array $results): array
-    {
-        switch (count($results)) {
-            case 0:
-                return [];
-            case 1:
-                return $results[0];
-            default:
-                return array_merge(...$results);
+            return false;
         }
     }
 }

@@ -152,27 +152,4 @@ class Logger implements LoggerInterface
     {
         WP_CLI::log('[' . $level . ']' . $message);
     }
-
-    /**
-     * Report the results of the same operation against multiple resources.
-     *
-     * @param string       $noun      Resource being affected (e.g. plugin).
-     * @param string       $verb      Type of action happening to the noun (e.g. activate).
-     * @param integer      $total     Total number of resource being affected.
-     * @param integer      $successes Number of successful operations.
-     * @param integer      $failures  Number of failures.
-     * @param null|integer $skips     Optional. Number of skipped operations. Default null (don't show skips).
-     *
-     * @return void
-     */
-    public function batchOperationResults(
-        string $noun,
-        string $verb,
-        int $total,
-        int $successes,
-        int $failures,
-        ?int $skips = null
-    ): void {
-        report_batch_operation_results($noun, $verb, $total, $successes, $failures, $skips);
-    }
 }

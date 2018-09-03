@@ -53,9 +53,6 @@ class RestoreTest extends Unit
         $logger->shouldHaveReceived('section')
                ->with('Restoring full sized images for 1 attachment(s)')
                ->once();
-        $logger->shouldHaveReceived('batchOperationResults')
-               ->with('full sized image', 'restore', 1, 1, 0)
-               ->once();
 
         $this->filesystem->seeFileFound('restore-me.txt', $this->testDir);
         $this->filesystem->dontSeeFileFound('restore-me.txt.original', $this->testDir);
@@ -88,9 +85,6 @@ class RestoreTest extends Unit
         $logger->shouldHaveReceived('section')
                ->with('Restoring full sized images for 1 attachment(s)')
                ->once();
-        $logger->shouldHaveReceived('batchOperationResults')
-               ->with('full sized image', 'restore', 1, 0, 1)
-               ->once();
 
         $this->filesystem->dontSeeFileFound('not-exist.png', $this->testDir);
         $this->filesystem->dontSeeFileFound('not-exist.png.original', $this->testDir);
@@ -121,9 +115,6 @@ class RestoreTest extends Unit
                ->once();
         $logger->shouldHaveReceived('error')
                ->with('Full sized image not found for attachment ID: 123')
-               ->once();
-        $logger->shouldHaveReceived('batchOperationResults')
-               ->with('full sized image', 'restore', 1, 0, 1)
                ->once();
     }
 

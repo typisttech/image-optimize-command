@@ -31,9 +31,9 @@ class ResetCommand
         $logger = LoggerFactory::create();
 
         $logger->section('Going to reset all attachment changes');
-        $logger->info('    1. find all optimized attachments');
-        $logger->info('    2. drop all meta flags (mark as non-optimized)');
-        $logger->info('    3. restore the original full sized images');
+        $logger->info('    * find all optimized attachments');
+        $logger->info('    * restore the original full sized images');
+        $logger->info('    * drop all meta flags (mark as non-optimized)');
         $logger->warning('You have to regenerate the all thumbnails afterwards');
         $logger->warning('by running the following command:');
         $logger->warning('$ wp media regenerate');
@@ -45,10 +45,6 @@ class ResetCommand
         $ids = $repo->takeOptimized(PHP_INT_MAX);
         $logger->notice(count($ids) . ' optimized attachment(s) found.');
 
-        $logger->section("Dropping all optimized attachments' meta flags");
-        $repo->markAllAsUnoptimized();
-        $logger->notice('All meta flags dropped.');
-
         $logger->section('Restoring the original full sized images');
         $restoreOperation = new Restore(
             $repo,
@@ -56,5 +52,9 @@ class ResetCommand
             $logger
         );
         $restoreOperation->execute(...$ids);
+
+        $logger->section("Dropping all optimized attachments' meta flags");
+        $repo->markAllAsUnoptimized();
+        $logger->notice('All meta flags dropped.');
     }
 }
