@@ -10,6 +10,7 @@ use TypistTech\ImageOptimizeCommand\LoggerInterface;
 use TypistTech\ImageOptimizeCommand\Operations\AttachmentImages\Backup;
 use TypistTech\ImageOptimizeCommand\Operations\AttachmentImages\Optimize;
 use TypistTech\ImageOptimizeCommand\Operations\Backup as BaseBackup;
+use TypistTech\ImageOptimizeCommand\Operations\Optimize as BaseOptimize;
 use TypistTech\ImageOptimizeCommand\OptimizerChainFactory;
 use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 
@@ -41,12 +42,13 @@ class AttachmentCommand
         $ids = array_filter($ids);
 
         $repo = new AttachmentRepository();
+        $fileSystem = new Filesystem();
         $logger = LoggerFactory::create();
 
-        $backupOperation = $this->createBackupOperation($repo, $logger);
-        $backupOperation->execute(...$ids);
+        $backupOperation = $this->createBackupOperation($repo, $fileSystem, $logger);
+        $optimizeOperation = $this->createOptimizeOperation($repo, $fileSystem, $logger);
 
-        $optimizeOperation = $this->createOptimizeOperation($repo, $logger);
+        $backupOperation->execute(...$ids);
         $optimizeOperation->execute(...$ids);
     }
 
@@ -55,10 +57,12 @@ class AttachmentCommand
      *
      * @return Backup
      */
-    protected function createBackupOperation(AttachmentRepository $repo, LoggerInterface $logger): Backup
-    {
-        $fileSystem = new Filesystem();
-        $baseBackup = new BaseBackup($fileSystem, $logger);
+    protected function createBackupOperation(
+        AttachmentRepository $repo,
+        Filesystem $filesystem,
+        LoggerInterface $logger
+    ): Backup {
+        $baseBackup = new BaseBackup($filesystem, $logger);
 
         return new Backup($repo, $baseBackup, $logger);
     }
@@ -68,10 +72,14 @@ class AttachmentCommand
      *
      * @return Optimize
      */
-    protected function createOptimizeOperation(AttachmentRepository $repo, LoggerInterface $logger): Optimize
-    {
+    protected function createOptimizeOperation(
+        AttachmentRepository $repo,
+        Filesystem $filesystem,
+        LoggerInterface $logger
+    ): Optimize {
         $optimizerChain = OptimizerChainFactory::create();
+        $baseOptimize = new BaseOptimize($optimizerChain, $filesystem, $logger);
 
-        return new Optimize($repo, $optimizerChain, $logger);
+        return new Optimize($repo, $baseOptimize, $logger);
     }
 }
