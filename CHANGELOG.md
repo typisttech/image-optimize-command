@@ -1,6 +1,18 @@
 # Change Log
 
-## [0.1.2](https://github.com/TypistTech/image-optimize-command/tree/0.1.2) (2018-04-30)
+## [0.2.0](https://github.com/TypistTech/image-optimize-command/tree/0.2.0) (2018-09-03)
+[Full Changelog](https://github.com/TypistTech/image-optimize-command/compare/0.1.2...0.2.0)
+
+**Merged pull requests:**
+
+- Update readme [\#25](https://github.com/TypistTech/image-optimize-command/pull/25) ([TangRufus](https://github.com/TangRufus))
+- Replace `batch-restore` with `reset` [\#24](https://github.com/TypistTech/image-optimize-command/pull/24) ([TangRufus](https://github.com/TangRufus))
+- v0.2.0 rewrite [\#23](https://github.com/TypistTech/image-optimize-command/pull/23) ([TangRufus](https://github.com/TangRufus))
+- Update test setup [\#22](https://github.com/TypistTech/image-optimize-command/pull/22) ([TangRufus](https://github.com/TangRufus))
+- `Logger`: Do not halt the command when error or above logged [\#21](https://github.com/TypistTech/image-optimize-command/pull/21) ([TangRufus](https://github.com/TangRufus))
+- Update coding standards; Enable PrettyCI [\#20](https://github.com/TypistTech/image-optimize-command/pull/20) ([TangRufus](https://github.com/TangRufus))
+
+## [0.1.2](https://github.com/TypistTech/image-optimize-command/tree/0.1.2) (2018-04-29)
 [Full Changelog](https://github.com/TypistTech/image-optimize-command/compare/0.1.1...0.1.2)
 
 **Closed issues:**
@@ -9,6 +21,7 @@
 
 **Merged pull requests:**
 
+- Version bump 0.1.2 [\#17](https://github.com/TypistTech/image-optimize-command/pull/17) ([TangRufus](https://github.com/TangRufus))
 - Fix: Enforce type cast on `--limit` [\#16](https://github.com/TypistTech/image-optimize-command/pull/16) ([TangRufus](https://github.com/TangRufus))
 - Docs: Clarify boolean flags and fix typo [\#14](https://github.com/TypistTech/image-optimize-command/pull/14) ([TangRufus](https://github.com/TangRufus))
 - Add missing type hint [\#13](https://github.com/TypistTech/image-optimize-command/pull/13) ([TangRufus](https://github.com/TangRufus))
