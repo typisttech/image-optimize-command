@@ -12,9 +12,6 @@ use function WP_CLI\Utils\normalize_path;
 
 class Backup
 {
-    protected const SUCCESS = 0;
-    protected const ERROR = 1;
-    protected const SKIP = 2;
     public const ORIGINAL_EXTENSION = '.original';
 
     /**

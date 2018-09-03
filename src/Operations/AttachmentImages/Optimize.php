@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace TypistTech\ImageOptimizeCommand\Operations\AttachmentImages;
 
-use Spatie\ImageOptimizer\OptimizerChain;
-use Symfony\Component\Filesystem\Exception\IOException;
 use TypistTech\ImageOptimizeCommand\LoggerInterface;
+use TypistTech\ImageOptimizeCommand\Operations\Optimize as BaseOptimize;
 use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
-use function WP_CLI\Utils\normalize_path;
 
 class Optimize
 {
@@ -27,30 +25,30 @@ class Optimize
     protected $repo;
 
     /**
-     * The optimizer chain.
+     * The optimizer operation.
      *
-     * @var OptimizerChain
+     * @var BaseOptimize
      */
-    protected $optimizerChain;
+    protected $optimize;
 
     /**
      * Optimize constructor.
      *
-     * @param AttachmentRepository $repo           The repo.
-     * @param OptimizerChain       $optimizerChain The optimizer chain.
-     * @param LoggerInterface      $logger         The logger.
+     * @param AttachmentRepository $repo     The repo.
+     * @param BaseOptimize         $optimize The optimizer operation.
+     * @param LoggerInterface      $logger   The logger.
      */
-    public function __construct(AttachmentRepository $repo, OptimizerChain $optimizerChain, LoggerInterface $logger)
+    public function __construct(AttachmentRepository $repo, BaseOptimize $optimize, LoggerInterface $logger)
     {
         $this->repo = $repo;
-        $this->optimizerChain = $optimizerChain;
+        $this->optimize = $optimize;
         $this->logger = $logger;
     }
 
     /**
      * Optimize images of attachments.
      *
-     * @param int ...$ids The attachment IDs.
+     * @param int|int[] ...$ids The attachment IDs.
      *
      * @return void
      */
@@ -58,25 +56,37 @@ class Optimize
     {
         $this->logger->section('Optimizing images for ' . count($ids) . ' attachment(s)');
 
-        $ids = array_filter($ids, function (int $id): bool {
+        $nonOptimizedIds = array_filter($ids, function (int $id): bool {
             // phpcs:ignore
-            $isOptimized = $this->repo->isOptimized($id);
-
-            if ($isOptimized) {
-                // phpcs:ignore
-                $this->logger->warning('Skip: Attachment already optimized - ID: ' . $id);
-            }
-
-            return ! $isOptimized;
+            return ! $this->isOptimized($id);
         });
-        $ids = array_filter($ids);
 
         array_map(function (int $id): void {
             // phpcs:ignore
             $this->optimizeAttachment($id);
-        }, $ids);
+        }, $nonOptimizedIds);
 
         $this->logger->info('Finished');
+    }
+
+    /**
+     * Whether the attachment is optimized.
+     * Log warning if already optimized.
+     *
+     * @param int $id The attachment ID.
+     *
+     * @return bool
+     */
+    protected function isOptimized(int $id): bool
+    {
+        if ($this->repo->isOptimized($id)) {
+            // phpcs:ignore
+            $this->logger->warning('Skip: Attachment already optimized - ID: ' . $id);
+
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -88,59 +98,12 @@ class Optimize
      */
     protected function optimizeAttachment(int $id): void
     {
-        $this->logger->debug('Optimizing images of attachment ID: ' . $id);
+        $this->logger->section('Optimizing images of attachment ID: ' . $id);
 
         $paths = $this->repo->getPaths($id);
+        $this->optimize->execute(...$paths);
 
-        $normalizedPaths = array_map(function (string $path): string {
-            return normalize_path($path);
-        }, $paths);
-
-        $results = array_map(function (string $imagePath): bool {
-            // phpcs:ignore
-            return $this->optimizeImage($imagePath);
-        }, $normalizedPaths);
-
-        if (in_array(true, $results, true)) {
-            $this->logger->debug('Marking attachment ID: ' . $id . ' as optimized.');
-            $this->repo->markAsOptimized($id);
-            $this->logger->notice('Optimized images of attachment ID: ' . $id);
-        }
-    }
-
-    /**
-     * Optimize an image.
-     *
-     * @param string $path Path to the image.
-     *
-     * @return bool
-     */
-    protected function optimizeImage(string $path): bool
-    {
-        try {
-            $this->logger->debug('Optimizing image - ' . $path);
-
-            if (! is_readable($path)) {
-                $this->logger->error('Image not readable - ' . $path);
-
-                return false;
-            }
-
-            // phpcs:ignore WordPress.VIP.FileSystemWritesDisallow.file_ops_is_writable
-            if (! is_writable($path)) {
-                $this->logger->error('Image not writable - ' . $path);
-
-                return false;
-            }
-
-            $this->optimizerChain->optimize($path);
-
-            return true;
-            // phpcs:ignore
-        } catch (IOException $exception) {
-            $this->logger->error('Failed to optimize ' . $path);
-
-            return false;
-        }
+        $this->repo->markAsOptimized($id);
+        $this->logger->info('Marked attachment ID: ' . $id . ' as optimized.');
     }
 }

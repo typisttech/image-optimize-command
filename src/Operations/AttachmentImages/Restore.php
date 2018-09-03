@@ -13,9 +13,6 @@ use function WP_CLI\Utils\normalize_path;
 
 class Restore
 {
-    protected const SUCCESS = 0;
-    protected const ERROR = 1;
-
     /**
      * The logger.
      *
