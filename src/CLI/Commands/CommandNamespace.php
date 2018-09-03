@@ -17,11 +17,11 @@ use WP_CLI\Dispatcher\CommandNamespace as BaseCommandNamespace;
  *     # Optimize certain number of attachments
  *     $ wp image-optimize batch --limit=20
  *
- *     # Restore the full sized images of certain number of attachments
- *     $ wp image-optimize batch-restore --limit=20
- *
  *     # Restore the full sized images of specific attachments.
  *     $ wp image-optimize restore 123 223 323
+ *
+ *     # Restore all full sized images and drop all meta flags
+ *     $ wp image-optimize reset
  */
 class CommandNamespace extends BaseCommandNamespace
 {
