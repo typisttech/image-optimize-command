@@ -1,10 +1,24 @@
 # Change Log
 
-## [0.2.0](https://github.com/TypistTech/image-optimize-command/tree/0.2.0) (2018-09-03)
-[Full Changelog](https://github.com/TypistTech/image-optimize-command/compare/0.1.2...0.2.0)
+## [0.3.0](https://github.com/TypistTech/image-optimize-command/tree/0.3.0) (2018-09-05)
+[Full Changelog](https://github.com/TypistTech/image-optimize-command/compare/0.2.0...0.3.0)
 
 **Merged pull requests:**
 
+- Add `find` command and its shortcuts [\#29](https://github.com/TypistTech/image-optimize-command/pull/29) ([TangRufus](https://github.com/TangRufus))
+- Extract `Operations\Optimize` [\#28](https://github.com/TypistTech/image-optimize-command/pull/28) ([TangRufus](https://github.com/TangRufus))
+- Remove `LoggerInterface::batchOperationResults` [\#27](https://github.com/TypistTech/image-optimize-command/pull/27) ([TangRufus](https://github.com/TangRufus))
+
+## [0.2.0](https://github.com/TypistTech/image-optimize-command/tree/0.2.0) (2018-09-03)
+[Full Changelog](https://github.com/TypistTech/image-optimize-command/compare/0.1.2...0.2.0)
+
+**Closed issues:**
+
+- Issue with wp-cli 2.0.1 [\#19](https://github.com/TypistTech/image-optimize-command/issues/19)
+
+**Merged pull requests:**
+
+- Version bump 0.2.0 [\#26](https://github.com/TypistTech/image-optimize-command/pull/26) ([TangRufus](https://github.com/TangRufus))
 - Update readme [\#25](https://github.com/TypistTech/image-optimize-command/pull/25) ([TangRufus](https://github.com/TangRufus))
 - Replace `batch-restore` with `reset` [\#24](https://github.com/TypistTech/image-optimize-command/pull/24) ([TangRufus](https://github.com/TangRufus))
 - v0.2.0 rewrite [\#23](https://github.com/TypistTech/image-optimize-command/pull/23) ([TangRufus](https://github.com/TangRufus))
