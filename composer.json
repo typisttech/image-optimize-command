@@ -38,6 +38,9 @@
         "roave/security-advisories": "dev-master",
         "wp-coding-standards/wpcs": "^1.0"
     },
+    "suggest": {
+        "wp-cli/media-command": "Regenerate thumbnails"
+    },
     "config": {
         "sort-packages": true
     },
