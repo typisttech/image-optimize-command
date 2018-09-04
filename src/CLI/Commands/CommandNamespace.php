@@ -37,6 +37,9 @@ use WP_CLI\Dispatcher\CommandNamespace as BaseCommandNamespace;
  *
  *     # Find and optimize images under wp-admin.
  *     $ wp image-optimize wp-admin
+ *
+ *     # Find and optimize images under wp-includes.
+ *     $ wp image-optimize wp-includes
  */
 class CommandNamespace extends BaseCommandNamespace
 {

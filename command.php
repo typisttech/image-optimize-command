@@ -14,6 +14,7 @@ use TypistTech\ImageOptimizeCommand\CLI\Commands\ResetCommand;
 use TypistTech\ImageOptimizeCommand\CLI\Commands\RestoreCommand;
 use TypistTech\ImageOptimizeCommand\CLI\Commands\ThemesCommand;
 use TypistTech\ImageOptimizeCommand\CLI\Commands\WPAdminCommand;
+use TypistTech\ImageOptimizeCommand\CLI\Commands\WPIncludesCommand;
 use WP_CLI;
 
 if (! class_exists('WP_CLI')) {
@@ -33,3 +34,4 @@ WP_CLI::add_command('image-optimize wp-admin', WPAdminCommand::class);
 WP_CLI::add_command('image-optimize plugins', PluginsCommand::class);
 WP_CLI::add_command('image-optimize mu-plugins', MUPluginsCommand::class);
 WP_CLI::add_command('image-optimize themes', ThemesCommand::class);
+WP_CLI::add_command('image-optimize wp-includes', WPIncludesCommand::class);
