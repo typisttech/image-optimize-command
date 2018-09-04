@@ -5,7 +5,6 @@ vendor/
 *.zip
 *.tar.gz
 *.swp
-*.txt
 *.log
 composer.lock
 
