@@ -10,6 +10,7 @@ use TypistTech\ImageOptimizeCommand\CLI\Commands\CommandNamespace;
 use TypistTech\ImageOptimizeCommand\CLI\Commands\FindCommand;
 use TypistTech\ImageOptimizeCommand\CLI\Commands\ResetCommand;
 use TypistTech\ImageOptimizeCommand\CLI\Commands\RestoreCommand;
+use TypistTech\ImageOptimizeCommand\CLI\Commands\WPAdminCommand;
 use WP_CLI;
 
 if (! class_exists('WP_CLI')) {
@@ -25,3 +26,4 @@ WP_CLI::add_command('image-optimize restore', RestoreCommand::class);
 WP_CLI::add_command('image-optimize reset', ResetCommand::class);
 
 WP_CLI::add_command('image-optimize find', FindCommand::class);
+WP_CLI::add_command('image-optimize wp-admin', WPAdminCommand::class);
