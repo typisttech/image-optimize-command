@@ -28,7 +28,7 @@ class FindTest extends Unit
      */
     protected $testDir;
 
-    public function testFind()
+    public function testFindSuccess()
     {
         $finder = new Finder();
         $logger = Mockery::spy(LoggerInterface::class);
@@ -49,6 +49,17 @@ class FindTest extends Unit
         $this->assertSame($expected, $actual);
     }
 
+    public function testFindNotExistDir()
+    {
+        $finder = new Finder();
+        $logger = Mockery::spy(LoggerInterface::class);
+        $find = new Find($finder, $logger);
+
+        $actual = $find->execute('/not/exist', 'png', 'txt', 'original', 'xyz');
+
+        $this->assertSame([], $actual);
+    }
+
     protected function _before()
     {
         $this->filesystem = $this->getModule('Filesystem');
@@ -60,11 +71,11 @@ class FindTest extends Unit
         );
 
         WP_Mock::userFunction('WP_CLI\Utils\normalize_path')
-            ->with(Mockery::type('string'))
-            ->andReturnUsing(function ($arg) {
-                return $arg;
-            })
-            ->zeroOrMoreTimes();
+               ->with(Mockery::type('string'))
+               ->andReturnUsing(function ($arg) {
+                   return $arg;
+               })
+               ->zeroOrMoreTimes();
     }
 
     protected function _after()

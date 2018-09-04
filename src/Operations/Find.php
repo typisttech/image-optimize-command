@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TypistTech\ImageOptimizeCommand\Operations;
 
+use InvalidArgumentException;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use TypistTech\ImageOptimizeCommand\LoggerInterface;
@@ -47,18 +48,43 @@ class Find
      */
     public function execute(string $directory, string ...$extensions): array
     {
+        $this->logger->section('Finding images');
+
         $directory = normalize_path($directory);
         $pattern = sprintf(
             '/\.(%1$s)$/',
             implode('|', $extensions)
         );
 
-        $files = $this->finder->files()
-            ->in($directory)
-            ->name($pattern);
+        $this->logger->info('Directory: ' . $directory);
+        $this->logger->info('Pattern: ' . $pattern);
 
-        return array_map(function (SplFileInfo $file): string {
-            return $file->getRealPath();
-        }, iterator_to_array($files));
+        $files = $this->find($directory, $pattern);
+        $this->logger->notice(count($files) . 'image(s) found.');
+
+        return array_values($files);
+    }
+
+    /**
+     * Find files under a directory with specific name pattern.
+     *
+     * @param string $directory Normalize_directory path.
+     * @param string $pattern   File name regex.
+     *
+     * @return string[]
+     */
+    protected function find(string $directory, string $pattern): array
+    {
+        try {
+            $files = $this->finder->files()->in($directory)->name($pattern);
+
+            return array_map(function (SplFileInfo $file): string {
+                return $file->getRealPath();
+            }, iterator_to_array($files));
+
+            // phpcs:ignore
+        } catch (InvalidArgumentException $exception) {
+            return [];
+        }
     }
 }

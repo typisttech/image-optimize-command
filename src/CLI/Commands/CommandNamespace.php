@@ -22,6 +22,9 @@ use WP_CLI\Dispatcher\CommandNamespace as BaseCommandNamespace;
  *
  *     # Restore all full sized images and drop all meta flags
  *     $ wp image-optimize reset
+ *
+ *     # Find and optimize images under a given directory.
+ *     $ wp image-optimize find /path/to/my/directory
  */
 class CommandNamespace extends BaseCommandNamespace
 {
