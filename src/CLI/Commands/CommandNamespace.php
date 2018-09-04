@@ -32,6 +32,9 @@ use WP_CLI\Dispatcher\CommandNamespace as BaseCommandNamespace;
  *     # Find and optimize images under wp-content/plugins.
  *     $ wp image-optimize plugins
  *
+ *     # Find and optimize images under wp-content/themes
+ *     $ wp image-optimize themes
+ *
  *     # Find and optimize images under wp-admin.
  *     $ wp image-optimize wp-admin
  */
