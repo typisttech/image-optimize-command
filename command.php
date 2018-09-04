@@ -30,8 +30,8 @@ WP_CLI::add_command('image-optimize restore', RestoreCommand::class);
 WP_CLI::add_command('image-optimize reset', ResetCommand::class);
 
 WP_CLI::add_command('image-optimize find', FindCommand::class);
-WP_CLI::add_command('image-optimize wp-admin', WPAdminCommand::class);
-WP_CLI::add_command('image-optimize plugins', PluginsCommand::class);
 WP_CLI::add_command('image-optimize mu-plugins', MUPluginsCommand::class);
+WP_CLI::add_command('image-optimize plugins', PluginsCommand::class);
 WP_CLI::add_command('image-optimize themes', ThemesCommand::class);
+WP_CLI::add_command('image-optimize wp-admin', WPAdminCommand::class);
 WP_CLI::add_command('image-optimize wp-includes', WPIncludesCommand::class);

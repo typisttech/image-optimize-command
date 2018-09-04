@@ -6,7 +6,6 @@ namespace TypistTech\ImageOptimizeCommand\CLI;
 
 use TypistTech\ImageOptimizeCommand\LoggerInterface;
 use WP_CLI;
-use function WP_CLI\Utils\report_batch_operation_results;
 
 class Logger implements LoggerInterface
 {

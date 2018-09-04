@@ -3,12 +3,6 @@ declare(strict_types=1);
 
 namespace TypistTech\ImageOptimizeCommand\CLI\Commands;
 
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Finder\Finder;
-use TypistTech\ImageOptimizeCommand\CLI\LoggerFactory;
-use TypistTech\ImageOptimizeCommand\Operations\Find;
-use TypistTech\ImageOptimizeCommand\Operations\Optimize;
-use TypistTech\ImageOptimizeCommand\OptimizerChainFactory;
 use WP_CLI;
 
 class WPIncludesCommand
