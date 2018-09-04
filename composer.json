@@ -28,6 +28,7 @@
         "psr/log": "^1.0",
         "spatie/image-optimizer": "^1.1",
         "symfony/filesystem": "^4.1",
+        "symfony/finder": "^4.1",
         "wp-cli/wp-cli": "^2.0"
     },
     "require-dev": {

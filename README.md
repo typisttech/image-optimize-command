@@ -19,8 +19,9 @@ Easily optimize images using WP CLI.
   - [Optimization tools](#optimization-tools)
 - [Use Cases](#use-cases)
   - [First use](#first-use)
-  - [Restore the originals](#restore-the-originals)
-  - [Migrate from image-optimize-command v0.1.x](#migrate-from-image-optimize-command-v01x)
+  - [After upgrading WordPress core / plugins / themes](#after-upgrading-wordpress-core--plugins--themes)
+  - [Restoring the originals](#restoring-the-originals)
+  - [Migrating from image-optimize-command v0.1.x](#migrating-from-image-optimize-command-v01x)
 - [FAQs](#faqs)
   - [What kind of optimization it does?](#what-kind-of-optimization-it-does)
   - [Can I customize the optimization?](#can-i-customize-the-optimization)
@@ -59,13 +60,23 @@ $ wp image-optimize attachment 123 223 323
 # optimize certain number of attachments
 $ wp image-optimize batch --limit=20
 
-# restore the full sized images of specific attachments.
+# restore the full sized images of specific attachments
 $ wp image-optimize restore 123 223 323
 $ wp media regenerate 123 223 323
 
 # restore all full sized images and drop all meta flags
 $ wp image-optimize reset
 $ wp media regenerate
+
+# Find and optimize images under a given directory **without backup**
+$ wp image-optimize find /path/to/my/directory --extensions=gif,jpeg,jpg,png,svg
+
+# shortcusts for `wp image-optimize find` **without backup**
+$ wp image-optimize mu-plugins
+$ wp image-optimize plugins
+$ wp image-optimize themes
+$ wp image-optimize wp-admin
+$ wp image-optimize wp-includes
 
 # learn more
 $ wp help image-optimize
@@ -114,11 +125,27 @@ Simplest solution is to regenerate thumbnails then optimize:
 ```bash
 $ wp media regenerate
 $ wp image-optimize batch --limit=9999999
+
+$ wp image-optimize mu-plugins
+$ wp image-optimize plugins
+$ wp image-optimize themes
+$ wp image-optimize wp-admin
+$ wp image-optimize wp-includes
 ```
 
-### Restore the originals
+### After upgrading WordPress core / plugins / themes
 
-This command backs up the full sized images before optimization. If you want to restore them:
+```bash
+$ wp image-optimize mu-plugins
+$ wp image-optimize plugins
+$ wp image-optimize themes
+$ wp image-optimize wp-admin
+$ wp image-optimize wp-includes
+```
+
+### Restoring the originals
+
+This command backs up the full sized images before optimizing attachments. If you want to restore them:
 
 ```bash
 # optimize
@@ -130,9 +157,9 @@ $ wp image-optimize restore 123
 $ wp media regenerate 123
 ```
 
-### Migrate from image-optimize-command v0.1.x
+### Migrating from image-optimize-command v0.1.x
 
-Starting from v0.2, this command backs up the full sized images before optimization. To migrate from image-optimize-command v0.1.x:
+Starting from v0.2, this command backs up the full sized images before optimizing attachments. To migrate from image-optimize-command v0.1.x:
 
 ```bash
 $ wp image-optimize reset
@@ -177,6 +204,8 @@ No.
 
 By default, boolean flags (meta fields) are given to attachments after optimization. This is to prevent re-optimizing an already optimized attachment. If you changed the image files (e.g.: resize / regenerate thumbnail), you must first reset their meta flags.
 
+Note: The `find` subcommand and its shortcuts don't create meta flags.
+
 ### Will the images look different after optimization?
 
 Yes, a little bit. This is lossy optimization. However, you won't notice the difference unless you have a trained eye for that.
@@ -205,7 +234,11 @@ If you must use it on managed hosting, [hire a developer](https://typist.tech/co
 
 ### Do I have to install `SVGO`?
 
-Yes, if you have [enabled WordPress SVG support](https://kinsta.com/blog/wordpress-svg/?kaid=CGCHYHJJJMMF) and uploaded SVGs to WordPress media library.
+Yes, if you have:
+
+- [enabled WordPress SVG support](https://kinsta.com/blog/wordpress-svg/?kaid=CGCHYHJJJMMF)
+- uploaded SVGs to WordPress media library
+- using the `find` subcommand (or its shortcuts) with `--extensions=svg`
 
 No, if you don't have any SVGs in WordPress media library.
 
@@ -219,7 +252,7 @@ No, unlike other SaaS alternatives, this package runs on your server without any
 
 ### Will you add support for older PHP versions?
 
-Never! This plugin will only works on [actively supported PHP versions](https://secure.php.net/supported-versions.php).
+Never! This package will only works on [actively supported PHP versions](https://secure.php.net/supported-versions.php).
 
 Don't use it on **end of life** or **security fixes only** PHP versions.
 
