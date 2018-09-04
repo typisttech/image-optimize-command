@@ -8,6 +8,7 @@ use TypistTech\ImageOptimizeCommand\CLI\Commands\AttachmentCommand;
 use TypistTech\ImageOptimizeCommand\CLI\Commands\BatchCommand;
 use TypistTech\ImageOptimizeCommand\CLI\Commands\CommandNamespace;
 use TypistTech\ImageOptimizeCommand\CLI\Commands\FindCommand;
+use TypistTech\ImageOptimizeCommand\CLI\Commands\PluginsCommand;
 use TypistTech\ImageOptimizeCommand\CLI\Commands\ResetCommand;
 use TypistTech\ImageOptimizeCommand\CLI\Commands\RestoreCommand;
 use TypistTech\ImageOptimizeCommand\CLI\Commands\WPAdminCommand;
@@ -27,3 +28,4 @@ WP_CLI::add_command('image-optimize reset', ResetCommand::class);
 
 WP_CLI::add_command('image-optimize find', FindCommand::class);
 WP_CLI::add_command('image-optimize wp-admin', WPAdminCommand::class);
+WP_CLI::add_command('image-optimize plugins', PluginsCommand::class);

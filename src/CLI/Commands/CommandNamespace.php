@@ -26,6 +26,9 @@ use WP_CLI\Dispatcher\CommandNamespace as BaseCommandNamespace;
  *     # Find and optimize images under a given directory.
  *     $ wp image-optimize find /path/to/my/directory
  *
+ *     # Find and optimize images under wp-content/plugins.
+ *     $ wp image-optimize plugins
+ *
  *     # Find and optimize images under wp-admin.
  *     $ wp image-optimize wp-admin
  */
