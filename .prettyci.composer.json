@@ -1,6 +1,5 @@
 {
-    "require-dev": {
-        "automattic/vipwpcs": "^0.3.0",
-        "wp-coding-standards/wpcs": "^1.0"
-    }
+  "require-dev": {
+       "itinerisltd/itineris-wp-coding-standards": "^0.1"
+   }
 }
