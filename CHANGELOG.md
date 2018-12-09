@@ -1,10 +1,23 @@
 # Change Log
 
-## [0.3.0](https://github.com/TypistTech/image-optimize-command/tree/0.3.0) (2018-09-05)
+## [0.3.1](https://github.com/TypistTech/image-optimize-command/tree/0.3.1) (2018-12-09)
+[Full Changelog](https://github.com/TypistTech/image-optimize-command/compare/0.3.0...0.3.1)
+
+**Closed issues:**
+
+- Multisite [\#32](https://github.com/TypistTech/image-optimize-command/issues/32)
+- Fatal error: Uncaught Error: Call to undefined function Spatie\ImageOptimizer\mime\_content\_type\(\) [\#31](https://github.com/TypistTech/image-optimize-command/issues/31)
+
+**Merged pull requests:**
+
+- Update dependencies [\#33](https://github.com/TypistTech/image-optimize-command/pull/33) ([TangRufus](https://github.com/TangRufus))
+
+## [0.3.0](https://github.com/TypistTech/image-optimize-command/tree/0.3.0) (2018-09-04)
 [Full Changelog](https://github.com/TypistTech/image-optimize-command/compare/0.2.0...0.3.0)
 
 **Merged pull requests:**
 
+- Version bump 0.3.0 [\#30](https://github.com/TypistTech/image-optimize-command/pull/30) ([TangRufus](https://github.com/TangRufus))
 - Add `find` command and its shortcuts [\#29](https://github.com/TypistTech/image-optimize-command/pull/29) ([TangRufus](https://github.com/TangRufus))
 - Extract `Operations\Optimize` [\#28](https://github.com/TypistTech/image-optimize-command/pull/28) ([TangRufus](https://github.com/TangRufus))
 - Remove `LoggerInterface::batchOperationResults` [\#27](https://github.com/TypistTech/image-optimize-command/pull/27) ([TangRufus](https://github.com/TangRufus))
