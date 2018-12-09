@@ -44,6 +44,6 @@ jobs:
       script: composer test:coverage
       after_success: bash <(curl -s https://codecov.io/bash) -s "$TRAVIS_BUILD_DIR/tests/_output/"
     - stage: test
-      php: 7.1
+      php: 7.3
     - stage: test
       php: nightly
