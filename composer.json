@@ -62,7 +62,7 @@
             "composer update --no-suggest",
             "@test",
             "@check-style",
-            "doctoc README.md",
+            "npx doctoc README.md",
             "github_changelog_generator --no-verbose"
         ],
         "test": "codecept run --debug",
