@@ -246,9 +246,9 @@ No, if you don't have any SVGs in WordPress media library.
 
 This is a common WP CLI issue. See: [https://bit.ly/wpclimem](https://make.wordpress.org/cli/handbook/common-issues/#php-fatal-error-allowed-memory-size-of-999999-bytes-exhausted-tried-to-allocate-99-bytes)
 
-### Does it has any limitation?
+### Does it have a limits or quotas?
 
-No, unlike other SaaS alternatives, this package runs on your server without any limitation on file sizes or monthly quota. Totally free of charge.
+No, unlike other SaaS alternatives, this package runs on your server without any limitation on file sizes or a monthly quota. Totally free of charge.
 
 ### Will you add support for older PHP versions?
 
