@@ -1,0 +1,34 @@
+version: 2.1
+
+orbs:
+  composer: itinerisltd/composer@0.3
+
+workflows:
+  test:
+    jobs:
+      - composer/install:
+          name: test-latest
+          executor: composer/latest
+          post-steps:
+            - composer/exec:
+                command: test
+
+      - composer/install:
+          name: test-7.3
+          executor: composer/php-73
+          post-steps:
+            - composer/exec:
+                command: test
+
+      - composer/install:
+          name: test-7.2
+          executor: composer/php-72
+          post-steps:
+            - composer/exec:
+                command: test
+
+      - composer/install:
+          name: style-check
+          post-steps:
+            - composer/exec:
+                command: check-style
