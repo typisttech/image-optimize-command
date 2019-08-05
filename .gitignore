@@ -6,7 +6,6 @@ vendor/
 *.tar.gz
 *.swp
 *.log
-composer.lock
 
 ### Codeception ###
 /codeception.yml
