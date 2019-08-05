@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e2dc3eae192fec1b8a250ad3a1084c8",
+    "content-hash": "92cd873f0a15fe73c3d6a972d4a2f80c",
     "packages": [
         {
             "name": "mustache/mustache",
@@ -568,27 +568,27 @@
     "packages-dev": [
         {
             "name": "10up/wp_mock",
-            "version": "0.3.0",
+            "version": "0.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/10up/wp_mock.git",
-                "reference": "64956557e98ee4c8c56cd1e396e822adb4673714"
+                "reference": "9019226eb50df275aa86bb15bfc98a619601ee49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/10up/wp_mock/zipball/64956557e98ee4c8c56cd1e396e822adb4673714",
-                "reference": "64956557e98ee4c8c56cd1e396e822adb4673714",
+                "url": "https://api.github.com/repos/10up/wp_mock/zipball/9019226eb50df275aa86bb15bfc98a619601ee49",
+                "reference": "9019226eb50df275aa86bb15bfc98a619601ee49",
                 "shasum": ""
             },
             "require": {
                 "antecedent/patchwork": "^2.1",
                 "mockery/mockery": "^1.0",
-                "php": ">=7.0",
-                "phpunit/phpunit": ">=6.0"
+                "php": ">=7.1",
+                "phpunit/phpunit": ">=7.0"
             },
             "require-dev": {
                 "behat/behat": "^3.0",
-                "satooshi/php-coveralls": "^1.0",
+                "php-coveralls/php-coveralls": "^2.1",
                 "sebastian/comparator": ">=1.2.3"
             },
             "type": "library",
@@ -602,10 +602,10 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "description": "A mocking library to take the pain out of unit testing for WordPress",
-            "time": "2017-12-03T19:28:28+00:00"
+            "time": "2019-03-16T03:44:39+00:00"
         },
         {
             "name": "antecedent/patchwork",
