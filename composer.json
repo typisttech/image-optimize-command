@@ -33,7 +33,7 @@
     },
     "require-dev": {
         "10up/wp_mock": "^0.4.2",
-        "codeception/base": "^2.4",
+        "codeception/base": "^3.1",
         "itinerisltd/itineris-wp-coding-standards": "^0.2.3",
         "roave/security-advisories": "dev-master"
     },
