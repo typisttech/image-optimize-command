@@ -754,16 +754,16 @@
         },
         {
             "name": "codeception/base",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/base.git",
-                "reference": "6f9e38cb982b319127e11a8e33f42b57173207f6"
+                "reference": "d3b74b361f9d8457c4294b8e6f424db39f1a178f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/base/zipball/6f9e38cb982b319127e11a8e33f42b57173207f6",
-                "reference": "6f9e38cb982b319127e11a8e33f42b57173207f6",
+                "url": "https://api.github.com/repos/Codeception/base/zipball/d3b74b361f9d8457c4294b8e6f424db39f1a178f",
+                "reference": "d3b74b361f9d8457c4294b8e6f424db39f1a178f",
                 "shasum": ""
             },
             "require": {
@@ -842,7 +842,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2019-08-18T17:22:39+00:00"
+            "time": "2019-09-14T20:26:12+00:00"
         },
         {
             "name": "codeception/phpunit-wrapper",
