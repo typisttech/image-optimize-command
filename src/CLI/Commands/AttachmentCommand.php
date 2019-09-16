@@ -23,17 +23,30 @@ class AttachmentCommand
      *
      * <id>...
      * : The IDs of attachments to optimize.
-     *
+     * 
+     * [--skip-backup]
+     * : Skip generation of backup file.
+     * ---
+     * default: false
+     * ---
+     * 
      * ## EXAMPLES
      *
-     *     # Optimize attachment ID: 123
+     *     # Optimize attachment ID: 123 (with backup)
      *     $ wp image-optimize attachment 123
+     * 
+     *     # Optimize attachment ID: 123 --skip-backup (without backup)
+     *     $ wp image-optimize attachment 123 --skip-backup
      *
-     *     # Optimize multiple attachments
+     *     # Optimize multiple attachments (with backup)
      *     $ wp image-optimize attachment 123 223 323
+     *
+     *     # Optimize multiple attachments (without backup)
+     *     $ wp image-optimize attachment 123 223 323 --skip-backup
      */
     public function __invoke($args, $_assocArgs): void
     {
+        $skipBackup = (bool) $_assocArgs['skip-backup'];
         $ids = array_map(function (string $id): ?int {
             return is_numeric($id)
                 ? (int) $id
@@ -45,10 +58,14 @@ class AttachmentCommand
         $fileSystem = new Filesystem();
         $logger = LoggerFactory::create();
 
-        $backupOperation = $this->createBackupOperation($repo, $fileSystem, $logger);
+        if (!$skipBackup)
+            $backupOperation = $this->createBackupOperation($repo, $fileSystem, $logger);
+
         $optimizeOperation = $this->createOptimizeOperation($repo, $fileSystem, $logger);
 
-        $backupOperation->execute(...$ids);
+        if (!$skipBackup)
+            $backupOperation->execute(...$ids);
+
         $optimizeOperation->execute(...$ids);
     }
 
