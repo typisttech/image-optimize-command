@@ -145,11 +145,13 @@ $ wp image-optimize wp-includes
 
 ### Restoring the originals
 
-This command backs up the full sized images before optimizing attachments. If you want to restore them:
+This command backs up the full sized images before optimizing attachments, use `--skip-backup` to skip backup file generation (WARNING: with `--skip-backup` the original images will be gone forever). If you want to restore them:
 
 ```bash
-# optimize
+# optimize **with backup**
 $ wp image-optimize attachment 123
+# optimize **without backup**
+$ wp image-optimize attachment 123 --skip-backup
 
 # restore the full sized image
 $ wp image-optimize restore 123
