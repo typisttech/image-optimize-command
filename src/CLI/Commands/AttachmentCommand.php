@@ -58,13 +58,15 @@ class AttachmentCommand
         $fileSystem = new Filesystem();
         $logger = LoggerFactory::create();
 
-        if (!$skipBackup)
+        if (true !== $skipBackup) {
             $backupOperation = $this->createBackupOperation($repo, $fileSystem, $logger);
+        }
 
         $optimizeOperation = $this->createOptimizeOperation($repo, $fileSystem, $logger);
 
-        if (!$skipBackup)
+        if (true !== $skipBackup) {
             $backupOperation->execute(...$ids);
+        }
 
         $optimizeOperation->execute(...$ids);
     }
