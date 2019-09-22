@@ -81,8 +81,6 @@ class Find
             return array_map(function (SplFileInfo $file): string {
                 return $file->getRealPath();
             }, iterator_to_array($files));
-
-            // phpcs:ignore
         } catch (InvalidArgumentException $exception) {
             return [];
         }

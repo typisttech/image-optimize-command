@@ -62,14 +62,11 @@ class Optimize
         }, $paths);
 
         $validPaths = array_filter($normalizedPaths, function (string $path): bool {
-            // phpcs:ignore
             return $this->isValid($path);
         });
 
         array_map(function (string $path): void {
-            // phpcs:ignore
             $this->logger->debug('Optimizing image - ' . $path);
-            // phpcs:ignore
             $this->optimizerChain->optimize($path);
         }, $validPaths);
 
@@ -109,7 +106,6 @@ class Optimize
             }
 
             return true;
-            // phpcs:ignore
         } catch (IOException $exception) {
             $this->logger->error('Unable to optimize ' . $path);
 
