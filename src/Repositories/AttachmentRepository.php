@@ -27,7 +27,7 @@ class AttachmentRepository
                 'post_status' => 'any',
                 'fields' => 'ids',
                 'posts_per_page' => $num,
-                'meta_query' =>
+                'meta_query' => // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
                     [
                         [
                             'key' => static::OPTIMIZED_META_KEY,
@@ -35,7 +35,7 @@ class AttachmentRepository
                         ],
                     ],
             ]
-        ); // WPCS: slow query ok.
+        );
 
         return $query->posts;
     }
@@ -56,7 +56,7 @@ class AttachmentRepository
                 'post_status' => 'any',
                 'fields' => 'ids',
                 'posts_per_page' => $num,
-                'meta_query' =>
+                'meta_query' => // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
                     [
                         [
                             'key' => static::OPTIMIZED_META_KEY,
@@ -64,7 +64,7 @@ class AttachmentRepository
                         ],
                     ],
             ]
-        ); // WPCS: slow query ok.
+        );
 
         return $query->posts;
     }
@@ -108,12 +108,13 @@ class AttachmentRepository
     {
         global $wpdb;
 
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery
         $wpdb->query(
             $wpdb->prepare(
                 "DELETE FROM $wpdb->postmeta WHERE meta_key = %s;",
                 static::OPTIMIZED_META_KEY
             )
-        ); // WPCS: cache ok, db call ok.
+        );
     }
 
     /**
