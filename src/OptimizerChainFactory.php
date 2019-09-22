@@ -9,7 +9,7 @@ use Spatie\ImageOptimizer\OptimizerChainFactory as BaseOptimizerChainFactory;
 
 class OptimizerChainFactory
 {
-    public const HOOK = 'typist_tech_image_optimized_optimizer_chain';
+    public const HOOK = 'TypistTech/ImageOptimizeCommand/OptimizerChain';
 
     /**
      * Creates an spatie/image-optimizer optimizer chain.
