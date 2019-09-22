@@ -24,7 +24,7 @@ class BackupFactoryTest extends Unit
 
         WP_Mock::userFunction(__NAMESPACE__ . '\apply_filters')
                ->with(
-                   'typist_tech_image_optimized_attachment_images_backup_operation',
+                   BackupFactory::HOOK,
                    Mockery::type(Backup::class),
                    $repo,
                    $filesystem,

@@ -8,7 +8,7 @@ use TypistTech\ImageOptimizeCommand\LoggerInterface;
 
 class LoggerFactory
 {
-    public const HOOK = 'typist_tech_image_optimized_logger';
+    public const HOOK = 'TypistTech/ImageOptimizeCommand/CLI/Logger';
 
     /**
      * Creates a logger.

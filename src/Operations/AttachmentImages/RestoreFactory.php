@@ -9,7 +9,7 @@ use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 
 class RestoreFactory
 {
-    public const HOOK = 'typist_tech_image_optimized_attachment_images_restore_operation';
+    public const HOOK = 'TypistTech/ImageOptimizeCommand/Operations/AttachmentImages/Restore';
 
     public static function create(
         AttachmentRepository $repo,

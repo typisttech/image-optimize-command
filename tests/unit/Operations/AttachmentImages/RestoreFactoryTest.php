@@ -22,7 +22,7 @@ class RestoreFactoryTest extends Unit
 
         WP_Mock::userFunction(__NAMESPACE__ . '\apply_filters')
                ->with(
-                   'typist_tech_image_optimized_attachment_images_restore_operation',
+                   RestoreFactory::HOOK,
                    Mockery::type(Restore::class),
                    $repo,
                    $filesystem,

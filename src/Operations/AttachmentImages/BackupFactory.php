@@ -10,7 +10,7 @@ use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 
 class BackupFactory
 {
-    public const HOOK = 'typist_tech_image_optimized_attachment_images_backup_operation';
+    public const HOOK = 'TypistTech/ImageOptimizeCommand/Operations/AttachmentImages/Backup';
 
     public static function create(
         AttachmentRepository $repo,
