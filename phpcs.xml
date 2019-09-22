@@ -4,9 +4,21 @@
     <exclude-pattern>/tests/*</exclude-pattern>
     <exclude-pattern>/vendor/*</exclude-pattern>
 
-    <arg value="s"/>
-    <config name="installed_paths" value="vendor/wp-coding-standards/wpcs,vendor/automattic/vipwpcs,vendor/itinerisltd/itineris-wp-coding-standards"/>
-    <config name="minimum_supported_wp_version" value="4.9"/>
+    <!-- Show colors in console -->
+    <arg value="-colors"/>
+
+    <!-- Show progress and sniff codes in all reports; Show progress of the run -->
+    <arg value="sp"/>
+
+    <!-- Scan only PHP files -->
+    <arg name="extensions" value="php"/>
+
+    <!-- Install custom rulesets -->
+    <config name="installed_paths" value="vendor/wp-coding-standards/wpcs,vendor/itinerisltd/itineris-wp-coding-standards"/>
+
+    <config name="minimum_supported_wp_version" value="5.2"/>
+
+    <rule ref="Itineris"/>
 
     <rule ref="WordPress.WP.I18n">
         <properties>
@@ -14,11 +26,20 @@
         </properties>
     </rule>
 
-    <!-- Use Itineris WP Coding Standards -->
-    <rule ref="Itineris"/>
-
     <rule ref="Squiz.Commenting.FunctionComment.MissingParamTag">
         <exclude-pattern>/src/*Command.php</exclude-pattern>
+    </rule>
+
+    <rule ref="WordPress.NamingConventions.ValidVariableName.PropertyNotSnakeCase">
+        <exclude-pattern>/src/*.php</exclude-pattern>
+    </rule>
+
+    <rule ref="WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase">
+        <exclude-pattern>/src/*.php</exclude-pattern>
+    </rule>
+
+    <rule ref="WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase">
+        <exclude-pattern>/src/*.php</exclude-pattern>
     </rule>
 
     <rule ref="WordPress.WhiteSpace.ControlStructureSpacing">
