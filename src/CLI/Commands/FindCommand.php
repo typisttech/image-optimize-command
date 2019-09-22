@@ -22,7 +22,7 @@ class FindCommand
      *
      * [--extensions=<extensions>]
      * : File types to optimize, separated by commas.
-     * Default: gif,jpeg,jpg,png
+     * Default: gif,jpeg,jpg,png,webp
      *
      * ## EXAMPLES
      *
@@ -34,7 +34,7 @@ class FindCommand
      */
     public function __invoke($args, $assocArgs): void
     {
-        $extensions = $assocArgs['extensions'] ?? 'gif,jpeg,jpg,png';
+        $extensions = $assocArgs['extensions'] ?? 'gif,jpeg,jpg,png,webp';
         $extensions = explode(',', $extensions);
 
         $logger = LoggerFactory::create();

@@ -69,7 +69,7 @@ $ wp image-optimize reset
 $ wp media regenerate
 
 # Find and optimize images under a given directory **without backup**
-$ wp image-optimize find /path/to/my/directory --extensions=gif,jpeg,jpg,png,svg
+$ wp image-optimize find /path/to/my/directory --extensions=gif,jpeg,jpg,png,webp,svg
 
 # shortcusts for `wp image-optimize find` **without backup**
 $ wp image-optimize mu-plugins
@@ -101,7 +101,8 @@ Under the hood, `image-optimize-command` invokes [spatie/image-optimizer](https:
 - [Optipng](http://optipng.sourceforge.net/)
 - [Pngquant 2](https://pngquant.org/)
 - [SVGO](https://github.com/svg/svgo)
-- [Gifsicle](http://www.lcdf.org/gifsicle/)
+- [Gifsicle](https://www.lcdf.org/gifsicle/)
+- [cwebp](https://developers.google.com/speed/webp/)
 
 Check spatie/image-optimizer's readme for [install instructions](https://github.com/spatie/image-optimizer#optimization-tools).
 

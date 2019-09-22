@@ -14,7 +14,7 @@ class WPAdminCommand
      *
      * [--extensions=<extensions>]
      * : File types to optimize, separated by commas.
-     * Default: gif,jpeg,jpg,png
+     * Default: gif,jpeg,jpg,png,webp
      *
      * ## EXAMPLES
      *
