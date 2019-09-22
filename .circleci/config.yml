@@ -31,4 +31,4 @@ workflows:
           name: style-check
           post-steps:
             - composer/exec:
-                command: check-style
+                command: style:check

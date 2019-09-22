@@ -296,7 +296,7 @@ Run the tests:
 
 ``` bash
 $ composer test
-$ composer check-style
+$ composer style:check
 ```
 
 ## Feedback
