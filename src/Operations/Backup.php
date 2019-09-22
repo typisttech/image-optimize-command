@@ -55,7 +55,6 @@ class Backup
         }, $paths);
 
         array_map(function (string $path): void {
-            // phpcs:ignore
             $this->backup($path);
         }, $normalizedPaths);
 
@@ -83,8 +82,6 @@ class Backup
 
             $this->filesystem->copy($path, $path . static::ORIGINAL_EXTENSION);
             $this->logger->notice('Backed up full sized image - ' . $path);
-
-            // phpcs:ignore
         } catch (IOException | FileNotFoundException $exception) {
             $this->logger->error('Failed to backup ' . $path);
         }

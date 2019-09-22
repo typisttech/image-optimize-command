@@ -61,7 +61,6 @@ class Restore
         $this->logger->section('Restoring full sized images for ' . $total . ' attachment(s)');
 
         array_map(function (int $id): void {
-            // phpcs:ignore
             $this->restore($id);
         }, $ids);
 
@@ -98,8 +97,6 @@ class Restore
             $this->logger->debug('Marking attachment ID: ' . $id . ' as non-optimized.');
             $this->repo->markAsNonOptimized($id);
             $this->logger->notice('Restored attachment ID: ' . $id);
-
-            // phpcs:ignore
         } catch (IOException $exception) {
             $this->logger->error('Failed to restore full sized image for attachment ID: ' . $id);
         }
