@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   composer: itinerisltd/composer@0.3
+  codecov: codecov/codecov@1
 
 workflows:
   test:
@@ -11,7 +12,9 @@ workflows:
           executor: composer/latest
           post-steps:
             - composer/exec:
-                command: test
+                command: test:coverage
+            - codecov/upload:
+                file: tests/_output/coverage.xml
 
       - composer/install:
           name: test-7.3
