@@ -57,11 +57,11 @@
         ]
     },
     "scripts": {
-        "check-style": "phpcs --colors -p",
+        "style:check": "phpcs",
         "pretag": [
             "composer update --no-suggest",
             "@test",
-            "@check-style",
+            "@style:check",
             "npx doctoc README.md",
             "github_changelog_generator --no-verbose"
         ],
