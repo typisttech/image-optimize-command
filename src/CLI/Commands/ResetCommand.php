@@ -7,6 +7,7 @@ namespace TypistTech\ImageOptimizeCommand\CLI\Commands;
 use Symfony\Component\Filesystem\Filesystem;
 use TypistTech\ImageOptimizeCommand\CLI\LoggerFactory;
 use TypistTech\ImageOptimizeCommand\Operations\AttachmentImages\Restore;
+use TypistTech\ImageOptimizeCommand\Operations\AttachmentImages\RestoreFactory;
 use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 use WP_CLI;
 
@@ -46,7 +47,7 @@ class ResetCommand
         $logger->notice(count($ids) . ' optimized attachment(s) found.');
 
         $logger->section('Restoring the original full sized images');
-        $restoreOperation = new Restore(
+        $restoreOperation = RestoreFactory::create(
             $repo,
             new Filesystem(),
             $logger

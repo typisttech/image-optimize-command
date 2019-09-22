@@ -7,9 +7,8 @@ namespace TypistTech\ImageOptimizeCommand\CLI\Commands;
 use Symfony\Component\Filesystem\Filesystem;
 use TypistTech\ImageOptimizeCommand\CLI\LoggerFactory;
 use TypistTech\ImageOptimizeCommand\LoggerInterface;
-use TypistTech\ImageOptimizeCommand\Operations\AttachmentImages\Backup;
+use TypistTech\ImageOptimizeCommand\Operations\AttachmentImages\BackupFactory;
 use TypistTech\ImageOptimizeCommand\Operations\AttachmentImages\Optimize;
-use TypistTech\ImageOptimizeCommand\Operations\Backup as BaseBackup;
 use TypistTech\ImageOptimizeCommand\Operations\Optimize as BaseOptimize;
 use TypistTech\ImageOptimizeCommand\OptimizerChainFactory;
 use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
@@ -45,26 +44,11 @@ class AttachmentCommand
         $fileSystem = new Filesystem();
         $logger = LoggerFactory::create();
 
-        $backupOperation = $this->createBackupOperation($repo, $fileSystem, $logger);
+        $backupOperation = BackupFactory::create($repo, $fileSystem, $logger);
         $optimizeOperation = $this->createOptimizeOperation($repo, $fileSystem, $logger);
 
         $backupOperation->execute(...$ids);
         $optimizeOperation->execute(...$ids);
-    }
-
-    /**
-     * Creates an backup instance.
-     *
-     * @return Backup
-     */
-    protected function createBackupOperation(
-        AttachmentRepository $repo,
-        Filesystem $filesystem,
-        LoggerInterface $logger
-    ): Backup {
-        $baseBackup = new BaseBackup($filesystem, $logger);
-
-        return new Backup($repo, $baseBackup, $logger);
     }
 
     /**
