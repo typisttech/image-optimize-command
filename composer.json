@@ -25,11 +25,11 @@
     ],
     "require": {
         "php": "^7.2",
-        "psr/log": "^1.0",
-        "spatie/image-optimizer": "^1.1.5",
-        "symfony/filesystem": "^4.1",
-        "symfony/finder": "^4.1",
-        "wp-cli/wp-cli": "^2.0"
+        "psr/log": "^1.1",
+        "spatie/image-optimizer": "^1.2",
+        "symfony/filesystem": "^4.3",
+        "symfony/finder": "^4.3",
+        "wp-cli/wp-cli": "^2.3"
     },
     "require-dev": {
         "10up/wp_mock": "^0.4.2",
