@@ -7,6 +7,7 @@ namespace TypistTech\ImageOptimizeCommand\CLI\Commands;
 use Symfony\Component\Filesystem\Filesystem;
 use TypistTech\ImageOptimizeCommand\CLI\LoggerFactory;
 use TypistTech\ImageOptimizeCommand\Operations\AttachmentImages\Restore;
+use TypistTech\ImageOptimizeCommand\Operations\AttachmentImages\RestoreFactory;
 use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
 use WP_CLI;
 
@@ -50,7 +51,7 @@ class RestoreCommand
         $repo = new AttachmentRepository();
         $filesystem = new Filesystem();
 
-        $restoreOperation = new Restore($repo, $filesystem, $logger);
+        $restoreOperation = RestoreFactory::create($repo, $filesystem, $logger);
         $restoreOperation->execute(...$ids);
     }
 }
