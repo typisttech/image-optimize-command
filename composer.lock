@@ -855,16 +855,16 @@
         },
         {
             "name": "codeception/phpunit-wrapper",
-            "version": "8.0.4",
+            "version": "8.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/phpunit-wrapper.git",
-                "reference": "7090736f36b4398cae6ef838b9a2bdfe8d8d104b"
+                "reference": "be94d9c2c05e6320a8046de8621c9d26507e5821"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/7090736f36b4398cae6ef838b9a2bdfe8d8d104b",
-                "reference": "7090736f36b4398cae6ef838b9a2bdfe8d8d104b",
+                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/be94d9c2c05e6320a8046de8621c9d26507e5821",
+                "reference": "be94d9c2c05e6320a8046de8621c9d26507e5821",
                 "shasum": ""
             },
             "require": {
@@ -895,7 +895,7 @@
                 }
             ],
             "description": "PHPUnit classes used by Codeception",
-            "time": "2019-02-27T12:58:57+00:00"
+            "time": "2019-11-23T17:57:45+00:00"
         },
         {
             "name": "codeception/stub",
