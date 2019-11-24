@@ -27,8 +27,8 @@
         "php": "^7.2",
         "psr/log": "^1.1",
         "spatie/image-optimizer": "^1.2",
-        "symfony/filesystem": "^4.3",
-        "symfony/finder": "^4.3",
+        "symfony/filesystem": "^4.3 || ^5.0",
+        "symfony/finder": "^4.3 || ^5.0",
         "wp-cli/wp-cli": "^2.3"
     },
     "require-dev": {
