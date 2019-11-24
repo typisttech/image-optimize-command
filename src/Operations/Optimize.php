@@ -8,6 +8,7 @@ use Spatie\ImageOptimizer\OptimizerChain;
 use Symfony\Component\Filesystem\Exception\IOException;
 use Symfony\Component\Filesystem\Filesystem;
 use TypistTech\ImageOptimizeCommand\LoggerInterface;
+
 use function WP_CLI\Utils\normalize_path;
 
 class Optimize

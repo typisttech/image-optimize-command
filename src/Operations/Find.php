@@ -8,6 +8,7 @@ use InvalidArgumentException;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use TypistTech\ImageOptimizeCommand\LoggerInterface;
+
 use function WP_CLI\Utils\normalize_path;
 
 class Find

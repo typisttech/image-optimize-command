@@ -34,7 +34,7 @@
     "require-dev": {
         "10up/wp_mock": "^0.4.2",
         "codeception/base": "^3.1",
-        "itinerisltd/itineris-wp-coding-standards": "^0.3.0",
+        "itinerisltd/itineris-wp-coding-standards": "^0.3.2",
         "roave/security-advisories": "dev-master"
     },
     "suggest": {
@@ -58,6 +58,7 @@
     },
     "scripts": {
         "style:check": "phpcs",
+        "style:fix": "phpcbf",
         "pretag": [
             "composer update --no-suggest",
             "@test",

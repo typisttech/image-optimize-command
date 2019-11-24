@@ -9,6 +9,7 @@ use Symfony\Component\Filesystem\Filesystem;
 use TypistTech\ImageOptimizeCommand\LoggerInterface;
 use TypistTech\ImageOptimizeCommand\Operations\Backup;
 use TypistTech\ImageOptimizeCommand\Repositories\AttachmentRepository;
+
 use function WP_CLI\Utils\normalize_path;
 
 class Restore
