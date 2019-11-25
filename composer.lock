@@ -194,27 +194,27 @@
         },
         {
             "name": "spatie/image-optimizer",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image-optimizer.git",
-                "reference": "e7527edc984c98ab61db092742856fb15cf71e68"
+                "reference": "9c1d470e34b28b715d25edb539dd6c899461527c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image-optimizer/zipball/e7527edc984c98ab61db092742856fb15cf71e68",
-                "reference": "e7527edc984c98ab61db092742856fb15cf71e68",
+                "url": "https://api.github.com/repos/spatie/image-optimizer/zipball/9c1d470e34b28b715d25edb539dd6c899461527c",
+                "reference": "9c1d470e34b28b715d25edb539dd6c899461527c",
                 "shasum": ""
             },
             "require": {
                 "ext-fileinfo": "*",
                 "php": "^7.2",
                 "psr/log": "^1.0",
-                "symfony/process": "^4.2"
+                "symfony/process": "^4.2|^5.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^8.0",
-                "symfony/var-dumper": "^4.2"
+                "symfony/var-dumper": "^4.2|^5.0"
             },
             "type": "library",
             "autoload": {
@@ -240,7 +240,7 @@
                 "image-optimizer",
                 "spatie"
             ],
-            "time": "2019-08-28T14:33:06+00:00"
+            "time": "2019-11-25T12:29:24+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -401,25 +401,25 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.4.0",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "75ad33d9b6f25325ebc396d68ad86fd74bcfbb06"
+                "reference": "110f98bed214a007eb440c7bb14088fed96f847f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/75ad33d9b6f25325ebc396d68ad86fd74bcfbb06",
-                "reference": "75ad33d9b6f25325ebc396d68ad86fd74bcfbb06",
+                "url": "https://api.github.com/repos/symfony/process/zipball/110f98bed214a007eb440c7bb14088fed96f847f",
+                "reference": "110f98bed214a007eb440c7bb14088fed96f847f",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3"
+                "php": "^7.2.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4-dev"
+                    "dev-master": "5.0-dev"
                 }
             },
             "autoload": {
@@ -446,7 +446,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2019-10-28T20:30:34+00:00"
+            "time": "2019-11-18T17:27:11+00:00"
         },
         {
             "name": "wp-cli/mustangostang-spyc",
