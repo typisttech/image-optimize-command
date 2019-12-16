@@ -34,7 +34,7 @@
     "require-dev": {
         "10up/wp_mock": "^0.4.2",
         "codeception/base": "^3.1",
-        "itinerisltd/itineris-wp-coding-standards": "^0.3.2",
+        "itinerisltd/itineris-wp-coding-standards": "^0.3.5",
         "roave/security-advisories": "dev-master"
     },
     "suggest": {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a6ec84b246719dd4a52f76f8cdb128c",
+    "content-hash": "d28cf2b29122c292757df23376d13d10",
     "packages": [
         {
             "name": "cweagans/composer-patches",
@@ -1104,16 +1104,16 @@
         },
         {
             "name": "itinerisltd/itineris-wp-coding-standards",
-            "version": "0.3.3",
+            "version": "0.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ItinerisLtd/itineris-wp-coding-standards.git",
-                "reference": "a4f08c54f05a49b1ac099358fbf0173a71de856c"
+                "reference": "12d54c1ca851bd16a30c2303bf172c749ed26c8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ItinerisLtd/itineris-wp-coding-standards/zipball/a4f08c54f05a49b1ac099358fbf0173a71de856c",
-                "reference": "a4f08c54f05a49b1ac099358fbf0173a71de856c",
+                "url": "https://api.github.com/repos/ItinerisLtd/itineris-wp-coding-standards/zipball/12d54c1ca851bd16a30c2303bf172c749ed26c8b",
+                "reference": "12d54c1ca851bd16a30c2303bf172c749ed26c8b",
                 "shasum": ""
             },
             "require": {
@@ -1155,7 +1155,7 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2019-12-16T10:50:38+00:00"
+            "time": "2019-12-16T12:56:14+00:00"
         },
         {
             "name": "mockery/mockery",
