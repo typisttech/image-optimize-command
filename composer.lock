@@ -1104,16 +1104,16 @@
         },
         {
             "name": "itinerisltd/itineris-wp-coding-standards",
-            "version": "0.3.2",
+            "version": "0.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ItinerisLtd/itineris-wp-coding-standards.git",
-                "reference": "9fcbc46459c5b6674221ffe057f5317e1633ba80"
+                "reference": "a4f08c54f05a49b1ac099358fbf0173a71de856c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ItinerisLtd/itineris-wp-coding-standards/zipball/9fcbc46459c5b6674221ffe057f5317e1633ba80",
-                "reference": "9fcbc46459c5b6674221ffe057f5317e1633ba80",
+                "url": "https://api.github.com/repos/ItinerisLtd/itineris-wp-coding-standards/zipball/a4f08c54f05a49b1ac099358fbf0173a71de856c",
+                "reference": "a4f08c54f05a49b1ac099358fbf0173a71de856c",
                 "shasum": ""
             },
             "require": {
@@ -1155,7 +1155,7 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2019-11-24T17:14:02+00:00"
+            "time": "2019-12-16T10:50:38+00:00"
         },
         {
             "name": "mockery/mockery",
