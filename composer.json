@@ -3,10 +3,17 @@
     "type": "wp-cli-package",
     "description": "Easily optimize images using WP CLI",
     "keywords": [
+        "compression",
+        "cwebp",
+        "gifsicle",
+        "image-optimizer",
+        "jpegoptim",
+        "optipng",
+        "pngquant",
+        "svgo",
         "wordpress",
-        "wp",
         "wp-cli",
-        "image-optimizer"
+        "wp"
     ],
     "homepage": "https://typist.tech/projects/image-optimize-command",
     "license": "MIT",
