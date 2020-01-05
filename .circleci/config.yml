@@ -17,6 +17,13 @@ workflows:
                 file: tests/_output/coverage.xml
 
       - composer/install:
+          name: test-7.4
+          executor: composer/php-74
+          post-steps:
+            - composer/exec:
+                command: test
+
+      - composer/install:
           name: test-7.3
           executor: composer/php-73
           post-steps:
@@ -32,6 +39,13 @@ workflows:
 
       - composer/install:
           name: style-check
+          post-steps:
+            - composer/exec:
+                command: style:check
+
+      - composer/install:
+          name: style-check-php-7.2
+          executor: composer/php-72
           post-steps:
             - composer/exec:
                 command: style:check
