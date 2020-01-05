@@ -42,3 +42,10 @@ workflows:
           post-steps:
             - composer/exec:
                 command: style:check
+
+      - composer/install:
+          name: style-check-php-7.2
+          executor: composer/php-72
+          post-steps:
+            - composer/exec:
+                command: style:check
