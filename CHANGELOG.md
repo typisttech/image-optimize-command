@@ -1,5 +1,44 @@
 # Changelog
 
+## [0.4.1](https://github.com/TypistTech/image-optimize-command/tree/0.4.1) (2020-02-09)
+
+[Full Changelog](https://github.com/TypistTech/image-optimize-command/compare/0.4.0...0.4.1)
+
+**Closed issues:**
+
+- Readme: Clarify WP-CLI has to be installed via `composer` [\#209](https://github.com/TypistTech/image-optimize-command/issues/209)
+- Suggest to regenerate thunmbnails after restoring [\#207](https://github.com/TypistTech/image-optimize-command/issues/207)
+
+**Merged pull requests:**
+
+- Suggest to regenerate thunmbnails after restoring [\#236](https://github.com/TypistTech/image-optimize-command/pull/236) ([TangRufus](https://github.com/TangRufus))
+- Update readme [\#235](https://github.com/TypistTech/image-optimize-command/pull/235) ([TangRufus](https://github.com/TangRufus))
+- Build\(deps\): Bump phpdocumentor/reflection-docblock from 4.3.4 to 5.0.0 [\#234](https://github.com/TypistTech/image-optimize-command/pull/234) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump codeception/stub from 3.6.0 to 3.6.1 [\#233](https://github.com/TypistTech/image-optimize-command/pull/233) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump wp-coding-standards/wpcs from 2.2.0 to 2.2.1 [\#232](https://github.com/TypistTech/image-optimize-command/pull/232) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/yaml from 4.4.3 to 4.4.4 [\#231](https://github.com/TypistTech/image-optimize-command/pull/231) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/filesystem from 5.0.3 to 5.0.4 [\#230](https://github.com/TypistTech/image-optimize-command/pull/230) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/console from 4.4.3 to 4.4.4 [\#229](https://github.com/TypistTech/image-optimize-command/pull/229) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/css-selector from 4.4.3 to 4.4.4 [\#228](https://github.com/TypistTech/image-optimize-command/pull/228) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/finder from 4.4.3 to 4.4.4 [\#227](https://github.com/TypistTech/image-optimize-command/pull/227) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/event-dispatcher from 4.4.3 to 4.4.4 [\#226](https://github.com/TypistTech/image-optimize-command/pull/226) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/process from 5.0.3 to 5.0.4 [\#224](https://github.com/TypistTech/image-optimize-command/pull/224) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/browser-kit from 4.4.3 to 4.4.4 [\#223](https://github.com/TypistTech/image-optimize-command/pull/223) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump squizlabs/php\_codesniffer from 3.5.3 to 3.5.4 [\#222](https://github.com/TypistTech/image-optimize-command/pull/222) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/finder from 4.4.2 to 4.4.3 [\#221](https://github.com/TypistTech/image-optimize-command/pull/221) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/yaml from 4.4.2 to 4.4.3 [\#220](https://github.com/TypistTech/image-optimize-command/pull/220) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/filesystem from 5.0.2 to 5.0.3 [\#219](https://github.com/TypistTech/image-optimize-command/pull/219) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/process from 5.0.2 to 5.0.3 [\#218](https://github.com/TypistTech/image-optimize-command/pull/218) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/console from 4.4.2 to 4.4.3 [\#217](https://github.com/TypistTech/image-optimize-command/pull/217) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/browser-kit from 4.4.2 to 4.4.3 [\#216](https://github.com/TypistTech/image-optimize-command/pull/216) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/event-dispatcher from 4.4.2 to 4.4.3 [\#215](https://github.com/TypistTech/image-optimize-command/pull/215) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/css-selector from 4.4.2 to 4.4.3 [\#214](https://github.com/TypistTech/image-optimize-command/pull/214) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump symfony/dom-crawler from 4.4.2 to 4.4.3 [\#213](https://github.com/TypistTech/image-optimize-command/pull/213) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump phpspec/prophecy from 1.10.1 to 1.10.2 [\#212](https://github.com/TypistTech/image-optimize-command/pull/212) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Build\(deps\): Bump myclabs/deep-copy from 1.9.4 to 1.9.5 [\#211](https://github.com/TypistTech/image-optimize-command/pull/211) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Git Attributes: Export `composer.lock` [\#210](https://github.com/TypistTech/image-optimize-command/pull/210) ([TangRufus](https://github.com/TangRufus))
+- Build\(deps\): Bump phpunit/phpunit from 8.5.1 to 8.5.2 [\#208](https://github.com/TypistTech/image-optimize-command/pull/208) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## [0.4.0](https://github.com/TypistTech/image-optimize-command/tree/0.4.0) (2020-01-05)
 
 [Full Changelog](https://github.com/TypistTech/image-optimize-command/compare/0.3.1...0.4.0)
@@ -10,10 +49,10 @@
 - Skip backup file [\#73](https://github.com/TypistTech/image-optimize-command/issues/73)
 - Support webp [\#71](https://github.com/TypistTech/image-optimize-command/issues/71)
 - Uploaded images are broken. Laravel log says production.ERROR: Call to undefined function Illuminate Illuminate\Filesystem\finfo\_file\(\) [\#36](https://github.com/TypistTech/image-optimize-command/issues/36)
-- undefined method fromShellCommandline [\#35](https://github.com/TypistTech/image-optimize-command/issues/35)
 
 **Merged pull requests:**
 
+- Version bump 0.4.0 [\#206](https://github.com/TypistTech/image-optimize-command/pull/206) ([TangRufus](https://github.com/TangRufus))
 - Update license year [\#205](https://github.com/TypistTech/image-optimize-command/pull/205) ([TangRufus](https://github.com/TangRufus))
 - composer update [\#204](https://github.com/TypistTech/image-optimize-command/pull/204) ([TangRufus](https://github.com/TangRufus))
 - CircleCI: Add PHP 7.2 lint  & PHP 7.4 test [\#203](https://github.com/TypistTech/image-optimize-command/pull/203) ([TangRufus](https://github.com/TangRufus))
@@ -133,8 +172,6 @@
 - Bump antecedent/patchwork from 2.1.8 to 2.1.9 [\#72](https://github.com/TypistTech/image-optimize-command/pull/72) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump spatie/image-optimizer from 1.1.5 to 1.2.0 [\#70](https://github.com/TypistTech/image-optimize-command/pull/70) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump symfony/finder from 4.3.3 to 4.3.4 [\#69](https://github.com/TypistTech/image-optimize-command/pull/69) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump symfony/console from 4.3.3 to 4.3.4 [\#67](https://github.com/TypistTech/image-optimize-command/pull/67) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump symfony/filesystem from 4.3.3 to 4.3.4 [\#64](https://github.com/TypistTech/image-optimize-command/pull/64) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 ## [0.3.1](https://github.com/TypistTech/image-optimize-command/tree/0.3.1) (2018-12-09)
 
