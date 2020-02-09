@@ -43,9 +43,6 @@ class RestoreCommand
 
         $logger = LoggerFactory::create();
 
-        $logger->warning('You have to regenerate the thumbnails afterwards');
-        $logger->warning('by running the following command:');
-        $logger->warning('$ wp media regenerate ' . implode(' ', $ids));
         WP_CLI::confirm('Are you sure you want to restore the original full sized images?', $assocArgs);
 
         $repo = new AttachmentRepository();
@@ -53,5 +50,11 @@ class RestoreCommand
 
         $restoreOperation = RestoreFactory::create($repo, $filesystem, $logger);
         $restoreOperation->execute(...$ids);
+        $logger->notice('Original full sized images restored.');
+
+        $logger->section('Actions Required!');
+        $logger->warning('You should regenerate the all thumbnails now');
+        $logger->warning('by running the following command -');
+        $logger->warning('    $ wp media regenerate ' . implode(' ', $ids));
     }
 }

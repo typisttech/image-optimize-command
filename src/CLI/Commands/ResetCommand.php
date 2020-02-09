@@ -35,9 +35,6 @@ class ResetCommand
         $logger->info('    * find all optimized attachments');
         $logger->info('    * restore the original full sized images');
         $logger->info('    * drop all meta flags (mark as non-optimized)');
-        $logger->warning('You have to regenerate the all thumbnails afterwards');
-        $logger->warning('by running the following command:');
-        $logger->warning('$ wp media regenerate');
 
         WP_CLI::confirm('Are you sure you want to reset all attachment optimization?', $assocArgs);
 
@@ -53,9 +50,15 @@ class ResetCommand
             $logger
         );
         $restoreOperation->execute(...$ids);
+        $logger->notice('Original full sized images restored.');
 
         $logger->section("Dropping all optimized attachments' meta flags");
         $repo->markAllAsUnoptimized();
-        $logger->notice('All meta flags dropped.');
+        $logger->notice('Meta flags dropped.');
+
+        $logger->section('Actions Required!');
+        $logger->warning('You should regenerate the all thumbnails now');
+        $logger->warning('by running the following command -');
+        $logger->warning('    $ wp media regenerate');
     }
 }
