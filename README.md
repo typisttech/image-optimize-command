@@ -18,7 +18,8 @@ Easily optimize images using WP CLI.
 
 
 - [Usage](#usage)
-- [Installing](#installing)
+- [Requirements](#requirements)
+- [Installation](#installation)
   - [Optimization tools](#optimization-tools)
     - [SVGO and cwebp are optional](#svgo-and-cwebp-are-optional)
 - [Use Cases](#use-cases)
@@ -89,11 +90,14 @@ $ wp help image-optimize
 $ wp help image-optimize <subcommand>
 ```
 
-## Installing
+## Requirements
 
-Installing this package requires [WP-CLI v2.3.0](https://wp-cli.org/) or greater. Update to the latest stable release with `wp cli update`.
+- PHP v7.2 or later
+- [WP-CLI](https://wp-cli.org/) v2.3.0 or greater
 
-Once you've done so, you can install this package with:
+Since [`wp-cli/wp-cli-bundle` bundles an older version of `symfony/process`](https://github.com/wp-cli/wp-cli-bundle/blob/7e3d89c415db7922e923703d5f06613f0a60b8a9/composer.lock#L1204-L1205) which incompatible with [`spatie/image-optimizer`](https://github.com/spatie/image-optimizer/blob/48f71b968f2764eca8f4885a8a5401d61e920ba8/composer.json#L22), WP-CLI must be [installed via composer](https://make.wordpress.org/cli/handbook/installing/#installing-via-composer).
+
+## Installation
 
 ```bash
 $ wp package install typisttech/image-optimize-command:@stable
