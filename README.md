@@ -1,13 +1,15 @@
 # typisttech/image-optimize-command
 
-[![Packagist](https://img.shields.io/packagist/v/typisttech/image-optimize-command.svg)](https://packagist.org/packages/typisttech/image-optimize-command)
-[![Packagist](https://img.shields.io/packagist/dt/typisttech/image-optimize-command.svg)](https://packagist.org/packages/typisttech/image-optimize-command)
+[![Packagist](https://img.shields.io/packagist/v/typisttech/image-optimize-command.svg?style=flat-square)](https://packagist.org/packages/typisttech/image-optimize-command)
+[![Packagist](https://img.shields.io/packagist/dt/typisttech/image-optimize-command.svg?style=flat-square)](https://packagist.org/packages/typisttech/image-optimize-command)
+![PHP from Packagist](https://img.shields.io/packagist/php-v/TypistTech/image-optimize-command?style=flat-square)
 [![CircleCI](https://circleci.com/gh/TypistTech/image-optimize-command.svg?style=svg)](https://circleci.com/gh/TypistTech/image-optimize-command)
 [![codecov](https://codecov.io/gh/TypistTech/image-optimize-command/branch/master/graph/badge.svg)](https://codecov.io/gh/TypistTech/image-optimize-command)
-[![GitHub](https://img.shields.io/github/license/TypistTech/image-optimize-command.svg)](https://github.com/TypistTech/image-optimize-command/blob/master/LICENSE.md)
-[![GitHub Sponsor](https://img.shields.io/badge/Sponsor-GitHub-ea4aaa)](https://github.com/sponsors/TangRufus)
-[![Sponsor via PayPal](https://img.shields.io/badge/Sponsor-PayPal-blue.svg)](https://typist.tech/donate/image-optimize-command/)
-[![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg)](https://typist.tech/contact/)
+[![GitHub](https://img.shields.io/github/license/TypistTech/image-optimize-command.svg?style=flat-square)](https://github.com/TypistTech/image-optimize-command/blob/master/LICENSE.md)
+[![GitHub Sponsor](https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?style=flat-square&logo=github)](https://github.com/sponsors/TangRufus)
+[![Sponsor via PayPal](https://img.shields.io/badge/Sponsor-PayPal-blue.svg?style=flat-square&logo=paypal)](https://typist.tech/donate/image-optimize-command/)
+[![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg?style=flat-square)](https://typist.tech/contact/)
+[![Twitter Follow @TangRufus](https://img.shields.io/twitter/follow/TangRufus?style=flat-square&color=1da1f2&logo=twitter)](https://twitter.com/tangrufus)
 
 Easily optimize images using WP CLI.
 
@@ -16,7 +18,8 @@ Easily optimize images using WP CLI.
 
 
 - [Usage](#usage)
-- [Installing](#installing)
+- [Requirements](#requirements)
+- [Installation](#installation)
   - [Optimization tools](#optimization-tools)
     - [SVGO and cwebp are optional](#svgo-and-cwebp-are-optional)
 - [Use Cases](#use-cases)
@@ -35,10 +38,10 @@ Easily optimize images using WP CLI.
   - [Do I have to install `SVGO` or `cwebp`?](#do-i-have-to-install-svgo-or-cwebp)
   - [`PHP Fatal error: Allowed memory size of 999999 bytes exhausted (tried to allocate 99 bytes)`](#php-fatal-error-allowed-memory-size-of-999999-bytes-exhausted-tried-to-allocate-99-bytes)
   - [Does it have a limits or quotas?](#does-it-have-a-limits-or-quotas)
-  - [Will you add support for older PHP versions?](#will-you-add-support-for-older-php-versions)
   - [Is it for everyone?](#is-it-for-everyone)
+  - [Will you add support for older PHP versions?](#will-you-add-support-for-older-php-versions)
   - [It looks awesome. Where can I find some more goodies like this?](#it-looks-awesome-where-can-i-find-some-more-goodies-like-this)
-  - [This package isn't on wp.org. Where can I give a :star::star::star::star::star: review?](#this-package-isnt-on-wporg-where-can-i-give-a-starstarstarstarstar-review)
+  - [Where can I give :star::star::star::star::star: reviews?](#where-can-i-give-starstarstarstarstar-reviews)
 - [Sponsoring :heart:](#sponsoring-heart)
   - [GitHub Sponsors Matching Fund](#github-sponsors-matching-fund)
   - [Why don't you hire me?](#why-dont-you-hire-me)
@@ -87,11 +90,14 @@ $ wp help image-optimize
 $ wp help image-optimize <subcommand>
 ```
 
-## Installing
+## Requirements
 
-Installing this package requires [WP-CLI v2.3.0](https://wp-cli.org/) or greater. Update to the latest stable release with `wp cli update`.
+- PHP v7.2 or later
+- [WP-CLI](https://wp-cli.org/) v2.3.0 or greater
 
-Once you've done so, you can install this package with:
+Since [`wp-cli/wp-cli-bundle` bundles an older version of `symfony/process`](https://github.com/wp-cli/wp-cli-bundle/blob/7e3d89c415db7922e923703d5f06613f0a60b8a9/composer.lock#L1204-L1205) which incompatible with [`spatie/image-optimizer`](https://github.com/spatie/image-optimizer/blob/48f71b968f2764eca8f4885a8a5401d61e920ba8/composer.json#L22), WP-CLI must be [installed via composer](https://make.wordpress.org/cli/handbook/installing/#installing-via-composer).
+
+## Installation
 
 ```bash
 $ wp package install typisttech/image-optimize-command:@stable
@@ -283,36 +289,42 @@ This is a common WP CLI issue. See: [https://bit.ly/wpclimem](https://make.wordp
 
 No, unlike other SaaS alternatives, this package runs on your server without any limitation on file sizes or a monthly quota. Totally free of charge.
 
-### Will you add support for older PHP versions?
-
-Never! This package will only works on [actively supported PHP versions](https://secure.php.net/supported-versions.php).
-
-Don't use it on **end of life** or **security fixes only** PHP versions.
-
 ### Is it for everyone?
 
 No, it comes at a cost. Optimization is CPU intensive. Expect CPU usage rockets up to 100% during optimization. Schedule it to run at late night in small batches.
 
 Learn more on [this article](https://typist.tech/articles/easily-optimize-wordpress-images-using-wp-cli-and-some-binaries/).
 
+### Will you add support for older PHP versions?
+
+Never! This plugin will only work on [actively supported PHP versions](https://secure.php.net/supported-versions.php).
+
+Don't use it on **end of life** or **security fixes only** PHP versions.
+
 ### It looks awesome. Where can I find some more goodies like this?
 
-* Articles on Typist Tech's [blog](https://typist.tech)
-* [Tang Rufus' WordPress plugins](https://profiles.wordpress.org/tangrufus#content-plugins) on wp.org
-* More projects on [Typist Tech's GitHub profile](https://github.com/TypistTech)
-* Stay tuned on [Typist Tech's newsletter](https://typist.tech/go/newsletter)
-* Follow [Tang Rufus' Twitter account](https://twitter.com/TangRufus)
-* Hire [Tang Rufus](https://typist.tech/contact) to build your next awesome site
+- Articles on Typist Tech's [blog](https://typist.tech)
+- More projects on [Typist Tech's GitHub profile](https://github.com/TypistTech/)
+- More plugins on [TangRufus'](https://profiles.wordpress.org/tangrufus/#content-plugins) wp.org profiles
+- Stay tuned on [Typist Tech's newsletter](https://typist.tech/go/newsletter)
+- Follow [@TangRufus](https://twitter.com/tangrufus) on Twitter
+- Hire [Tang Rufus](https://typist.tech/contact) to build your next awesome site
 
-### This package isn't on wp.org. Where can I give a :star::star::star::star::star: review?
+### Where can I give :star::star::star::star::star: reviews?
 
-Thanks!
+Thanks! Glad you like it. It's important to let my know somebody is using this project. Since this is not hosted on wordpress.org, please consider:
 
-Consider writing a blog post, submitting pull requests, [sponsoring](https://typist.tech/donation/) or [hiring me](https://typist.tech/contact/) instead.
+- tweet something good with mentioning [@TangRufus](https://twitter.com/tangrufus)
+- :star: star this [Github repo](https://github.com/typisttech/image-optimize-command)
+- :eyes: [watch](https://github.com/typisttech/image-optimize-command/subscription) this Github repo
+- write blog posts
+- submit [pull requests](https://github.com/typisttech/image-optimize-command)
+- [sponsor](https://github.com/sponsors/TangRufus) Tang Rufus to maintain his open source projects
+- hire [Tang Rufus](https://typist.tech/contact) to build your next awesome site
 
 ## Sponsoring :heart:
 
-Love `image-optimize-command`? Help me maintain it, a [sponsorship here](https://typist.tech/donation/) can help with it.
+Love `WP Contained Hook`? Help me maintain it, a [sponsorship here](https://typist.tech/donation/) can help with it.
 
 ### GitHub Sponsors Matching Fund
 
@@ -345,7 +357,7 @@ Please submit an [issue](https://github.com/TypistTech/image-optimize-command/is
 
 ## Change log
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+Please see [CHANGELOG](./CHANGELOG.md) for more information on what has changed recently.
 
 ## Security
 
