@@ -806,16 +806,16 @@
         },
         {
             "name": "codeception/phpunit-wrapper",
-            "version": "8.1.1",
+            "version": "8.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/phpunit-wrapper.git",
-                "reference": "f1370a15e5fe60e7347b1c60642479b923a7ceef"
+                "reference": "e610200adf75ebc1ea7cf10d7cdb43e0f5fff3cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/f1370a15e5fe60e7347b1c60642479b923a7ceef",
-                "reference": "f1370a15e5fe60e7347b1c60642479b923a7ceef",
+                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/e610200adf75ebc1ea7cf10d7cdb43e0f5fff3cc",
+                "reference": "e610200adf75ebc1ea7cf10d7cdb43e0f5fff3cc",
                 "shasum": ""
             },
             "require": {
@@ -832,7 +832,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Codeception\\PHPUnit\\": "src\\"
+                    "Codeception\\PHPUnit\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -846,7 +846,7 @@
                 }
             ],
             "description": "PHPUnit classes used by Codeception",
-            "time": "2019-12-21T16:08:14+00:00"
+            "time": "2020-04-17T18:30:51+00:00"
         },
         {
             "name": "codeception/stub",
