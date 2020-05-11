@@ -1,66 +1,52 @@
-# typisttech/image-optimize-command
+<div align="center">
+
+# Image Optimize Command
+
+</div>
+
+<div align="center">
+
 
 [![Packagist](https://img.shields.io/packagist/v/typisttech/image-optimize-command.svg?style=flat-square)](https://packagist.org/packages/typisttech/image-optimize-command)
 [![Packagist](https://img.shields.io/packagist/dt/typisttech/image-optimize-command.svg?style=flat-square)](https://packagist.org/packages/typisttech/image-optimize-command)
 ![PHP from Packagist](https://img.shields.io/packagist/php-v/TypistTech/image-optimize-command?style=flat-square)
-[![CircleCI](https://circleci.com/gh/TypistTech/image-optimize-command.svg?style=svg)](https://circleci.com/gh/TypistTech/image-optimize-command)
+[![CircleCI](https://img.shields.io/circleci/build/gh/TypistTech/image-optimize-command?style=flat-square)](https://circleci.com/gh/TypistTech/image-optimize-command)
 [![codecov](https://codecov.io/gh/TypistTech/image-optimize-command/branch/master/graph/badge.svg)](https://codecov.io/gh/TypistTech/image-optimize-command)
-[![GitHub](https://img.shields.io/github/license/TypistTech/image-optimize-command.svg?style=flat-square)](https://github.com/TypistTech/image-optimize-command/blob/master/LICENSE.md)
-[![GitHub Sponsor](https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?style=flat-square&logo=github)](https://github.com/sponsors/TangRufus)
-[![Sponsor via PayPal](https://img.shields.io/badge/Sponsor-PayPal-blue.svg?style=flat-square&logo=paypal)](https://typist.tech/donate/image-optimize-command/)
-[![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg?style=flat-square)](https://typist.tech/contact/)
+[![license](https://img.shields.io/github/license/TypistTech/image-optimize-command.svg?style=flat-square)](https://github.com/TypistTech/image-optimize-command/blob/master/LICENSE)
 [![Twitter Follow @TangRufus](https://img.shields.io/twitter/follow/TangRufus?style=flat-square&color=1da1f2&logo=twitter)](https://twitter.com/tangrufus)
+[![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg?style=flat-square)](https://www.typist.tech/contact/)
 
-Easily optimize images using WP CLI.
+</div>
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<p align="center">
+  <strong>Easily optimize images using WP CLI</strong>
+  <br />
+  <br />
+  Built with ♥ by <a href="https://www.typist.tech/">Typist Tech</a>
+</p>
 
+---
 
-- [Usage](#usage)
-- [Requirements](#requirements)
-- [Installation](#installation)
-  - [Optimization tools](#optimization-tools)
-    - [SVGO and cwebp are optional](#svgo-and-cwebp-are-optional)
-- [Use Cases](#use-cases)
-  - [First use](#first-use)
-  - [After upgrading WordPress core / plugins / themes](#after-upgrading-wordpress-core--plugins--themes)
-  - [Restoring the originals](#restoring-the-originals)
-  - [Migrating from image-optimize-command v0.1.x](#migrating-from-image-optimize-command-v01x)
-- [FAQs](#faqs)
-  - [What kind of optimization it does?](#what-kind-of-optimization-it-does)
-  - [How to customize the optimization?](#how-to-customize-the-optimization)
-  - [How to skip backups / restorations?](#how-to-skip-backups--restorations)
-  - [Does running `wp image-optimize attachment / batch` multiple times trigger multiple optimization for the same attachments?](#does-running-wp-image-optimize-attachment--batch-multiple-times-trigger-multiple-optimization-for-the-same-attachments)
-  - [Will the images look different after optimization?](#will-the-images-look-different-after-optimization)
-  - [Why my GIFs stopped animating?](#why-my-gifs-stopped-animating)
-  - [Can I use this on managed hosting?](#can-i-use-this-on-managed-hosting)
-  - [Do I have to install `SVGO` or `cwebp`?](#do-i-have-to-install-svgo-or-cwebp)
-  - [`PHP Fatal error: Allowed memory size of 999999 bytes exhausted (tried to allocate 99 bytes)`](#php-fatal-error-allowed-memory-size-of-999999-bytes-exhausted-tried-to-allocate-99-bytes)
-  - [Does it have a limits or quotas?](#does-it-have-a-limits-or-quotas)
-  - [Is it for everyone?](#is-it-for-everyone)
-  - [Will you add support for older PHP versions?](#will-you-add-support-for-older-php-versions)
-  - [It looks awesome. Where can I find some more goodies like this?](#it-looks-awesome-where-can-i-find-some-more-goodies-like-this)
-  - [Where can I give :star::star::star::star::star: reviews?](#where-can-i-give-starstarstarstarstar-reviews)
-- [Sponsoring :heart:](#sponsoring-heart)
-  - [GitHub Sponsors Matching Fund](#github-sponsors-matching-fund)
-  - [Why don't you hire me?](#why-dont-you-hire-me)
-  - [Want to help in other way? Want to be a sponsor?](#want-to-help-in-other-way-want-to-be-a-sponsor)
-- [Running the Tests](#running-the-tests)
-- [Feedback](#feedback)
-- [Change log](#change-log)
-- [Security](#security)
-- [Credits](#credits)
-- [License](#license)
+**Image Optimize Command** is an open source project and completely free to use.
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+However, the amount of effort needed to maintain and develop new features is not sustainable without proper financial backing. If you have the capability, please consider donating using the links below:
 
-WP CLI wrapper for [spatie/image-optimizer](https://github.com/spatie/image-optimizer). **Optimizing `gif`, `jpeg`, `jpg`, `png`, `svg`, `webp` images by running them through a chain of various image [optimization tools](#optimization-tools).** Check this project's [introductory blog post](https://typist.tech/articles/easily-optimize-wordpress-images-using-wp-cli-and-some-binaries/) about why I built it.
+<div align="center">
+
+[![GitHub via Sponsor](https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?style=flat-square&logo=github)](https://github.com/sponsors/TangRufus)
+[![Sponsor via PayPal](https://img.shields.io/badge/Sponsor-PayPal-blue.svg?style=flat-square&logo=paypal)](https://typist.tech/go/paypal-donate/)
+[![More Sponsorship Information](https://img.shields.io/badge/Sponsor-More%20Details-ff69b4?style=flat-square)](https://typist.tech/donate/image-optimize-command/)
+
+</div>
+
+---
+
+**Image Optimize Command** is a WP CLI wrapper for [spatie/image-optimizer](https://github.com/spatie/image-optimizer) which **optimize `gif`, `jpeg`, `jpg`, `png`, `svg`, `webp` images by running them through a chain of various image <a href="https://github.com/spatie/image-optimizer#optimization-tools">optimization tools</a>.** Read [the introductory blog post](https://typist.tech/articles/easily-optimize-wordpress-images-using-wp-cli-and-some-binaries/) about why I built it.
 
 
 ## Usage
 
-```bash
+```sh-session
 # optimize specific attachments
 $ wp image-optimize attachment 123 223 323
 
@@ -90,6 +76,14 @@ $ wp help image-optimize
 $ wp help image-optimize <subcommand>
 ```
 
+---
+
+<p align="center">
+  <strong>Typist Tech is ready to build your next awesome WordPress site. <a href="https://typist.tech/contact/">Hire us!</a></strong>
+</p>
+
+---
+
 ## Requirements
 
 - PHP v7.2 or later
@@ -99,7 +93,7 @@ Since [`wp-cli/wp-cli-bundle` bundles an older version of `symfony/process`](htt
 
 ## Installation
 
-```bash
+```sh-session
 $ wp package install typisttech/image-optimize-command:@stable
 ```
 
@@ -123,7 +117,7 @@ Note that `spatie/image-optimizer` only supports Pngquant 2.5 and lower. See: `s
 Note that [WordPress doesn't support svg files](https://core.trac.wordpress.org/ticket/24251) out of the box. You can omit [SVGO](https://github.com/svg/svgo).
 However, if you have [enabled WordPress svg support](https://kinsta.com/blog/wordpress-svg/?kaid=CGCHYHJJJMMF) and uploaded svg files to WordPress media library, you must install SVGO. Otherwise, the command will fail.
 
-Same goes to cwebp.
+Same goes for cwebp.
 
 ## Use Cases
 
@@ -139,7 +133,7 @@ Chances are the thumbnails are missing or never generated:
 
 Simplest solution is to regenerate thumbnails then optimize:
 
-```bash
+```sh-session
 $ wp media regenerate
 $ wp image-optimize batch --limit=9999999
 
@@ -152,7 +146,7 @@ $ wp image-optimize wp-includes
 
 ### After upgrading WordPress core / plugins / themes
 
-```bash
+```sh-session
 $ wp image-optimize mu-plugins
 $ wp image-optimize plugins
 $ wp image-optimize themes
@@ -164,7 +158,7 @@ $ wp image-optimize wp-includes
 
 This command backs up the full sized images before optimizing attachments. If you want to restore them:
 
-```bash
+```sh-session
 # optimize
 $ wp image-optimize attachment 123
 
@@ -178,7 +172,7 @@ $ wp media regenerate 123
 
 Starting from v0.2, this command backs up the full sized images before optimizing attachments. To migrate from image-optimize-command v0.1.x:
 
-```bash
+```sh-session
 $ wp image-optimize reset
 $ wp media regenerate
 $ wp image-optimize batch --limit=9999999
@@ -259,7 +253,7 @@ Luckily for you, Lasse M. Tvedt showed [how to stop WordPress from resizing GIFs
 
 ### Can I use this on managed hosting?
 
-No, you can't use this on managed hosting such as [Kinsta](http://bit.ly/kinsta-com), [Flywheel](https://typist.tech/go/flywheel) or [WP Engine](https://typist.tech/go/wp-engine) because they prohibit installing the binaries.
+No, you can't use this on managed hosting such as [Kinsta](https://typist.tech/go/kinsta), [Flywheel](https://typist.tech/go/flywheel) or [WP Engine](https://typist.tech/go/wp-engine) because they prohibit installing the binaries.
 
 If you must use it on managed hosting, [hire a developer](https://typist.tech/contact/) to add SaaS provider integration:
 
@@ -279,7 +273,7 @@ If you must use it on managed hosting, [hire a developer](https://typist.tech/co
 - uploaded SVGs to WordPress media library
 - using the `find` subcommand (or its shortcuts) with `--extensions=svg`
 
-Same goes to cwebp.
+Same goes for cwebp.
 
 ### `PHP Fatal error: Allowed memory size of 999999 bytes exhausted (tried to allocate 99 bytes)`
 
@@ -301,76 +295,53 @@ Never! This plugin will only work on [actively supported PHP versions](https://s
 
 Don't use it on **end of life** or **security fixes only** PHP versions.
 
-### It looks awesome. Where can I find some more goodies like this?
+### It looks awesome. Where can I find some more goodies like this
 
-- Articles on Typist Tech's [blog](https://typist.tech)
-- More projects on [Typist Tech's GitHub profile](https://github.com/TypistTech/)
-- More plugins on [TangRufus'](https://profiles.wordpress.org/tangrufus/#content-plugins) wp.org profiles
+- Articles on [Typist Tech's blog](https://typist.tech)
+- [Tang Rufus' WordPress plugins](https://profiles.wordpress.org/tangrufus#content-plugins) on wp.org
+- More projects on [Typist Tech's GitHub profile](https://github.com/TypistTech)
 - Stay tuned on [Typist Tech's newsletter](https://typist.tech/go/newsletter)
-- Follow [@TangRufus](https://twitter.com/tangrufus) on Twitter
-- Hire [Tang Rufus](https://typist.tech/contact) to build your next awesome site
+- Follow [Tang Rufus' Twitter account](https://twitter.com/TangRufus)
+- **Hire [Tang Rufus](https://typist.tech/contact) to build your next awesome site**
 
-### Where can I give :star::star::star::star::star: reviews?
+### Where can I give 5-star reviews?
 
-Thanks! Glad you like it. It's important to let my know somebody is using this project. Since this is not hosted on wordpress.org, please consider:
+Thanks! Glad you like it. It's important to let me knows somebody is using this project. Please consider:
 
-- tweet something good with mentioning [@TangRufus](https://twitter.com/tangrufus)
-- :star: star this [Github repo](https://github.com/typisttech/image-optimize-command)
-- :eyes: [watch](https://github.com/typisttech/image-optimize-command/subscription) this Github repo
-- write blog posts
-- submit [pull requests](https://github.com/typisttech/image-optimize-command)
-- [sponsor](https://github.com/sponsors/TangRufus) Tang Rufus to maintain his open source projects
-- hire [Tang Rufus](https://typist.tech/contact) to build your next awesome site
+- [tweet](https://twitter.com/intent/tweet?text=Image%20Optimize%20Command%20-%20%40wpcli%20wrapper%20for%20%40spatie_be%20image%20optimizer&url=https://github.com/TypistTech/image-optimize-command&hashtags=webdev,wordpress&via=TangRufus&url=https://github.com/TypistTech/image-optimize-command&hashtags=webdev,wordpress&via=TangRufus) something good with mentioning [@TangRufus](https://twitter.com/tangrufus)
+- ★ star [the Github repo](https://github.com/TypistTech/image-optimize-command)
+- [👀 watch](https://github.com/TypistTech/image-optimize-command/subscription) the Github repo
+- write tutorials and blog posts
+- **[hire](https://www.typist.tech/contact/) Typist Tech**
 
-## Sponsoring :heart:
-
-Love `WP Contained Hook`? Help me maintain it, a [sponsorship here](https://typist.tech/donation/) can help with it.
-
-### GitHub Sponsors Matching Fund
-
-Do you know [GitHub is going to match your sponsorship](https://help.github.com/en/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors#about-the-github-sponsors-matching-fund)?
-
-[Sponsor now via GitHub](https://github.com/sponsors/TangRufus) to double your greatness.
-
-### Why don't you hire me?
-
-Ready to take freelance WordPress jobs. Contact me via the contact form [here](https://typist.tech/contact/) or, via email [info@typist.tech](mailto:info@typist.tech)
-
-### Want to help in other way? Want to be a sponsor?
-
-Contact: [Tang Rufus](mailto:tangrufus@gmail.com)
-
-## Running the Tests
+## Testing
 
 Run the tests:
 
-``` bash
+```sh-session
 $ composer test
 $ composer style:check
 ```
 
 ## Feedback
 
-**Please provide feedback!** We want to make this library useful in as many projects as possible.
-Please submit an [issue](https://github.com/TypistTech/image-optimize-command/issues/new) and point out what you do and don't like, or fork the project and make suggestions.
+**Please provide feedback!** We want to make this project as useful as possible.
+Please [submit an issue](https://github.com/TypistTech/image-optimize-command/issues/new) and point out what you do and don't like, or fork the project and [send pull requests](https://github.com/TypistTech/image-optimize-command/pulls/).
 **No issue is too small.**
 
-## Change log
+## Security Vulnerabilities
 
-Please see [CHANGELOG](./CHANGELOG.md) for more information on what has changed recently.
-
-## Security
-
-If you discover any security related issues, please email [image-optimize-command@typist.tech](mailto:image-optimize-command@typist.tech) instead of using the issue tracker.
+If you discover a security vulnerability within this project, please email us at [image-optimize-command@typist.tech](mailto:image-optimize-command@typist.tech). 
+All security vulnerabilities will be promptly addressed.
 
 ## Credits
 
-[`image-optimize-command`](https://github.com/TypistTech/image-optimize-command) is a [Typist Tech](https://typist.tech) project and maintained by [Tang Rufus](https://twitter.com/TangRufus), freelance developer for [hire](https://www.typist.tech/contact/).
-
-Full list of contributors can be found [here](https://github.com/TypistTech/image-optimize-command/graphs/contributors).
+[Image Optimize Command](https://github.com/TypistTech/image-optimize-command) is a [Typist Tech](https://www.typist.tech) project and maintained by [Tang Rufus](https://twitter.com/Tangrufus), freelance developer for [hire](https://www.typist.tech/contact/).
 
 Special thanks to [Freek Van der Herten](https://github.com/freekmurze/) whose [`spatie/image-optimizer`](https://github.com/spatie/image-optimizer) package makes this project possible.
 
+Full list of contributors can be found [here](https://github.com/TypistTech/image-optimize-command/graphs/contributors).
+
 ## License
 
-The MIT License (MIT). Please see [License File](./LICENSE.md) for more information.
+[Image Optimize Command](https://github.com/TypistTech/image-optimize-command) is released under the [MIT License](https://opensource.org/licenses/MIT).
