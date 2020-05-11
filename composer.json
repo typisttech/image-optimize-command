@@ -69,9 +69,7 @@
         "pretag": [
             "composer update --no-suggest",
             "@test",
-            "@style:check",
-            "npx doctoc README.md",
-            "github_changelog_generator --no-verbose"
+            "@style:check"
         ],
         "style:check": "phpcs",
         "style:fix": "phpcbf",
