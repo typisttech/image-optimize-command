@@ -9,7 +9,6 @@ namespace TypistTech\ImageOptimizeCommand\Helper;
 
 use Codeception\Module;
 use Codeception\TestInterface;
-use Mockery;
 use WP_Mock;
 
 class Unit extends Module
@@ -22,6 +21,5 @@ class Unit extends Module
     public function _after(TestInterface $test)
     {
         WP_Mock::tearDown();
-        Mockery::close();
     }
 }

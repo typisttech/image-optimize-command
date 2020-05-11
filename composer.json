@@ -40,7 +40,9 @@
     },
     "require-dev": {
         "10up/wp_mock": "^0.4.2",
-        "codeception/base": "^3.1",
+        "codeception/codeception": "^4.1",
+        "codeception/module-asserts": "^1.2",
+        "codeception/module-filesystem": "^1.0",
         "itinerisltd/itineris-wp-coding-standards": "^0.3.5",
         "roave/security-advisories": "dev-master"
     },
@@ -64,8 +66,6 @@
         ]
     },
     "scripts": {
-        "style:check": "phpcs",
-        "style:fix": "phpcbf",
         "pretag": [
             "composer update --no-suggest",
             "@test",
@@ -73,6 +73,8 @@
             "npx doctoc README.md",
             "github_changelog_generator --no-verbose"
         ],
+        "style:check": "phpcs",
+        "style:fix": "phpcbf",
         "test": "codecept run --debug",
         "test:coverage": "codecept run --coverage --coverage-html --coverage-xml"
     },
