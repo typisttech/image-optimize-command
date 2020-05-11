@@ -11,7 +11,7 @@
 [![Packagist](https://img.shields.io/packagist/dt/typisttech/image-optimize-command.svg?style=flat-square)](https://packagist.org/packages/typisttech/image-optimize-command)
 ![PHP from Packagist](https://img.shields.io/packagist/php-v/TypistTech/image-optimize-command?style=flat-square)
 [![CircleCI](https://img.shields.io/circleci/build/gh/TypistTech/image-optimize-command?style=flat-square)](https://circleci.com/gh/TypistTech/image-optimize-command)
-[![codecov](https://codecov.io/gh/TypistTech/image-optimize-command/branch/master/graph/badge.svg)](https://codecov.io/gh/TypistTech/image-optimize-command)
+[![Codecov](https://img.shields.io/codecov/c/gh/TypistTech/image-optimize-command?style=flat-square)](https://codecov.io/gh/TypistTech/image-optimize-command)
 [![license](https://img.shields.io/github/license/TypistTech/image-optimize-command.svg?style=flat-square)](https://github.com/TypistTech/image-optimize-command/blob/master/LICENSE)
 [![Twitter Follow @TangRufus](https://img.shields.io/twitter/follow/TangRufus?style=flat-square&color=1da1f2&logo=twitter)](https://twitter.com/tangrufus)
 [![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg?style=flat-square)](https://www.typist.tech/contact/)
