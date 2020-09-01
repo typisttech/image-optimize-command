@@ -110,7 +110,7 @@ Under the hood, `image-optimize-command` invokes [`spatie/image-optimizer`](http
 
 Check `spatie/image-optimizer`'s readme for [install instructions](https://github.com/spatie/image-optimizer#optimization-tools).
 
-Note that `spatie/image-optimizer` only supports Pngquant 2.5 and lower. See: `spatie/image-optimizer` [#97](https://github.com/spatie/image-optimizer/issues/97) and [#99](https://github.com/spatie/image-optimizer/issues/99).
+Note that `spatie/image-optimizer` only supports certain Pngquant configurations. See: `spatie/image-optimizer` [readme](https://github.com/spatie/image-optimizer#pngs), [#97](https://github.com/spatie/image-optimizer/issues/97), [#99](https://github.com/spatie/image-optimizer/issues/99) and [#120](https://github.com/spatie/image-optimizer/issues/120).
 
 #### SVGO and cwebp are optional
 
