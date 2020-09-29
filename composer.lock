@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83cc502df22dc5813417aadc813b9c6c",
+    "content-hash": "7590d2412191293c92ec95206599af70",
     "packages": [
         {
             "name": "mustache/mustache",
@@ -1174,6 +1174,72 @@
             "time": "2020-07-03T15:54:43+00:00"
         },
         {
+            "name": "dealerdirect/phpcodesniffer-composer-installer",
+            "version": "v0.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer.git",
+                "reference": "e8d808670b8f882188368faaf1144448c169c0b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dealerdirect/phpcodesniffer-composer-installer/zipball/e8d808670b8f882188368faaf1144448c169c0b7",
+                "reference": "e8d808670b8f882188368faaf1144448c169c0b7",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0",
+                "php": ">=5.3",
+                "squizlabs/php_codesniffer": "^2 || ^3 || 4.0.x-dev"
+            },
+            "require-dev": {
+                "composer/composer": "*",
+                "phpcompatibility/php-compatibility": "^9.0",
+                "sensiolabs/security-checker": "^4.1.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Franck Nijhof",
+                    "email": "franck.nijhof@dealerdirect.com",
+                    "homepage": "http://www.frenck.nl",
+                    "role": "Developer / IT Manager"
+                }
+            ],
+            "description": "PHP_CodeSniffer Standards Composer Installer Plugin",
+            "homepage": "http://www.dealerdirect.com",
+            "keywords": [
+                "PHPCodeSniffer",
+                "PHP_CodeSniffer",
+                "code quality",
+                "codesniffer",
+                "composer",
+                "installer",
+                "phpcs",
+                "plugin",
+                "qa",
+                "quality",
+                "standard",
+                "standards",
+                "style guide",
+                "stylecheck",
+                "tests"
+            ],
+            "time": "2020-06-25T14:57:39+00:00"
+        },
+        {
             "name": "doctrine/instantiator",
             "version": "1.3.1",
             "source": {
@@ -1363,21 +1429,22 @@
         },
         {
             "name": "itinerisltd/itineris-wp-coding-standards",
-            "version": "0.3.5",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ItinerisLtd/itineris-wp-coding-standards.git",
-                "reference": "12d54c1ca851bd16a30c2303bf172c749ed26c8b"
+                "reference": "621dbe7b249562d208e969ab6fb46eb73e02f797"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ItinerisLtd/itineris-wp-coding-standards/zipball/12d54c1ca851bd16a30c2303bf172c749ed26c8b",
-                "reference": "12d54c1ca851bd16a30c2303bf172c749ed26c8b",
+                "url": "https://api.github.com/repos/ItinerisLtd/itineris-wp-coding-standards/zipball/621dbe7b249562d208e969ab6fb46eb73e02f797",
+                "reference": "621dbe7b249562d208e969ab6fb46eb73e02f797",
                 "shasum": ""
             },
             "require": {
+                "dealerdirect/phpcodesniffer-composer-installer": ">=0.7.0",
                 "php": "^7.2",
-                "wp-coding-standards/wpcs": "^2.2"
+                "wp-coding-standards/wpcs": "^2.3"
             },
             "require-dev": {
                 "roave/security-advisories": "dev-master"
@@ -1414,7 +1481,7 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2019-12-16T12:56:14+00:00"
+            "time": "2020-09-15T11:09:14+00:00"
         },
         {
             "name": "mockery/mockery",
