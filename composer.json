@@ -43,7 +43,7 @@
         "codeception/codeception": "^4.1",
         "codeception/module-asserts": "^1.2",
         "codeception/module-filesystem": "^1.0",
-        "itinerisltd/itineris-wp-coding-standards": "^0.3.5",
+        "itinerisltd/itineris-wp-coding-standards": "^0.4.0",
         "roave/security-advisories": "dev-master"
     },
     "suggest": {
