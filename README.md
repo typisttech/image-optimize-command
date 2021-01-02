@@ -110,8 +110,6 @@ Under the hood, `image-optimize-command` invokes [`spatie/image-optimizer`](http
 
 Check `spatie/image-optimizer`'s readme for [install instructions](https://github.com/spatie/image-optimizer#optimization-tools).
 
-Note that `spatie/image-optimizer` only supports certain Pngquant configurations. See: `spatie/image-optimizer` [readme](https://github.com/spatie/image-optimizer#pngs), [#97](https://github.com/spatie/image-optimizer/issues/97), [#99](https://github.com/spatie/image-optimizer/issues/99) and [#120](https://github.com/spatie/image-optimizer/issues/120).
-
 #### SVGO and cwebp are optional
 
 Note that [WordPress doesn't support svg files](https://core.trac.wordpress.org/ticket/24251) out of the box. You can omit [SVGO](https://github.com/svg/svgo).
