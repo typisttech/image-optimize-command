@@ -4,9 +4,3 @@ updates:
   directory: "/"
   schedule:
     interval: daily
-    time: "17:30"
-    timezone: Europe/London
-  ignore:
-  - dependency-name: spatie/image-optimizer
-    versions:
-    - 1.3.2
